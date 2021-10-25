@@ -1,0 +1,5 @@
+div.scrollmenu {
+    background-color: #FDD855;
+    overflow: auto;
+    white-space: nowrap;
+}

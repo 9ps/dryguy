@@ -1,3 +1,13 @@
+//these prototype methods are to set and get objects to Local storage
+Storage.prototype.setObject = function(key, value) {
+    this.setItem(key, JSON.stringify(value));
+}
+
+Storage.prototype.getObject = function(key) {
+    var value = this.getItem(key);
+    return value && JSON.parse(value);
+}
+
 const date = document.querySelector('.date');
 const date2 = document.querySelector('.date2');
 const beerDisplay = document.querySelector('.beerCount');

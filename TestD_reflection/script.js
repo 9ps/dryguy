@@ -33,7 +33,7 @@ date2.textContent = today.getDate(); //get method (date = day of the month, day 
 
 //LOCAL STORAGE STUFFS
 
-var testObject = { 'drinks': [0, 0, 0, 0], 'triggers': [0, 0, 0, 1], 'reflections': ["", ""] };
+var testObject = { 'drinks': 0, 'triggers': [0, 0, 0, 1], 'reflections': ["", ""] };
 
 localStorage.setObject(today, testObject);
 
@@ -57,7 +57,12 @@ function beerAdd(){
 
 const saveBeer = () => {
     console.log("saved " + beerCount);
-    localStorage.setItem('beerAmount', beerCount) //we use the replicated thing for some reason...
+
+    console.log(testObject["drinks"]);
+
+    testObject[drinks] = beerCount;
+
+    //localStorage.setItem(today, beerCount) //we use the replicated thing for some reason...
 }
 
 save.addEventListener('click', saveBeer)

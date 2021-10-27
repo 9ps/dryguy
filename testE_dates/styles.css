@@ -9,17 +9,22 @@
 }
 
 .date {
-    border-radius: 100%;
-    background-color: white;
+    text-align: center;
     display: inline-block;
-    padding: 1em;
+    padding: 0.25em;
 }
 
-.fullDate {
-    text-align: center;
+.dateText {
+    padding: 1em;
+    border-radius: 100%;
+    background-color: white;
 }
 
 /* global changes */
+
+.center {
+    text-align: center;
+}
 
 * {
     font-family: Arial, Helvetica, sans-serif;

@@ -8,6 +8,8 @@ Storage.prototype.getObject = function(key) {
     return value && JSON.parse(value);
 }
 
+
+
 const date = document.querySelector('.date');
 const date2 = document.querySelector('.date2');
 const beerDisplay = document.querySelector('.beerCount');
@@ -15,6 +17,7 @@ const save = document.querySelector('.save');
 const startReflection = document.querySelector('.startReflection');
 const endReflection = document.querySelector('.endReflection');
 const afterMood = document.querySelector('.after-mood');
+
 //DATE STUFF
 
 var d = new Date(); //right now
@@ -27,6 +30,13 @@ var today = new Date(d.getFullYear(), d.getMonth(), d.getDate());
 
 date.textContent = today.toDateString();
 date2.textContent = today.getDate(); //get method (date = day of the month, day = weekday)
+
+//LOCAL STORAGE STUFFS
+
+var testObject = { 'drinks': 0, 'triggers': [0, 0, 0, 1], 'reflections': ["", ""] };
+
+localStorage.setObject(today, testObject);
+
 
 //BEER STUFF
 
@@ -47,7 +57,12 @@ function beerAdd(){
 
 const saveBeer = () => {
     console.log("saved " + beerCount);
-    localStorage.setItem('beerAmount', beerCount) //we use the replicated thing for some reason...
+
+    console.log(testObject["drinks"]);
+
+    testObject[drinks] = beerCount;
+
+    //localStorage.setItem(today, beerCount) //we use the replicated thing for some reason...
 }
 
 save.addEventListener('click', saveBeer)

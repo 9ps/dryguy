@@ -1,5 +1,5 @@
 .top {
-    background-color: yellow;
+    background-color: #FDD855;
 }
 
 .dates {
@@ -8,16 +8,29 @@
     padding: 1em;
 }
 
+.dayCactus {
+    font-size: 18pt;
+}
+
 .date {
     text-align: center;
     display: inline-block;
     padding: 0.25em;
+    font-size: 12pt;
 }
 
 .dateText {
-    padding: 1em;
+    padding: 0.5em;
     border-radius: 100%;
     background-color: white;
+    text-align: center;
+    font-size: 18pt;
+    width: 35px;
+    height: 35px;
+}
+
+.selectedDate {
+    /* do something with border-radius to change it... might also need a square below it */
 }
 
 /* global changes */
@@ -27,5 +40,5 @@
 }
 
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'DM Sans', sans-serif;
 }

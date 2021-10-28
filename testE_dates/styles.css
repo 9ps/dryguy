@@ -30,6 +30,17 @@
     height: 100%;
 }
 
+.dateTextActive {
+    padding: 0.5em;
+    border-radius: 1000px 1000px 0px 0px;
+    background-color: white;
+    text-align: center;
+    font-size: 18pt;
+    /* border: 0px; */
+    aspect-ratio: 1 / 1;
+    height: 100%;
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */

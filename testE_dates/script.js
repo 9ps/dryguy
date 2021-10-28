@@ -11,19 +11,17 @@ Storage.prototype.getObject = function(key) {
 
 
 //IMPORTANT VARIABLES
-var selectedDate;
 
 //DATE STUFF
 const daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 var d = new Date(); //right now
-var today = new Date(d.getFullYear(), d.getMonth(), d.getDate()); //stripped of time data
+var selectedDate = new Date(d.getFullYear(), d.getMonth(), d.getDate()); //stripped of time data
 
-dates = [today]; //dates is populated with the date formats
 var dates = [];
 
 for(i = 0; i < 7; i++){ //big loop creating the [dates] and formatting the calender
     if(dates.length == 0) {
-        dates = [today];
+        dates = [selectedDate];
     } else {
         dates[i] = new Date();
         dates[i].setDate(dates[i-1].getDate() - 1);
@@ -50,7 +48,7 @@ for(i = 0; i < 7; i++){ //big loop creating the [dates] and formatting the calen
     
     var dateText = document.createElement('button');
     dateText.className = 'dateText';
-    dateText.id = dates[i];
+    dateText.id = i; //dunno if this should be the date string, i think not
     dateText.textContent = dates[i].getDate();
 
     dateThing.appendChild(dayCactus);
@@ -58,19 +56,37 @@ for(i = 0; i < 7; i++){ //big loop creating the [dates] and formatting the calen
     dateThing.appendChild(dateText);
 }    
 
+//TEMP THING
+//need to loop through this at the start to fill dates if they dont already exist...
+//or, if i click it, i could create it if it doesnt exist??
+localStorage.setObject(dates[0].toJSON(), { 'drinks': 100, 'triggers': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
+
+
 //DATE SWITCHER
-var dateTexts = document.querySelectorAll('.dateText'); 
+var dayData;
+const fullDate = document.querySelector('.fullDate');
+const drinksLoggedDisplay = document.querySelector('.drinksLoggedDisplay');
+var dateTexts = document.querySelectorAll('.dateText');
+
 console.log("found", dateTexts.length, "dates");
+
 for (var i = 0; i < dateTexts.length; i++) {
     dateTexts[i].addEventListener('click', function() {
-      console.clear();
-      console.log("You clicked:", this.id);
-      selectedDate = this.innerHTML;
+    console.log("You clicked:", this.id);
+    this.classList.toggle("dateTextActive"); //TODO
+    selectedDate = dates[this.id]; //this is important
+    fullDate.textContent = selectedDate.toDateString();
+
+    console.log("looking for: ", selectedDate.toJSON());
+    dayData = localStorage.getObject(selectedDate.toJSON());
+
+    drinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
+    console.log("selected date: ", selectedDate);    
     });
 }
 
-//LOG MODAL
 
+//LOG MODAL
 var logModal = document.querySelector(".logModal");
 var logButton = document.querySelector(".logButton");
 var closeButton = document.querySelector(".closeButton");
@@ -90,7 +106,7 @@ window.onclick = function(event) {
   }
 }
 
-save.onclick = function() {
+save.onclick = function() { //TODO
     //we gotta package everything here
     logModal.style.display = "none";
 }

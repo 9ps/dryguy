@@ -13,14 +13,53 @@
 <body>
     <div class="top">
         <p class="streak center">(streak count)</p>
-        <div class="dates">
+        <div class="datesScroll myDiv">
         <!-- we want dates to end up here -->
         </div>
     </div>
 
     <div class="content">
         <p class="fullDate center">(full date here)</p>
-        <p>tracking thing</p>
+        <p>"0 Drinks Logged"</p>
+
+        <div class="center">
+            <button class="logButton bigButton">Log</button>
+        </div>
+
+        <!-- The Log -->
+        <div class="logModal modal">
+            <div class="logModalContent">
+                <div class="closeButton textButton">&times;</div>
+                <div class="p-1"></div>
+                <p>Track Drinks</p>
+
+                <p>Amount of Standard Drinks:</p>
+                <div class="center">
+                    <div onclick="drinkSub()" class="textButton">-</div>
+                    <span class="drinkDisplay">0</span>
+                    <div onclick="drinkAdd()" class="textButton">+</div>
+                </div>
+                <p>What Triggered you?:</p>
+                <div>
+                    <div class="trigger" id="0">Family</div>
+                    <div class="trigger" id="1">Friends</div>
+                    <div class="trigger" id="2">Work</div>
+                    <div class="trigger" id="3">Occasions</div>
+                    <div class="trigger" id="4">Routine</div>
+                    <div class="trigger" id="5">Media</div>
+                    <div class="trigger" id="6">Lonliness</div>
+                    <div class="trigger" id="7">Stress</div>
+                    <div class="trigger" id="8">Boredom</div>
+                    <div class="trigger" id="9">Pain Relief</div>
+                </div>
+                
+                <div class="center">
+                    <button class="save bigButton">Save</button>
+                </div>
+
+            </div>
+        </div>
+
         <p>todays read</p>
         <p>todays reflection</p>
     </div>

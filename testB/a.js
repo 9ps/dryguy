@@ -28,7 +28,6 @@ date2.textContent = today.getDate(); //get method (date = day of the month, day 
 //BEER STUFF
 
 var beerCount = 0;
-
 function beerSub(){
     if(beerCount <= 0){
         return;

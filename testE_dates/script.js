@@ -8,47 +8,21 @@ Storage.prototype.getObject = function(key) {
 }
 
 // SELECTORS
-// const dateToday = document.querySelector('.dateToday');
-// const fullDate = document.querySelector('.fullDate'); //this is a test that the page is related to this day
-// const dates = document.querySelector('.dates');
+
+
+//IMPORTANT VARIABLES
+var selectedDate;
 
 //DATE STUFF
 const daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 var d = new Date(); //right now
 var today = new Date(d.getFullYear(), d.getMonth(), d.getDate()); //stripped of time data
 
-
-
-dates = [today];
-
-/* <div class="date dateToday">
-<div class="cactus">🌵</div>
-<div class="dayText">Fri</div>
-<div class="dateText">04</div>
-</div> */
-
-
-// var dateThing = document.createElement('div');
-// dateThing.className = 'dateText';
-// dateThing.textContent = dates[0].getDate();
-// document.querySelector('.dates').appendChild(dateThing);
-
-// var dateThing = document.createElement('div');
-// dateThing.className = 'dateText';
-// dateThing.textContent = dates[0].getDate();
-// document.querySelector('.dates').appendChild(dateThing);
-
-// var dateThing = document.createElement('div');
-// dateThing.className = 'dateText';
-// dateThing.textContent = dates[0].getDate();
-// document.querySelector('.dates').appendChild(dateThing);
-
-
+dates = [today]; //dates is populated with the date formats
 var dates = [];
 
-for(i = 0; i < 7; i++){
+for(i = 0; i < 7; i++){ //big loop creating the [dates] and formatting the calender
     if(dates.length == 0) {
-        console.log("ran");
         dates = [today];
     } else {
         dates[i] = new Date();
@@ -57,9 +31,9 @@ for(i = 0; i < 7; i++){
 
     var dateThing = document.createElement('div');
     dateThing.className = 'date';
-    document.querySelector('.dates').appendChild(dateThing);
+    document.querySelector('.datesScroll').appendChild(dateThing);
     
-    var isCactus;
+    var isCactus; //simple thing that adds cactus to Tue and Thu
     if(dates[i].getDay() == 2 || dates[i].getDay() == 4) {
         isCactus = "🌵";
     } else {
@@ -74,21 +48,82 @@ for(i = 0; i < 7; i++){
     dayText.className = 'dayText';
     dayText.textContent = daysOfTheWeek[dates[i].getDay()];
     
-    var dateText = document.createElement('div');
+    var dateText = document.createElement('button');
     dateText.className = 'dateText';
+    dateText.id = dates[i];
     dateText.textContent = dates[i].getDate();
-    
+
     dateThing.appendChild(dayCactus);
     dateThing.appendChild(dayText);
     dateThing.appendChild(dateText);
-    
+}    
 
-
-    // var dateThing = document.createElement('div');
-    // dateThing.className = 'dateText';
-    // dateThing.textContent = dates[i].getDate();
-    // document.querySelector('.dates').appendChild(dateThing);
-
+//DATE SWITCHER
+var dateTexts = document.querySelectorAll('.dateText'); 
+console.log("found", dateTexts.length, "dates");
+for (var i = 0; i < dateTexts.length; i++) {
+    dateTexts[i].addEventListener('click', function() {
+      console.clear();
+      console.log("You clicked:", this.id);
+      selectedDate = this.innerHTML;
+    });
 }
 
-// console.log("dates: ", dates);
+//LOG MODAL
+
+var logModal = document.querySelector(".logModal");
+var logButton = document.querySelector(".logButton");
+var closeButton = document.querySelector(".closeButton");
+var save = document.querySelector(".save");
+
+logButton.onclick = function() {
+    logModal.style.display = "block";
+}
+
+closeButton.onclick = function() {
+    logModal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == logModal) {
+    logModal.style.display = "none";
+  }
+}
+
+save.onclick = function() {
+    //we gotta package everything here
+    logModal.style.display = "none";
+}
+
+//DRINK COUNTING
+
+const drinkDisplay = document.querySelector('.drinkDisplay');
+var drinkTotal = 0;
+function drinkSub(){
+    if(drinkTotal <= 0){
+        return;
+    }
+    drinkTotal -= 1;
+    drinkDisplay.textContent = drinkTotal;
+}
+
+function drinkAdd(){
+    drinkTotal += 1;
+    drinkDisplay.textContent = drinkTotal;
+}
+
+//TRIGGERS
+
+var triggers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,];
+var triggerOptions = document.querySelectorAll('.trigger'); 
+console.log("found", triggerOptions.length, "triggers");
+for (var i = 0; i < triggerOptions.length; i++) {
+    triggerOptions[i].addEventListener('click', function() {
+
+    console.log("You toggled:", this.id);
+    this.classList.toggle("triggerActive");
+    
+    triggers[this.id] = 1 - triggers[this.id];
+    console.log(triggers);
+    });
+}

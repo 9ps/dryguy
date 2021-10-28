@@ -30,6 +30,7 @@
 tracking:
 every date is a key, stored in local storage when someone updates it
 
+
 key: `date`
 value:
     drinks: 1 //number of drinks  

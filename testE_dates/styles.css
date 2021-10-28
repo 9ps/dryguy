@@ -2,7 +2,7 @@
     background-color: #FDD855;
 }
 
-.dates {
+.datesScroll {
     overflow: auto;
     white-space: nowrap;
     padding: 1em;
@@ -21,24 +21,95 @@
 
 .dateText {
     padding: 0.5em;
-    border-radius: 100%;
+    border-radius: 1000px;
     background-color: white;
     text-align: center;
     font-size: 18pt;
-    width: 35px;
-    height: 35px;
+    /* border: 0px; */
+    aspect-ratio: 1 / 1;
+    height: 100%;
 }
 
-.selectedDate {
-    /* do something with border-radius to change it... might also need a square below it */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
+  }
+
+.logModalContent {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 2em;
+    background-color: #FDD855;
 }
+
+.closeButton {
+    position: absolute;
+    margin-top: -0.5em;
+}
+
+.drinkDisplay {
+    background-color: white;
+    padding: 0.5em;
+    padding: 0.5em 3em 0.5em 3em;
+    font-size: 18pt;
+    border-radius: 100px;
+}
+
+/* components */
+
+.trigger {
+    background-color: white;
+    margin: 0.175em;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    padding: 0.5em;
+    display: inline-block;
+}
+
+.triggerActive {
+    background-color: #2E3A59;
+    color: white;
+}
+
+.textButton {
+    font-size: 48px;
+    display: inline-block;
+}
+
+.bigButton {
+    padding: 0.25em;
+    border-radius: 1000px;
+    text-align: center;
+    font-size: center;
+    font-size: 18pt;
+    width: 80%;
+}
+
 
 /* global changes */
+
+
+.p-1 {
+    height:1em;
+}
 
 .center {
     text-align: center;
 }
 
+
 * {
     font-family: 'DM Sans', sans-serif;
+    font-size: 14pt;
 }

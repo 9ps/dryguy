@@ -30,6 +30,14 @@
     height: 100%;
 }
 
+.dateTextOver {
+    background-color: #EC7669;
+}
+
+.dateTextUnder {
+    background-color: #A4E09D;
+}
+
 .dateTextActive {
     padding: 0.5em;
     border-radius: 1000px 1000px 0px 0px;

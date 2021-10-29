@@ -1,0 +1,75 @@
+header {
+    background-color: #FDD855;
+    padding-top: 10px;
+}
+
+header h1,
+.profpic,
+nav li {
+    display: inline;
+}
+
+.profpic {
+    width: 50px;
+    float: right;
+    border-radius: 10px;
+}
+
+nav li {
+    margin: 20px;
+}
+
+.active {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 100%;
+    position: relative;
+    padding: 1rem;
+    margin: 1rem;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+
+.card:hover {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .25);
+}
+
+.card img {
+    width: 20px;
+}
+
+.card h2 {
+    display: inline;
+    font-size: large;
+}
+
+.card h4 {
+    text-align: center;
+}
+
+.card p {
+    padding: 0 2em;
+    margin: 0;
+}
+
+.card button {
+    border-radius: 10px;
+    border: none;
+    background-color: bisque;
+}
+
+#saveBtn {
+    float: right;
+}

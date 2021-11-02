@@ -1,11 +1,24 @@
+:root {
+--g1: #4E4E4F;
+--g2: #6E6F72;
+--g3: #E4E4EB;
+--g4: #F3F3F6;
+
+--b1: #2E3A59;
+--r1: #EC7669;
+--y1: #FDD855;
+
+--g1: #A4E09D;
+--g2: #EFFCF4;
+}
+
 .top {
-    background-color: #FDD855;
+    background-color: var(--y1);
 }
 
 .datesScroll {
     overflow: auto;
     white-space: nowrap;
-    padding: 1em;
 }
 
 .dayCactus {
@@ -25,17 +38,16 @@
     background-color: white;
     text-align: center;
     font-size: 18pt;
-    /* border: 0px; */
     aspect-ratio: 1 / 1;
     height: 100%;
 }
 
 .dateTextOver {
-    background-color: #EC7669;
+    background-color: var(--r1);
 }
 
 .dateTextUnder {
-    background-color: #A4E09D;
+    background-color: var(--g1);
 }
 
 .dateTextActive {
@@ -47,6 +59,7 @@
     /* border: 0px; */
     aspect-ratio: 1 / 1;
     height: 100%;
+    padding-bottom: 1em;
 }
 
 .modal {
@@ -63,13 +76,11 @@
   }
 
 .logModalContent {
-    background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
     border-radius: 2em;
-    background-color: #FDD855;
+    background-color: var(--y1);
 }
 
 .closeButton {
@@ -85,6 +96,18 @@
     border-radius: 100px;
 }
 
+.triggerDisplay {
+    display: inline-block;
+    background-color: var(--g3);
+    border-radius: 1000px;
+    padding: 0.25em 1em 0.25em 1em;
+    margin-right: 0.5em;
+}
+
+.logDisplay {
+    display: inline-flex;
+}
+
 /* components */
 
 .trigger {
@@ -97,7 +120,7 @@
 }
 
 .triggerActive {
-    background-color: #2E3A59;
+    background-color: var(--b1);
     color: white;
 }
 
@@ -106,18 +129,53 @@
     display: inline-block;
 }
 
-.bigButton {
-    padding: 0.25em;
-    border-radius: 1000px;
-    text-align: center;
-    font-size: center;
-    font-size: 18pt;
-    width: 80%;
+.logButton {
+    background-color: var(--y1);
+    border-radius: 1.5em;
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    padding: 1em;
+    margin-left: 1em;    
 }
 
+.bigButton {
+    padding: 0.5em 1em 0.5em 1em;
+    border-radius: 1000px;
+    text-align: center;
+    font-size: 18pt;
+    background-color: var(--y1);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    place-items: center; /* does this work lol */
+}
+
+.navButton {
+    display: inline-box;
+    margin: 1em;
+}
+
+.reflection {
+    display: none;
+}
+
+.normalButton {
+    padding: 0.5em 1em 0.5em 1em;
+    border-radius: 1000px;
+}
 
 /* global changes */
 
+.wb {
+    background-color: white;
+}
+
+.yb {
+    background-color: var(--y1);
+}
 
 .p-1 {
     height:1em;
@@ -131,4 +189,8 @@
 * {
     font-family: 'DM Sans', sans-serif;
     font-size: 14pt;
+}
+
+button {
+    border: none;
 }

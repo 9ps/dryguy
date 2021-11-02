@@ -70,6 +70,16 @@ nav li {
     background-color: bisque;
 }
 
+.card button:hover {
+    background-color: coral;
+    cursor: pointer;
+}
+
 #saveBtn {
     float: right;
+}
+
+.liked {
+    background-color: cadetblue;
+    color: blue;
 }

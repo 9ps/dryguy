@@ -16,7 +16,7 @@ nav li {
 }
 
 nav li {
-    margin: 20px;
+    margin: 10px;
 }
 
 .active {
@@ -40,10 +40,6 @@ nav li {
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s linear;
-}
-
-.card:hover {
-    box-shadow: 2px 8px 45px rgba(0, 0, 0, .25);
 }
 
 .card img {
@@ -71,7 +67,6 @@ nav li {
 }
 
 .card button:hover {
-    background-color: coral;
     cursor: pointer;
 }
 
@@ -82,4 +77,8 @@ nav li {
 .liked {
     background-color: cadetblue;
     color: blue;
+}
+
+.hidden {
+    display: none;
 }

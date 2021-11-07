@@ -148,17 +148,17 @@ function toggleActive(elementID, activeID) {
             var visibleElement = document.getElementById('feedContent');
             visibleElement.classList.toggle("active");
             visibleElement.classList.toggle("hidden");
-            newPostBtn.classList.remove("hidden");
+            newPost.classList.remove("hidden");
         } else if (elementID == 'resourcesTab') {
             var visibleElement = document.getElementById('resourceContent');
             visibleElement.classList.toggle("active");
             visibleElement.classList.toggle("hidden");
-            newPostBtn.classList.add("hidden");
+            newPost.classList.add("hidden");
         } else if (elementID == 'savedTab') {
             var visibleElement = document.getElementById('savedContent');
             visibleElement.classList.toggle("active");
             visibleElement.classList.toggle("hidden");
-            newPostBtn.classList.add("hidden");
+            newPost.classList.add("hidden");
         }
     }
 }
@@ -188,3 +188,16 @@ closeBtn.addEventListener("click", function() {
     newPostPopup.classList.add("hidden");
     newPost.classList.remove("hidden");
 });
+
+let profPic = document.getElementById('profPic');
+let profile = document.getElementById('profileContent')
+
+profPic.addEventListener("click", function() {
+    profile.classList.remove("hidden");
+});
+
+if (profile.classList.contains("hidden")) {
+    document.getElementById('feedContent').classList.add("hidden");
+    document.getElementById('feedContent').classList.add("hidden");
+    document.getElementById('feedContent').classList.add("hidden");
+}

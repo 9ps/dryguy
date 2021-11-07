@@ -55,7 +55,7 @@ header {
 }
 
 header h1,
-.profpic,
+#profpic,
 nav li {
     display: inline;
 }
@@ -64,7 +64,7 @@ nav ul {
     padding-left: 5px;
 }
 
-.profpic {
+#profpic {
     width: 50px;
     height: 50px;
     float: right;
@@ -163,12 +163,13 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 70%;
 }
 
 #newPostPopup {
     background-color: var(--y1);
     width: 70%;
-    height: 50%;
+    height: 45%;
     padding: 20px;
     position: fixed;
     left: 50%;
@@ -234,6 +235,23 @@ footer {
 
 .navButtonActive {
     background-color: var(--g2);
+}
+
+#profileContent {
+    position: fixed;
+    top: 0;
+    background-color: white;
+}
+
+.top {
+    background-color: var(--y1);
+}
+
+#mainPic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 * {

@@ -1,8 +1,8 @@
 :root {
-    --g1: #4E4E4F;
-    --g2: #6E6F72;
-    --g3: #E4E4EB;
-    --g4: #F3F3F6;
+    --w1: #F3F3F6;
+    --w2: #E4E4EB;
+    --w3: #6E6F72;
+    --w4: #4E4E4F;
     --b1: #2E3A59;
     --r1: #EC7669;
     --y1: #FDD855;
@@ -28,13 +28,9 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-    /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
     text-rendering: optimizeLegibility;
-    /* Support for Firefox. */
     -moz-osx-font-smoothing: grayscale;
-    /* Support for IE. */
     font-feature-settings: 'liga';
 }
 
@@ -145,8 +141,13 @@ button:hover {
     background-color: white;
 }
 
-#saveBtn {
+#saveBtn,
+.right {
     float: right;
+}
+
+#backButton {
+    float: left;
 }
 
 #repliesBtn {

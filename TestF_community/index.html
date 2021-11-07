@@ -26,12 +26,42 @@
     </header>
 
     <main>
-        <!-- This should remain empty - our content will be dynamically loaded with JS -->
         <div class="content active" id="feedContent"></div>
         <div class="content hidden" id="resourceContent"></div>
         <div class="content hidden" id="savedContent"></div>
+
+        <div id="newPost" class="newPost">
+            <button id="newPostBtn">New Post</button>
+        </div>
+        <div class="hidden" id="newPostPopup">
+            <button id="closeBtn">X</button>
+            <form class="newPostForm">
+                <label for="subject">Title</label>
+                <input type="text" id="subject" name="subject"></br>
+                <label for="postBody">Post</label>
+                <textarea name="postBody" id="postBody" rows="6"></textarea></br>
+                <p>Rules: No harrasment or bullying of any kind will be tolerated.</p>
+                <button id="postBtn">Post</button>
+            </form>
+        </div>
+
     </main>
-    <footer></footer>
+    <footer>
+        <div class="navButton">
+            <div>logo1</div>
+            <div>community</div>
+        </div>
+
+        <div class="navButton">
+            <div>logo2</div>
+            <div>home</div>
+        </div>
+
+        <div class="navButton">
+            <div>logo2</div>
+            <div>progress</div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 

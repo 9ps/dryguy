@@ -13,6 +13,10 @@ let userFeed = document.getElementById('userFeedTab');
 let resources = document.getElementById('resourcesTab');
 let saved = document.getElementById('savedTab');
 
+let newPostPopup = document.getElementById('newPostPopup');
+let newPost = document.getElementById('newPost');
+let closeBtn = document.getElementById('closeBtn');
+
 userFeed.addEventListener("click", function() {
     let activeElement = document.getElementsByClassName("active");
     toggleActive('userFeedTab', activeElement);
@@ -25,6 +29,8 @@ saved.addEventListener("click", function() {
     let activeElement = document.getElementsByClassName("active");
     toggleActive('savedTab', activeElement);
 });
+
+
 //Handling response
 request.onload = function() {
     let data = JSON.parse(this.response);
@@ -54,7 +60,7 @@ request.onload = function() {
             let saveID = post.id + 'save';
             let save = document.createElement('button');
             save.setAttribute('id', saveID);
-            save.textContent = "Save post";
+            save.textContent = "Save";
 
             //Create body p element
             let description = document.createElement('p');
@@ -103,11 +109,7 @@ request.onload = function() {
                     localStorage.setItem(key, value);
                 }
             });
-
-
         })
-
-
     } else {
         let errorHeader = document.createElement('h1');
         errorHeader.textContent = "Oops something went wrong!";
@@ -146,14 +148,17 @@ function toggleActive(elementID, activeID) {
             var visibleElement = document.getElementById('feedContent');
             visibleElement.classList.toggle("active");
             visibleElement.classList.toggle("hidden");
+            newPostBtn.classList.remove("hidden");
         } else if (elementID == 'resourcesTab') {
             var visibleElement = document.getElementById('resourceContent');
             visibleElement.classList.toggle("active");
             visibleElement.classList.toggle("hidden");
+            newPostBtn.classList.add("hidden");
         } else if (elementID == 'savedTab') {
             var visibleElement = document.getElementById('savedContent');
             visibleElement.classList.toggle("active");
             visibleElement.classList.toggle("hidden");
+            newPostBtn.classList.add("hidden");
         }
     }
 }
@@ -172,3 +177,14 @@ function savePost(elementID) {
     element.classList.toggle("liked");
 
 }
+
+
+newPost.addEventListener("click", function() {
+    newPostPopup.classList.remove("hidden");
+    newPost.classList.add("hidden");
+
+});
+closeBtn.addEventListener("click", function() {
+    newPostPopup.classList.add("hidden");
+    newPost.classList.remove("hidden");
+});

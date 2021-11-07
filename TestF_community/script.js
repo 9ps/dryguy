@@ -17,6 +17,8 @@ let newPostPopup = document.getElementById('newPostPopup');
 let newPost = document.getElementById('newPost');
 let closeBtn = document.getElementById('closeBtn');
 
+let backButton = document.getElementById('backButton');
+
 userFeed.addEventListener("click", function() {
     let activeElement = document.getElementsByClassName("active");
     toggleActive('userFeedTab', activeElement);
@@ -46,7 +48,9 @@ request.onload = function() {
 
             //Create profile image
             let dp = document.createElement('img');
+            dp.setAttribute("class", "smalldp");
             dp.src = "profile_picture.jpg";
+            //dp.onclick = openProfile();
 
             //Create title username element
             let heading = document.createElement('h2');
@@ -109,6 +113,34 @@ request.onload = function() {
                     localStorage.setItem(key, value);
                 }
             });
+            //Testing resource stuff (this will loop through a seperate api)
+            let card2 = document.createElement('div');
+            card2.setAttribute("class", "card")
+
+            let saveBlog = document.createElement('button');
+            saveBlog.textContent = "Save";
+
+            let title = document.createElement('h2');
+            title.textContent = post.title;
+
+            let image = document.createElement('img');
+            image.src = "blog_image.jpg";
+            image.setAttribute("class", "blogImage");
+
+            let body = document.createElement('p');
+            body.textContent = post.body;
+
+            let readBtn = document.createElement('button');
+            readBtn.textContent = "Read full post";
+
+            card2.appendChild(image);
+            card2.appendChild(title);
+            card2.appendChild(saveBlog);
+            card2.appendChild(body);
+            card2.appendChild(readBtn);
+
+
+            resourceContent.appendChild(card2);
         })
     } else {
         let errorHeader = document.createElement('h1');
@@ -121,16 +153,6 @@ request.onload = function() {
 }
 
 request.send();
-
-//Testing resource stuff (this will loop through a seperate api)
-let card2 = document.createElement('div');
-card2.setAttribute("class", "card")
-let testing = document.createElement('p');
-testing.textContent = "this is a test";
-
-card2.appendChild(testing);
-
-resourceContent.appendChild(card2);
 
 
 //function to switch between tabs
@@ -146,18 +168,18 @@ function toggleActive(elementID, activeID) {
         activeID[1].classList.toggle("active");
         if (elementID == 'userFeedTab') {
             var visibleElement = document.getElementById('feedContent');
-            visibleElement.classList.toggle("active");
-            visibleElement.classList.toggle("hidden");
+            visibleElement.classList.add("active");
+            visibleElement.classList.remove("hidden");
             newPost.classList.remove("hidden");
         } else if (elementID == 'resourcesTab') {
             var visibleElement = document.getElementById('resourceContent');
-            visibleElement.classList.toggle("active");
-            visibleElement.classList.toggle("hidden");
+            visibleElement.classList.add("active");
+            visibleElement.classList.remove("hidden");
             newPost.classList.add("hidden");
         } else if (elementID == 'savedTab') {
             var visibleElement = document.getElementById('savedContent');
-            visibleElement.classList.toggle("active");
-            visibleElement.classList.toggle("hidden");
+            visibleElement.classList.add("active");
+            visibleElement.classList.remove("hidden");
             newPost.classList.add("hidden");
         }
     }
@@ -189,15 +211,21 @@ closeBtn.addEventListener("click", function() {
     newPost.classList.remove("hidden");
 });
 
-let profPic = document.getElementById('profPic');
 let profile = document.getElementById('profileContent')
 
-profPic.addEventListener("click", function() {
+function openProfile() {
     profile.classList.remove("hidden");
-});
+    document.getElementById('feedContent').classList.add("hidden");
+    document.getElementById('feedContent').classList.add("hidden");
+    document.getElementById('feedContent').classList.add("hidden");
+};
 
-if (profile.classList.contains("hidden")) {
-    document.getElementById('feedContent').classList.add("hidden");
-    document.getElementById('feedContent').classList.add("hidden");
-    document.getElementById('feedContent').classList.add("hidden");
-}
+
+backButton.addEventListener("click", function() {
+    profile.classList.add("hidden");
+    document.getElementById('feedContent').classList.remove("hidden");
+    userFeed.classList.add("active");
+    resources.classList.remove("active");
+    saved.classList.remove("active");
+    newPost.classList.remove("hidden");
+});

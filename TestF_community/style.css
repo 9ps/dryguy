@@ -10,6 +10,11 @@
     --g2: #EFFCF4;
 }
 
+* {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14pt;
+}
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -97,11 +102,18 @@ nav ul {
     transition: all 0.3s linear;
 }
 
-.card img {
+.smalldp {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.blogImage {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .card h2 {
@@ -122,6 +134,7 @@ button {
     border-radius: 10px;
     border: none;
     background-color: var(--y1);
+    margin: 5px;
 }
 
 button:hover {
@@ -241,6 +254,21 @@ footer {
     position: fixed;
     top: 0;
     background-color: white;
+    width: 100%;
+    height: 100%;
+}
+
+#profileContent h1 {
+    font-size: 26px;
+    text-align: center;
+}
+
+#profileContent p {
+    text-align: center;
+}
+
+#userSettings {
+    float: right;
 }
 
 .top {
@@ -252,9 +280,9 @@ footer {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-* {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14pt;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: var(--g1);
+    padding: 5px;
 }

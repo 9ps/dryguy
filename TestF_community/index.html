@@ -17,7 +17,7 @@
 
     <header>
         <h1>Community</h1>
-        <img id="profpic" src="profile_picture.jpg">
+        <img id="profpic" src="profile_picture.jpg" onclick="openProfile()">
         <nav>
             <div class="navbar">
                 <ul>
@@ -48,12 +48,18 @@
             </form>
         </div>
 
-        <div id="profileContent">
+        <div id="profileContent" class="hidden">
             <div class="top">
-                <h1>User Profile</h1>
+                <button id="backButton">Back</button>
+                <button id="userSettings">Settings</button>
+                <h1>Your Profile</h1>
                 <img id="mainPic" src="profile_picture.jpg">
 
             </div>
+            <h1>Ricky</h1>
+            <p>Bankstown born and bred!</p>
+            <button class="switchBtn" id="userPostsBtn">Posts</button>
+            <button class="switchBtn" id="userChallengeBtn">Challenge Showcase</button>
         </div>
 
     </main>

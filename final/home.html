@@ -21,18 +21,18 @@
 			
 			<div class="titleBar center">
 				
-				<div id="settings" class="navButton left">
+				<a id="settings" class="navButton left" href="settings.html">
 					<span class="material-icons md-36 active">settings</span>
-				</div>
+				</a>
 
 				<div>
 					<div id="streakCount">(streak count)</div>
 					<div id="dailyGoal"></div>
 				</div>
 
-				<div id="profile" class="navButton right">
+				<a id="profile" class="navButton right" href="profile.html">
 					<span class="material-icons md-36 active">account_circle</span>
-				</div>
+				</a>
 
 			</div>
 			
@@ -69,7 +69,7 @@
 					<label>Amount of Standard Drinks:</label>
 					<div class="titleBar center">
 						<div onclick="drinkSub()" class="left material-icons md-36">remove</div>
-						<span class="drinkDisplay">0</span>
+						<span id="drinkDisplay">0</span>
 						<div onclick="drinkAdd()" class="right material-icons md-36">add</div>
 					</div>
 
@@ -167,7 +167,7 @@
 
 		<div class="reflection2 center">
 			<p>How did you feel today?</p>
-			<div class="emotionSelector" id="temp">
+			<div id="emotionSelector">
 				<span id="1" class="emotion emotionInactive">😀</span> 
 				<span id="2" class="emotion emotionInactive">😊</span>
 				<span id="3" class="emotion emotionInactive">😐</span>

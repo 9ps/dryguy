@@ -36,6 +36,8 @@
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
+/* home CSS */
+
 #top {
     background-color: var(--y1);
 }
@@ -46,12 +48,10 @@
 }
 
 /*active these if you want it to not show scrollbar */
-/* 
-.datesScroll::-webkit-scrollbar {
-    display: none;
-  } 
-*/
 
+/* .datesScroll::-webkit-scrollbar {
+    display: none;
+  }  */
 
 
 .dayCactus {
@@ -93,19 +93,6 @@
     font-size: 18pt;
 }
 
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
-  }
-
 #logModalContent {
     margin: auto;
     padding: 20px;
@@ -114,7 +101,7 @@
     background-color: var(--y1);
 }
 
-.drinkDisplay {
+#drinkDisplay {
     background-color: white;
     padding: 0.5em;
     padding: 0.5em 3em 0.5em 3em;
@@ -136,23 +123,18 @@
     justify-content: space-evenly;
 }
 
+#emotionSelector {
+    margin: 1em;
+}
+
 .emotionActive{
     background-color: white;
-    border-radius: 1000px;
-    padding: 0.1em;
-    font-size: 28pt;
-
 }
 
 .emotionInactive {
-    /* background-color: white; */
     border-radius: 1000px;
     padding: 0.1em;
     font-size: 28pt;
-}
-
-.emotionSelector {
-    margin: 1em;
 }
 
 .summaryCard {
@@ -173,6 +155,20 @@
 /* ---------- */
 /* components */
 /* ---------- */
+
+/* pop up modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
+  }
 
 
 /* bar: basic container; full: the backing; level: the width is the fullness */

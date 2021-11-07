@@ -108,6 +108,7 @@ function updatePage(){ //this sets the page
 	// fullDate.textContent = selectedDate.toDateString(); //this isnt needed
 	drinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
 	
+	console.log("update page request");
 	if(dayData.reflection) {
 		reflectionState.innerText = "Reflection Completed!";
 	} else {
@@ -148,6 +149,7 @@ logButton.onclick = function() {
 }
 
 function openLog(){
+	
 	logModal.style.display = "block";
 	drinkDisplay.textContent = dayData.drinks; //sets the content [?do we need exception handling]
 
@@ -178,7 +180,7 @@ save.onclick = function() {
 }
 
 //DRINK COUNTING
-const drinkDisplay = document.querySelector('.drinkDisplay');
+const drinkDisplay = document.querySelector('#drinkDisplay');
 
 function drinkSub(){
 	if(dayData.drinks <= 0){
@@ -337,7 +339,10 @@ next3.onclick = function () {
 	dayData.reflection2 = response2.value;
 	dayData.reflection3 = response3.value;
 	dayData.reflection = 1;
-	console.log("saved!")
+
+	console.log("saving: ", selectedDate.toDateString());
+	localStorage.setObject(selectedDate.toDateString(), dayData);
+	updatePage();
 }
 
 reflectionCloseButton.onclick = function() {
@@ -349,14 +354,14 @@ reflectionCloseButton.onclick = function() {
 	document.getElementsByTagName("BODY")[0].style.removeProperty("background-color");
 }
 
-var emotionSelector = document.querySelectorAll('.emotion'); //all the emotions
+const emotions = document.querySelectorAll('.emotion'); //all the emotions
 
-for (var i = 0; i < emotionSelector.length; i++) {
-	emotionSelector[i].addEventListener('click', function() { //if an emotion is clicked
+for (var i = 0; i < emotions.length; i++) {
+	emotions[i].addEventListener('click', function() { //if an emotion is clicked
 		
-		for (var i = 0; i < emotionSelector.length; i++) { //set every other emotion to inactive looking
-			emotionSelector[i].classList.remove("emotionActive");
-			emotionSelector[i].classList.add("emotionInactive");
+		for (var i = 0; i < emotions.length; i++) { //set every other emotion to inactive looking
+			emotions[i].classList.remove("emotionActive");
+			emotions[i].classList.add("emotionInactive");
 		}
 		this.classList.toggle("emotionActive"); //make this one active looking
 		dayData.emotion = this.id; //update data

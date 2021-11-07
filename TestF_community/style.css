@@ -10,6 +10,45 @@
     --g2: #EFFCF4;
 }
 
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
 header {
     background-color: var(--y1);
     padding-top: 10px;
@@ -113,8 +152,9 @@ button:hover {
 .newPost {
     width: 100%;
     position: fixed;
-    bottom: 80px;
-    background-color: var(--g3);
+    bottom: 100px;
+    background-color: white;
+    padding: 10px;
 }
 
 #newPostBtn {
@@ -167,18 +207,33 @@ input {
 }
 
 footer {
-    width: 100%;
-    background-color: var(--g3);
+    text-align: center;
     position: fixed;
     bottom: 0;
     display: flex;
-    place-items: center;
-    /* does this work lol */
+    width: 100%;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.button-backing2 {
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+.button-backing {
+    padding: 1em;
+    border-radius: 1em;
 }
 
 .navButton {
-    display: inline-box;
-    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    color: var(--w3);
+}
+
+.navButtonActive {
+    background-color: var(--g2);
 }
 
 * {

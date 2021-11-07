@@ -1,5 +1,17 @@
+:root {
+    --g1: #4E4E4F;
+    --g2: #6E6F72;
+    --g3: #E4E4EB;
+    --g4: #F3F3F6;
+    --b1: #2E3A59;
+    --r1: #EC7669;
+    --y1: #FDD855;
+    --g1: #A4E09D;
+    --g2: #EFFCF4;
+}
+
 header {
-    background-color: #FDD855;
+    background-color: var(--y1);
     padding-top: 10px;
 }
 
@@ -9,14 +21,18 @@ nav li {
     display: inline;
 }
 
-.profpic {
-    width: 50px;
-    float: right;
-    border-radius: 10px;
+nav ul {
+    padding-left: 5px;
 }
 
-nav li {
-    margin: 10px;
+.profpic {
+    width: 50px;
+    height: 50px;
+    float: right;
+    border-radius: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
 }
 
 .active {
@@ -43,7 +59,10 @@ nav li {
 }
 
 .card img {
-    width: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .card h2 {
@@ -60,25 +79,109 @@ nav li {
     margin: 0;
 }
 
-.card button {
+button {
     border-radius: 10px;
     border: none;
-    background-color: bisque;
+    background-color: var(--y1);
 }
 
-.card button:hover {
+button:hover {
     cursor: pointer;
+}
+
+#newPostPopup button {
+    background-color: white;
 }
 
 #saveBtn {
     float: right;
 }
 
+#repliesBtn {
+    margin-left: 10px;
+}
+
 .liked {
-    background-color: cadetblue;
+    background-color: var(--g1);
     color: blue;
 }
 
 .hidden {
     display: none;
+}
+
+.newPost {
+    width: 100%;
+    position: fixed;
+    bottom: 80px;
+    background-color: var(--g3);
+}
+
+#newPostBtn {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#newPostPopup {
+    background-color: var(--y1);
+    width: 70%;
+    height: 50%;
+    padding: 20px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+
+#newPostPopup button {
+    padding: 10px;
+}
+
+#closeBtn {
+    float: right;
+}
+
+#postBtn {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input,
+textarea {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    padding-bottom: 10px;
+}
+
+footer {
+    width: 100%;
+    background-color: var(--g3);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    place-items: center;
+    /* does this work lol */
+}
+
+.navButton {
+    display: inline-box;
+    margin: 1em;
+}
+
+* {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14pt;
 }

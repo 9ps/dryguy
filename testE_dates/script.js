@@ -10,7 +10,7 @@ Storage.prototype.getObject = function(key) {
 //IMPORTANT VARIABLES
 localStorage.setItem("limit", 2);
 localStorage.setObject("dryDays", [2, 4]);
-localStorage.setObject("Fri Oct 29 2021", { 'drinks': 100, 'triggers': [1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
+localStorage.setObject("Tue Nov 30 2021", { 'drinks': 100, 'triggers': [1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
 
 var dryDays = localStorage.getObject("dryDays");
 var limit = localStorage.getItem("limit");
@@ -21,11 +21,12 @@ dailyGoal.textContent = "Daily Limit of " + limit + " Drinks";
 
 //DATE STUFF
 const daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-var d = new Date(); //right now
-var selectedDate = new Date(d.getFullYear(), d.getMonth(), d.getDate()); //current day (stripped of time data);
 var dates = []; //stores Date objects
+var d = new Date(); //temp variable for right now
+var selectedDate = new Date(d.getFullYear(), d.getMonth(), d.getDate()); //current day (stripped of time data);
+const numCalender = 7;
 
-for(i = 0; i < 7; i++){ //big loop creating the [dates] and formatting the calender
+for(i = 0; i < numCalender; i++){ //big loop creating the [dates] and formatting the calender
     if(dates.length == 0) { //sets today
         dates = [selectedDate];
     } else { //sets other days
@@ -41,7 +42,6 @@ for(i = 0; i < 7; i++){ //big loop creating the [dates] and formatting the calen
     document.querySelector('.datesScroll').appendChild(dateThing);
     
     var isCactus = ""; //simple thing that adds cactus to Tue and Thu
-
     for(j = 0; j < dryDays.length; j++){
         if(currentDay == dryDays[j]) {
             isCactus = "🌵";
@@ -54,7 +54,8 @@ for(i = 0; i < 7; i++){ //big loop creating the [dates] and formatting the calen
     
     var dayText = document.createElement('div');
     dayText.className = 'dayText';
-    dayText.textContent = daysOfTheWeek[currentDay];
+    // console.log(currentDay, dates[i]);
+    dayText.textContent = daysOfTheWeek[currentDay]; //this is broken for some reason
     
     var dateText = document.createElement('div');
     dateText.className = 'dateText';
@@ -78,11 +79,12 @@ for(i = 0; i < 7; i++){ //big loop creating the [dates] and formatting the calen
 }    
 
 //DATE SWITCHER
-const fullDate = document.querySelector('.fullDate');
+// const fullDate = document.querySelector('.fullDate');
 const drinksLoggedDisplay = document.querySelector('.drinksLoggedDisplay');
 const triggersDisplay = document.querySelector('.triggersDisplay');
-var dateTexts = document.querySelectorAll('.dateText');
+const reflectionState = document.querySelector("#reflectionState");
 
+var dateTexts = document.querySelectorAll('.dateText');
 var dayData = localStorage.getObject(dates[0].toDateString()); //this sets as current day!!
 dateTexts[0].classList.add('dateTextActive');
 updatePage(); //this processes the current day
@@ -103,10 +105,15 @@ for (i = 0; i < dateTexts.length; i++) {
     });
 }
 
-
 function updatePage(){ //this sets the page
-    fullDate.textContent = selectedDate.toDateString(); //this isnt needed
+    // fullDate.textContent = selectedDate.toDateString(); //this isnt needed
     drinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
+    
+    if(dayData.reflection) {
+        reflectionState.innerText = "Reflection Completed!";
+    } else {
+        reflectionState.innerText = "";
+    }
 
     while (triggersDisplay.lastChild) { //removes previous triggers
         triggersDisplay.removeChild(triggersDisplay.lastChild);
@@ -132,12 +139,16 @@ function updatePage(){ //this sets the page
 }
 
 //LOG MODAL
-var logModal = document.querySelector(".logModal");
-var logButton = document.querySelector(".logButton");
-var closeButton = document.querySelector(".closeButton");
-var save = document.querySelector(".save");
+const logModal = document.querySelector(".logModal");
+const logButton = document.querySelector(".logButton");
+const closeButton = document.querySelector("#closeButton");
+const save = document.querySelector(".save");
 
 logButton.onclick = function() {
+    openLog();
+}
+
+function openLog(){
     logModal.style.display = "block";
     drinkDisplay.textContent = dayData.drinks; //sets the content [?do we need exception handling]
 
@@ -148,7 +159,6 @@ logButton.onclick = function() {
             triggerOptions[i].classList.remove("triggerActive");
         }
     }
-
 }
 
 closeButton.onclick = function() {
@@ -202,23 +212,72 @@ for (var i = 0; i < triggerOptions.length; i++) {
 
 //REFLECTION HIDER
 
-const reflectionButton = document.querySelector(".reflectionButton");
+const reflectionDrinksLoggedDisplay = document.querySelector(".reflectionDrinksLoggedDisplay");
+const reflectionTriggersDisplay = document.querySelector(".reflectionTriggersDisplay");
+const summaryCard = document.querySelector(".summaryCard");
+
+const response1 = document.querySelector("#response1");
+const response2 = document.querySelector("#response2");
+const response3 = document.querySelector("#response3");
+
+const reflection1 = document.querySelector(".reflection1");
+const reflection2 = document.querySelector(".reflection2");
+const reflection3 = document.querySelector(".reflection3");
+
+const reflectionProgress = document.querySelector("#reflectionProgress");
+
+const reflectionButton = document.querySelector("#reflectionButton");
 const reflectionCloseButton = document.querySelector(".reflectionCloseButton");
 const hideReflection = document.querySelector(".hideReflection");
 const reflection = document.querySelector(".reflection");
 
+
+reflection1.style.display = "none";
+reflection2.style.display = "none";
+reflection3.style.display = "none";
+
+const next1 = document.querySelector(".next1");
+const next2 = document.querySelector(".next2");
+const next3 = document.querySelector(".next3");
+
+
 reflectionButton.onclick = function() {
+    reflectionProgress.style.width = "0%";
+
     hideReflection.style.display = "none";
     reflection.style.display = "block";
+    reflection1.style.display = "block";
     document.getElementsByTagName("BODY")[0].style.background = "var(--y1)";
-
 
     // this is here because i want it to update only when reflection is clicked
 
     const goalText = document.querySelector(".goalText");
     const goalText2 = document.querySelector(".goalText2");
 
-    console.log("sd: ", selectedDate);
+    reflectionDrinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
+    
+    //repeated code die mad about it
+    while (reflectionTriggersDisplay.lastChild) { //removes previous triggers
+        reflectionTriggersDisplay.removeChild(reflectionTriggersDisplay.lastChild);
+    }
+    
+    var anyTriggerCheck = false;
+    for(i = 0; i < dayData.triggers.length; i++){
+        if(dayData.triggers[i] == 1) {
+            var triggerInstance = document.createElement('div');
+            triggerInstance.className = 'triggerDisplay';
+            triggerInstance.innerText = triggersList[i];
+            reflectionTriggersDisplay.appendChild(triggerInstance);
+            anyTriggerCheck = true;
+        }
+    }
+    if(!anyTriggerCheck){
+        var triggerInstance = document.createElement('div');
+        triggerInstance.innerText = "No Triggers Yet";
+        reflectionTriggersDisplay.appendChild(triggerInstance);
+    }
+
+    console.log("reflection date: ", selectedDate);
 
     var isDry = false;
     var isOver = false;
@@ -245,15 +304,63 @@ reflectionButton.onclick = function() {
         goalText.textContent = "You stayed Under the Limit"
         goalText2.textContent = "Great Work Today!";
     }
+}
 
-    
+summaryCard.onclick = function () {
+    hideReflection.style.display = "contents";
+    reflection.style.display = "none";
+    document.getElementsByTagName("BODY")[0].style.removeProperty("background-color"); 
+    openLog();   
+}
+
+next1.onclick = function () {
+    console.log("next");
+    reflection1.style.display = "none";
+    reflection2.style.display = "block";
+    reflectionProgress.style.width = "50%";
+}
+
+next2.onclick = function () {
+    reflection2.style.display = "none";
+    reflection3.style.display = "block";
+    reflectionProgress.style.width = "100%";
+
+    dayData.reflection1 = response1.value;
+}
+
+next3.onclick = function () {
+
+    hideReflection.style.display = "contents";
+    reflection.style.display = "none";
+    reflection3.style.display = "none";
+    document.getElementsByTagName("BODY")[0].style.removeProperty("background-color");
+
+    dayData.reflection2 = response2.value;
+    dayData.reflection3 = response3.value;
+    dayData.reflection = 1;
+    console.log("saved!")
 }
 
 reflectionCloseButton.onclick = function() {
     hideReflection.style.display = "contents";
     reflection.style.display = "none";
+    reflection1.style.display = "none";
+    reflection2.style.display = "none";
+    reflection3.style.display = "none";
     document.getElementsByTagName("BODY")[0].style.removeProperty("background-color");
 }
 
-//REFLECTION GOAL TEXT
+var emotionSelector = document.querySelectorAll('.emotion'); //all the emotions
 
+for (var i = 0; i < emotionSelector.length; i++) {
+    emotionSelector[i].addEventListener('click', function() { //if an emotion is clicked
+        
+        for (var i = 0; i < emotionSelector.length; i++) { //set every other emotion to inactive looking
+            emotionSelector[i].classList.remove("emotionActive");
+            emotionSelector[i].classList.add("emotionInactive");
+        }
+        this.classList.toggle("emotionActive"); //make this one active looking
+        dayData.emotion = this.id; //update data
+        console.log("dayData Emotion: ", dayData.emotion);
+    });
+}

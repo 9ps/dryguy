@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
     <link href="styles.css" rel="stylesheet">
     <title>Test E</title>
 </head>
@@ -14,23 +17,38 @@
     <!-- this is to hide things for the fullscreen reflection -->
     <div class="hideReflection">  
         <div class="top">
-            <p class="streak center">(streak count)</p>
-            <p class="dailyGoal center"></p>
-            <div class="datesScroll myDiv">
+            
+            <div class="titleBar center">
+                
+                <div id="settings" class="navButton left">
+                    <span class="material-icons md-36 active">settings</span>
+                </div>
+
+                <div>
+                    <div class="streak">(streak count)</div>
+                    <div class="dailyGoal"></div>
+                </div>
+
+                <div id="profile" class="navButton right">
+                    <span class="material-icons md-36 active">account_circle</span>
+                </div>
+
+            </div>
+            
+            <div class="datesScroll">
                 <!-- we want dates to end up here -->
             </div>
         </div>
 
         <div class="content">
-            <p class="fullDate center">(full date here)</p>
-
+            <div class="p-1"></div>
             <!-- TODO make this better -->
             <div class="logDisplay">
-                <p class="drinksLoggedDisplay">if your reading this it is broken</p>
-                <button class="logButton">Log</button>
+                <p class="drinksLoggedDisplay font-big">if your reading this it is broken</p>
+                <button class="logButton material-icons md-36">add</button>
             </div>
 
-            <div>Current Triggers:</div>
+            <label>Current Triggers:</label>
             <div class="triggersDisplay">
                 
                 <!-- triggers update here -->
@@ -39,17 +57,23 @@
             <!-- The Log -->
             <div class="logModal modal">
                 <div class="logModalContent">
-                    <div class="closeButton textButton">&times;</div>
-                    <div class="p-1"></div>
-                    <p>Track Drinks</p>
 
-                    <p>Amount of Standard Drinks:</p>
-                    <div class="center">
-                        <div onclick="drinkSub()" class="textButton">-</div>
-                        <span class="drinkDisplay">0</span>
-                        <div onclick="drinkAdd()" class="textButton">+</div>
+                    <div class="titleBar">
+                        <div id="closeButton" class="left button-backing material-icons md-24">close</div>
+                        <div class="font-bigger">Track Drinks</div>
+                        <div class="right button-backing"></div>
                     </div>
-                    <p>What Triggered you?:</p>
+
+                    <div class="p-1"></div>
+                    <label>Amount of Standard Drinks:</label>
+                    <div class="titleBar center">
+                        <div onclick="drinkSub()" class="left material-icons md-36">remove</div>
+                        <span class="drinkDisplay">0</span>
+                        <div onclick="drinkAdd()" class="right material-icons md-36">add</div>
+                    </div>
+
+                    <div class="p-1"></div>
+                    <label>What Triggered you?:</label>
                     <div>
                         <div class="trigger" id="0">Family</div>
                         <div class="trigger" id="1">Friends</div>
@@ -63,56 +87,117 @@
                         <div class="trigger" id="9">Pain Relief</div>
                     </div>
                     
+                    <div class="p-1"></div>
                     <div class="center">
-                        <button class="save bigButton">Save</button>
+                        <button class="save bigButton wb">Save</button>
                     </div>
 
                 </div>
             </div>
             
-            <p>todays read</p>
+            <div class="p-1"></div>
+            <label>Today's Read:</label>
+
+            <div style="background-color: rebeccapurple; border-radius: 1em 1em 0em 0em; height: 4em; margin-top: 0.5em;"></div>
+            <div style="background-color: lightgrey; border-radius: 0 0 1em 1em; height: 2em;">This is an Article</div>
+            <div class="p-1"></div>
 
             <div class="center">
-                <button class="reflectionButton bigButton">End of Day Reflection</button>
-                <p class="reflectionState"></p>
+                <button id="reflectionButton" class="bigButton">Today's Reflection</button>
+                <p class="font-small" id="reflectionState">Reflection Completed!</p>
             </div>
         </div>
 
-        <footer class="footer center">
-            <div class ="navButton">
-                <div>logo1</div>
-                <div>community</div>
-            </div>
+        <footer class="footer">
+                <div id="social" class="navButton">
+                    <span class="material-icons md-36">public</span>
+                    <div class="font-small">social</div>
+                </div>
 
-            <div class ="navButton">
-                <div>logo2</div>
-                <div>home</div>
-            </div>
+                <div id="home" class="navButton navButtonActive">
+                    <span class="material-icons md-36">home</span>
+                    <div class="font-small">home</div>
+                </div>
 
-            <div class ="navButton">
-                <div>logo2</div>
-                <div>progress</div>
-            </div>
+                <div id="progress" class="navButton">
+                    <span class="material-icons md-36">insights</span>
+                    <div class="font-small">progress</div>
+                </div>
         </footer>
     </div>
 
     <!-- reflection content goes here -->
     <div class="reflection">
-        <div class="reflectionCloseButton textButton">&times;</div>
-        <span>Reflection</span>
+        
+        <div class="titleBar">
+            <div class="reflectionCloseButton material-icons md-24 button-backing left">close</div>
+            <div class="font-bigger">Reflection</div>
+            <div class="right button-backing"></div>
+        </div>
 
-        <div>-----------</div>
+        <div class="progressBar center">
+            <div class="font-small">Progress</div>
+            <div class="progressFull">
+                <div class="progressLevel" id="reflectionProgress"></div>
+            </div>
+        </div> 
 
-        <div class="reflection1 center">
-            <p>Todays Log:</p>
-            <p>Ill do this later or yeet it (tap to edit)</p>
+        <div class="reflection1">
+            <div class="p-5"></div>
+            <p class="center">Todays Log:</p>
             
-            <div class="p-1"></div>
+            <div class="summaryCard">
+                <div class="reflectionDrinksLoggedDisplay center font-big">if your reading this it is broken</div>
+                <div class="p-1"></div>
+                <div>Current Triggers:</div>
+                <div class="reflectionTriggersDisplay">
+                    <!-- triggers update here -->
+                </div>
+            </div>
+            <div class="font-small center">Tap to Edit</div>
+            
+            <div class="p-5"></div>
+            <div class="center">
+                <p class="goalText">Line 1</p>
+                <p class="goalText2">Line 2</p>
+                <button class="normalButton wb next1">Next</button>
+            </div>
+        </div>
 
-            <p class="goalText">This text will be Replaced This text will be Replaced</p>
-            <p class="goalText2">I couldnt get <.br> or newline working so there is 2</p>
+        <div class="reflection2 center">
+            <p>How did you feel today?</p>
+            <div class="emotionSelector" id="temp">
+                <span id="1" class="emotion emotionInactive">😀</span> 
+                <span id="2" class="emotion emotionInactive">😊</span>
+                <span id="3" class="emotion emotionInactive">😐</span>
+                <span id="4" class="emotion emotionInactive">😥</span>
+                <span id="5" class="emotion emotionInactive">😠</span>
+            </div>
 
-            <button class="normalButton wb">Next</button>
+            <div class="p-2"></div>
+
+            <p>
+                <label for="response1" class="font-big">Was it hard to resist Drinking Today? Why?</label>
+                <textarea id="response1" class="textInput" placeholder="Write a Response ..."></textarea>
+            </p>
+
+            <button class="normalButton wb next2">Confirm</button>
+
+        </div>
+
+        <div class="reflection3 center">
+
+            <p>
+                <label for="response2" class="font-big">Do you think you’ll drink or stay dry tomorrow? Why?</label>
+                <textarea id="response2" class="textInput" placeholder="Write a Response ..."></textarea>
+            </p>
+
+            <p>
+                <label for="response3" class="font-big">Whats something good that happened today?</label>
+                <textarea id="response3" class="textInput" placeholder="Write a Response ..."></textarea>
+            </p>          
+
+            <button class="normalButton wb next3">Finish</button>
 
 
         </div>

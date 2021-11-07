@@ -7,24 +7,28 @@ Storage.prototype.getObject = function(key) {
     return value && JSON.parse(value);
 }
 
+
 //IMPORTANT VARIABLES
 localStorage.setItem("limit", 2);
 localStorage.setObject("dryDays", [2, 4]);
-localStorage.setObject("Tue Nov 30 2021", { 'drinks': 100, 'triggers': [1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
+
+//localStorage.setObject("Tue Nov 30 2021", { 'drinks': 100, 'triggers': [1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
 
 var dryDays = localStorage.getObject("dryDays");
 var limit = localStorage.getItem("limit");
 const triggersList = ["Family", "Friends", "Work", "Occasions", "Routine", "Media", "Lonliness", "Stress", "Boredom", "Pain Relief"]
-
-const dailyGoal = document.querySelector(".dailyGoal"); 
-dailyGoal.textContent = "Daily Limit of " + limit + " Drinks";
 
 //DATE STUFF
 const daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 var dates = []; //stores Date objects
 var d = new Date(); //temp variable for right now
 var selectedDate = new Date(d.getFullYear(), d.getMonth(), d.getDate()); //current day (stripped of time data);
-const numCalender = 7;
+const numCalender = 7; //controls amounts of dates displayed in scrolling calender
+
+
+//PAGE SETUP
+const dailyGoal = document.querySelector(".dailyGoal"); 
+dailyGoal.textContent = "Daily Limit of " + limit + " Drinks";
 
 for(i = 0; i < numCalender; i++){ //big loop creating the [dates] and formatting the calender
     if(dates.length == 0) { //sets today

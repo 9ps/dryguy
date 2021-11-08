@@ -1,13 +1,91 @@
-//DOM selection for content element
 const content = document.querySelector('#feedContent');
 const resourceContent = document.querySelector('#resourceContent');
 const savedContent = document.querySelector('#savedContent');
 
-//XML HTTP Request
-var request = new XMLHttpRequest();
+function loadJSON(callback) {
 
-//Open connection
-request.open("GET", "https://jsonplaceholder.typicode.com/posts");
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'UserFeedContent.json', true);
+    xobj.onreadystatechange = function() {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+
+            // .open will NOT return a value but simply returns undefined in async mode so use a callback
+            callback(xobj.responseText);
+
+        }
+    }
+    xobj.send(null);
+}
+
+// Call to function with anonymous callback
+loadJSON(function(response) {
+    // Do Something with the response e.g.
+    jsonresponse = JSON.parse(response);
+
+    // Assuming json data is wrapped in square brackets as Drew suggests
+    jsonresponse.forEach(post => {
+        console.log(post);
+        //DOM creation for HTML elements
+        //Create card div element
+        let card = document.createElement('div');
+        card.setAttribute("class", "card")
+
+        //Create profile image
+        let dp = document.createElement('img');
+        dp.setAttribute("class", "smalldp");
+        dp.src = "profile_picture.jpg";
+        //dp.onclick = openProfile();
+
+        //Create title username element
+        let heading = document.createElement('h2');
+        heading.textContent = post.username;
+
+        //Create date element
+        let date = document.createElement('h4');
+        date.textContent = post.date;
+
+        //create save button
+        let saveID = post.id + 'save';
+        let save = document.createElement('button');
+        save.setAttribute('saveID', saveID);
+        save.setAttribute('class', 'saveBtn');
+        save.textContent = "Save";
+
+        //Create body p element
+        let title = document.createElement('h3');
+        title.textContent = post.title;
+
+        let description = document.createElement('p');
+        description.textContent = post.post;
+
+        //create like & replies buttons
+        let likeID = post.id + 'like'
+        let btn = document.createElement('button');
+        btn.setAttribute('id', likeID);
+        btn.textContent = post.likes + " likes";
+
+        let replies = document.createElement('button');
+        replies.setAttribute('id', 'repliesBtn');
+        replies.textContent = post.replies + " replies";
+
+        //Append the text elements to the card element
+        card.appendChild(dp);
+        card.appendChild(heading);
+        card.appendChild(date);
+        card.appendChild(title);
+        card.appendChild(description);
+        card.appendChild(btn);
+        card.appendChild(replies);
+        card.appendChild(save);
+
+        //Append the card element to the page
+        content.appendChild(card);
+        //Content population
+    });
+
+});
+
 
 let userFeed = document.getElementById('userFeedTab');
 let resources = document.getElementById('resourcesTab');
@@ -33,126 +111,74 @@ saved.addEventListener("click", function() {
 });
 
 
-//Handling response
-request.onload = function() {
-    let data = JSON.parse(this.response);
+function loadJSON2(callback) {
 
-    if (request.status >= 200 && request.status < 400) {
-        //console.log(data);
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'BlogContent.json', true);
+    xobj.onreadystatechange = function() {
+        if (xobj.readyState == 4 && xobj.status == "200") {
 
-        data.forEach(function(post) {
-            //DOM creation for HTML elements
-            //Create card div element
-            let card = document.createElement('div');
-            card.setAttribute("class", "card")
+            // .open will NOT return a value but simply returns undefined in async mode so use a callback
+            callback(xobj.responseText);
 
-            //Create profile image
-            let dp = document.createElement('img');
-            dp.setAttribute("class", "smalldp");
-            dp.src = "profile_picture.jpg";
-            //dp.onclick = openProfile();
-
-            //Create title username element
-            let heading = document.createElement('h2');
-            heading.textContent = "username" + post.id;
-
-            //Create date element
-            let date = document.createElement('h2');
-            date.textContent = "date" + post.id;
-
-            //create save button
-            let saveID = post.id + 'save';
-            let save = document.createElement('button');
-            save.setAttribute('id', saveID);
-            save.textContent = "Save";
-
-            //Create body p element
-            let description = document.createElement('p');
-            description.textContent = post.body;
-
-            //create like & replies buttons
-            let likeID = post.id + 'like'
-            let btn = document.createElement('button');
-            btn.setAttribute('id', likeID);
-            btn.textContent = "Like";
-
-            let replies = document.createElement('button');
-            replies.setAttribute('id', 'repliesBtn');
-            replies.textContent = "View replies";
-
-            //Append the text elements to the card element
-            card.appendChild(dp);
-            card.appendChild(heading);
-            card.appendChild(date);
-            card.appendChild(save);
-            card.appendChild(description);
-            card.appendChild(btn);
-            card.appendChild(replies);
-
-            //Append the card element to the page
-            content.appendChild(card);
-            //Content population
-            btn.addEventListener("click", function() {
-                addLike(likeID);
-            });
-            save.addEventListener("click", function() {
-                let key = 'savedPosts';
-                var value = this.parentNode.querySelector('h2').textContent;
-                //add the favourite to the localstorage
-                //localStorage.setItem(key, value);
-                //console.log(key,value);
-
-                let exists = false;
-                for (let i = 0; i < localStorage.length + 1; i++) {
-                    if (localStorage.getItem(localStorage.key) == value) {
-                        alert(value + " is already in your favourites!");
-                        exists = true;
-                    }
-                }
-                if (exists == false) {
-                    localStorage.setItem(key, value);
-                }
-            });
-            //Testing resource stuff (this will loop through a seperate api)
-            let card2 = document.createElement('div');
-            card2.setAttribute("class", "card")
-
-            let saveBlog = document.createElement('button');
-            saveBlog.textContent = "Save";
-
-            let title = document.createElement('h2');
-            title.textContent = post.title;
-
-            let image = document.createElement('img');
-            image.src = "blog_image.jpg";
-            image.setAttribute("class", "blogImage");
-
-            let body = document.createElement('p');
-            body.textContent = post.body;
-
-            let readBtn = document.createElement('button');
-            readBtn.textContent = "Read full post";
-
-            card2.appendChild(image);
-            card2.appendChild(title);
-            card2.appendChild(saveBlog);
-            card2.appendChild(body);
-            card2.appendChild(readBtn);
-
-
-            resourceContent.appendChild(card2);
-        })
-    } else {
-        let errorHeader = document.createElement('h1');
-        errorHeader.textContent = "Oops something went wrong!";
-        let errorMessage = document.createElement('p');
-        errorMessage.textContent = "Error: Unable to process your API request. Status: " + request.status + ". Please try again later";
-        content.appendChild(errorHeader);
-        content.appendChild(errorMessage);
+        }
     }
+    xobj.send(null);
+
 }
 
-request.send();
+// Call to function with anonymous callback
+loadJSON2(function(response) {
+    // Do Something with the response e.g.
+    jsonresponse = JSON.parse(response);
+
+    // Assuming json data is wrapped in square brackets as Drew suggests
+    jsonresponse.forEach(post => {
+        //Testing resource stuff (this will loop through a seperate api)
+        let card2 = document.createElement('div');
+        card2.setAttribute("class", "card")
+
+        let saveID = post.id + "savePost";
+        let saveBlog = document.createElement('button');
+        saveBlog.setAttribute('saveID', saveID);
+        saveBlog.setAttribute('class', 'saveBtn');
+        saveBlog.textContent = "Save";
+
+        let author = document.createElement('h2');
+        author.textContent = post.author;
+
+        let date = document.createElement('h4');
+        date.textContent = post.date;
+
+        let title = document.createElement('h3');
+        title.textContent = post.title;
+
+        let image = document.createElement('img');
+        image.src = "blog_image.jpg";
+        image.setAttribute("class", "blogImage");
+
+        let body = document.createElement('p');
+        body.textContent = post.summary;
+
+        let readBtn = document.createElement('button');
+        readBtn.textContent = "Read full post";
+
+        card2.appendChild(image);
+        card2.appendChild(author);
+        card2.appendChild(date);
+        card2.appendChild(title);
+        card2.appendChild(body);
+        card2.appendChild(readBtn);
+        card2.appendChild(saveBlog);
+
+
+        resourceContent.appendChild(card2);
+
+    });
+
+});
+
 
 
 //function to switch between tabs
@@ -213,7 +239,8 @@ closeBtn.addEventListener("click", function() {
 
 let profile = document.getElementById('profileContent')
 
-function openProfile() {
+function openProfile(displayUser) {
+    document.getElementById('username').textContent = displayUser;
     profile.classList.remove("hidden");
     document.getElementById('feedContent').classList.add("hidden");
     document.getElementById('feedContent').classList.add("hidden");

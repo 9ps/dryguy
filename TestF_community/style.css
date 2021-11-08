@@ -61,6 +61,17 @@ nav li {
     display: inline;
 }
 
+h3 {
+    text-align: center;
+}
+
+h4 {
+    float: right;
+    font-size: 12px;
+    color: var(--w4);
+    margin: 7px;
+}
+
 nav ul {
     padding-left: 5px;
 }
@@ -114,7 +125,8 @@ nav ul {
 
 .card h2 {
     display: inline;
-    font-size: large;
+    font-size: 16px;
+    color: var(--w4);
 }
 
 .card h4 {
@@ -122,7 +134,7 @@ nav ul {
 }
 
 .card p {
-    padding: 0 2em;
+    padding-left: 10px;
     margin: 0;
 }
 
@@ -141,7 +153,6 @@ button:hover {
     background-color: white;
 }
 
-#saveBtn,
 .right {
     float: right;
 }

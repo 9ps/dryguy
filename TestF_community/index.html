@@ -17,7 +17,7 @@
 
     <header>
         <h1>Community</h1>
-        <img id="profpic" src="profile_picture.jpg" onclick="openProfile()">
+        <img id="profpic" src="profile_picture.jpg" onclick="openProfile('Ricky')">
         <nav>
             <div class="navbar">
                 <ul>
@@ -58,11 +58,11 @@
                     <span class="material-icons md-36">settings</span>
                 </a>
 
-                <h1>Your Profile</h1>
+                <h1>Profile</h1>
                 <img id="mainPic" src="profile_picture.jpg">
 
             </div>
-            <h1>Ricky</h1>
+            <h1 id="username"></h1>
             <p>Bankstown born and bred!</p>
             <button class="switchBtn" id="userPostsBtn">Posts</button>
             <button class="switchBtn" id="userChallengeBtn">Challenge Showcase</button>

@@ -141,7 +141,7 @@ function updatePage(){ //this sets the page
 //LOG MODAL
 const logModal = document.querySelector("#logModal");
 const logButton = document.querySelector(".logButton");
-const closeButton = document.querySelector("#closeButton");
+const logCloseButton = document.querySelector("#logCloseButton");
 const save = document.querySelector(".save");
 
 logButton.onclick = function() {
@@ -162,7 +162,7 @@ function openLog(){
 	}
 }
 
-closeButton.onclick = function() {
+logCloseButton.onclick = function() {
 	logModal.style.display = "none";
 }
 
@@ -231,7 +231,6 @@ const reflectionButton = document.querySelector("#reflectionButton");
 const reflectionCloseButton = document.querySelector(".reflectionCloseButton");
 const hideReflection = document.querySelector(".hideReflection");
 const reflection = document.querySelector(".reflection");
-
 
 reflection1.style.display = "none";
 reflection2.style.display = "none";

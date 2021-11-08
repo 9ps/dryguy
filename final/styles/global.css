@@ -36,122 +36,6 @@
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
-/* home CSS */
-
-#top {
-    background-color: var(--y1);
-}
-
-#datesScroll {
-    overflow-y: hidden;
-    white-space: nowrap;
-}
-
-/*active these if you want it to not show scrollbar */
-
-/* .datesScroll::-webkit-scrollbar {
-    display: none;
-  }  */
-
-
-.dayCactus {
-    font-size: 18pt;
-}
-
-.date {
-    text-align: center;
-    display: inline-block;
-    padding: 0 0.25em 0.25em 0.25em;
-    font-size: 12pt;
-}
-
-.dateText {
-    padding: 0.5em;
-    border-radius: 1000px;
-    background-color: white;
-    text-align: center;
-    font-size: 18pt;
-    width: 35px;
-    height: 35px;
-    /* background-color: var(--w2); */
-    /* if we ever implement inactive days */
-}
-
-.dateTextOver {
-    background-color: var(--r1);
-}
-
-.dateTextUnder {
-    background-color: var(--g1);
-}
-
-.dateTextActive {
-    padding-bottom: 1em;
-    border-radius: 1000px 1000px 0px 0px;
-    background-color: white;
-    text-align: center;
-    font-size: 18pt;
-}
-
-#logModalContent {
-    margin: auto;
-    padding: 20px;
-    width: 80%;
-    border-radius: 2em;
-    background-color: var(--y1);
-}
-
-#drinkDisplay {
-    background-color: white;
-    padding: 0.5em;
-    padding: 0.5em 3em 0.5em 3em;
-    font-size: 18pt;
-    border-radius: 100px;
-}
-
-.triggerDisplay {
-    display: inline-block;
-    background-color: var(--w2);
-    border-radius: 1000px;
-    padding: 0.25em 1em 0.25em 1em;
-    margin: 0.25em;
-    font-size: 12pt;
-}
-
-#logDisplay {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#emotionSelector {
-    margin: 1em;
-}
-
-.emotionActive{
-    background-color: white;
-}
-
-.emotionInactive {
-    border-radius: 1000px;
-    padding: 0.1em;
-    font-size: 28pt;
-}
-
-.summaryCard {
-    padding: 1em;
-    border-radius: 2em;
-    background-color: white;
-    margin: 0em 2em 0em 2em;
-}
-
-#content {
-    margin: 0 2em 0 2em;
-}
-
-#reflectionButton {
-    z-index: 1;
-}
-
 /* ---------- */
 /* components */
 /* ---------- */
@@ -192,7 +76,7 @@
 
 .trigger {
     background-color: white;
-    margin: 0.175em;
+    margin: 0.1em;
     margin-bottom: 10px;
     border-radius: 15px;
     padding: 0.5em;
@@ -226,12 +110,14 @@
 }
 
 .footer {
-    text-align:center;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    display: flex;
     position:fixed;
     bottom: 0;
-    display: flex;
     width:100%;
-    justify-content: space-around;
+    
 }
 
 .button-backing2 {
@@ -267,11 +153,9 @@
     padding: 1em;
     border-radius: 1em;
     border: 0;
-    margin: 1em;
-    width: 80%;
+    margin: 1em 2em 1em 2em;
     height: 5em;
 }
-
 /* for having 3 elements at the top (like icons, centered title) */
 .titleBar {
     display: flex;
@@ -296,29 +180,35 @@
     text-align: center;
 }
 
-.font-title {
+h1 {
     font-size: 28pt;
 }
 
-.font-bigger {
+h2 {
     font-size: 18pt;
     font-weight: bold;
 }
 
-.font-big {
+h3 {
     font-size: 18pt;
+    font-weight: normal;
 }
 
-.font-med {
-    font-size: 14pt;
+h4 {
+    font-size: 12pt;
+    font-weight: normal;
 }
+
+h5 {
+    font-size: 12pt;
+    font-weight: normal;
+    color: var(--w4);
+}
+
+/* try to use the h0 things */
 
 .font-small {
     font-size: 12pt;
-}
-
-body {
-    margin: 0;
 }
 
 * {
@@ -357,4 +247,12 @@ button {
 
 .active {
     color: var(--b1)
+}
+
+#drinkDisplay {
+    background-color: white;
+    padding: 0.5em;
+    padding: 0.5em 3em 0.5em 3em;
+    font-size: 18pt;
+    border-radius: 100px;
 }

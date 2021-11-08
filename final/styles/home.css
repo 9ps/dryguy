@@ -1,0 +1,115 @@
+/* TOP PARTS */
+
+#top {
+    background-color: var(--y1);
+}
+
+#datesScroll {
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+/*active these if you want it to not show scrollbar */
+/* .datesScroll::-webkit-scrollbar {
+    display: none;
+}  */
+
+.dayCactus {
+    font-size: 18pt;
+}
+
+.date {
+    text-align: center;
+    display: inline-block;
+    padding: 0 0.25em 0.25em 0.25em;
+    font-size: 12pt;
+}
+
+.dateText {
+    padding: 0.5em;
+    border-radius: 1000px;
+    background-color: white;
+    text-align: center;
+    font-size: 18pt;
+    width: 35px;
+    height: 35px;
+    /* background-color: var(--w2); */
+    /* if we ever implement inactive days */
+}
+
+.dateTextOver {
+    background-color: var(--r1);
+}
+
+.dateTextUnder {
+    background-color: var(--g1);
+}
+
+.dateTextActive {
+    padding-bottom: 1em;
+    border-radius: 1000px 1000px 0px 0px;
+    background-color: white;
+    text-align: center;
+    font-size: 18pt;
+}
+
+/* PAGE CONTENT */
+
+#content {
+    margin: 0 2em 0 2em;
+}
+
+#logDisplay {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* LOG STYLING */
+
+#logModalContent {
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 2em;
+    background-color: var(--y1);
+}
+
+.triggerDisplay {
+    display: inline-block;
+    background-color: var(--w2);
+    border-radius: 1000px;
+    padding: 0.25em 1em 0.25em 1em;
+    margin: 0.25em;
+    font-size: 12pt;
+}
+
+/* REFLECTION STYLING */
+
+#emotionSelector {
+    margin: 1em;
+}
+
+.emotionActive{
+    background-color: white;
+}
+
+.emotionInactive {
+    border-radius: 1000px;
+    padding: 0.1em;
+    font-size: 28pt;
+}
+
+.summaryCard {
+    padding: 1em;
+    border-radius: 2em;
+    background-color: white;
+    margin: 0em 2em 0em 2em;
+}
+
+#reflectionButton {
+    z-index: 1;
+}
+
+body {
+    margin: 0;
+}

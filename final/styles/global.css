@@ -145,6 +145,16 @@
     background-color: white;
 }
 
+.footer2 {
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 .button-backing2 {
     padding: 0.5em;
     border-radius: 0.5em;

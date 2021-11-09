@@ -48,6 +48,8 @@ function showPage() {
 
 function changePage(n) {
   
+  localStorage.setObject("data", data);
+
   if(currentPage == 1){
     data.name = nameInput.value;
   }
@@ -119,6 +121,7 @@ for (var i = 0; i < dayButtons.length; i++) {
 }
 
 function pushToStorage(){
+  console.log("pushed to storage:", data);
   localStorage.setObject("data", data);
 }
 

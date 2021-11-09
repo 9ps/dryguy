@@ -8,12 +8,12 @@ Storage.prototype.getObject = function(key) {
 }
 
 //IMPORTANT VARIABLES
-localStorage.setItem("limit", 2);
-localStorage.setObject("dryDays", [2, 4]);
 //localStorage.setObject("Tue Nov 30 2021", { 'drinks': 100, 'triggers': [1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
 
-var dryDays = localStorage.getObject("dryDays");
-var limit = localStorage.getItem("limit");
+const data = localStorage.getObject("data");
+var dryDays = data.dryDays;
+var dailyLimit = data.dailyLimit;
+
 const triggersList = ["Family", "Friends", "Work", "Occasions", "Routine", "Media", "Lonliness", "Stress", "Boredom", "Pain Relief"]
 
 //DATE STUFF
@@ -26,7 +26,7 @@ const numCalender = 14; //controls amounts of dates displayed in scrolling calen
 //PAGE SETUP
 const streakCount = document.querySelector("#streakCount"); 
 const dailyGoal = document.querySelector("#dailyGoal"); 
-dailyGoal.textContent = "Daily Limit of " + limit + " Drinks";
+dailyGoal.textContent = "Daily Limit of " + dailyLimit + " Drinks";
 
 for(var i = 0; i < numCalender; i++){ //big loop creating the [dates] and formatting the calender
 	if(dates.length == 0) { //sets today
@@ -43,12 +43,17 @@ for(var i = 0; i < numCalender; i++){ //big loop creating the [dates] and format
 	document.querySelector('#datesScroll').appendChild(dateThing);
 	
 	var isCactus = ""; //simple thing that adds cactus to Tue and Thu
-	for(j = 0; j < dryDays.length; j++){
-		if(currentDay == dryDays[j]) {
-			isCactus = "🌵";
-		}
+	// for(j = 0; j < dryDays.length; j++){
+	// 	console.log(j, currentDay, dryDays[j]);
+	// 	if(currentDay == dryDays[j]) {
+	// 		isCactus = "🌵";
+	// 	}
+	// }
+	if(dryDays[currentDay]){
+		isCactus = "🌵";
 	}
-	
+	// console.log(dates[i], currentDay);
+
 	var dayCactus = document.createElement('div');
 	dayCactus.className = 'dayCactus';
 	dayCactus.textContent = isCactus;
@@ -66,7 +71,7 @@ for(var i = 0; i < numCalender; i++){ //big loop creating the [dates] and format
 		localStorage.setObject(dates[i].toDateString(), { 'drinks': 0, 'triggers': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
 	}
 
-	var e = localStorage.getObject(dates[i].toDateString()).drinks > limit; //dictating the color
+	var e = localStorage.getObject(dates[i].toDateString()).drinks > dailyLimit; //dictating the color
 	if(e){
 		dateText.classList.add('dateTextOver');
 	} else {
@@ -196,7 +201,7 @@ function drinkAdd(){
 }
 
 //TRIGGERS
-var triggers = dayData.triggers;
+// var triggers = dayData.triggers;
 var triggerOptions = document.querySelectorAll('.trigger');
 
 for (var i = 0; i < triggerOptions.length; i++) {
@@ -292,7 +297,7 @@ reflectionButton.onclick = function() {
 	}
 
 	if(isDry == false){
-		if(dayData.drinks > limit){
+		if(dayData.drinks > dailyLimit){
 			isOver = true;
 		}
 	}

@@ -44,7 +44,7 @@
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 0; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -53,7 +53,6 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
   }
-
 
 /* bar: basic container; full: the backing; level: the width is the fullness */
 .progressBar {
@@ -138,6 +137,7 @@
 
 .navButtonActive {
     background-color: var(--g2);
+    color: var(--b1);
 }
 
 .reflection {
@@ -249,10 +249,10 @@ button {
     color: var(--b1)
 }
 
-#drinkDisplay {
+.display {
     background-color: white;
     padding: 0.5em;
-    padding: 0.5em 3em 0.5em 3em;
+    width: 50%;
     font-size: 18pt;
     border-radius: 100px;
 }

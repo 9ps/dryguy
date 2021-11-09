@@ -15,7 +15,6 @@
     <title>Onboarding</title>
 </head>
 <body>
-
     <div class="p-1"></div>
     <div class="progressBar center">
         <div class="font-small">Progress</div>
@@ -23,7 +22,6 @@
             <div class="progressLevel" id="onboardingProgress"></div>
         </div>
     </div> 
-
 
     <div id="pages">
         <div id="page1" class="page center">
@@ -34,7 +32,7 @@
         <div id="page2" class="page center">
 
             <h3>What should we call you?</h3>
-            <input type="text" class="lineInput" placeholder="Enter Given Name..."></input>
+            <input id="nameInput" type="text" class="lineInput" placeholder="Enter Given Name..."></input>
         </div>
 
         <div id="page3" class="page center">
@@ -42,26 +40,27 @@
             <h3>What do you want to do?</h3>
 
             <div id="majorGoals">
-                <div id="majorGoal1" class="majorGoal button">Track Drinking</div>
-                <div id="majorGoal2" class="majorGoal button">Control Drinking</div>
-                <div id="majorGoal3" class="majorGoal button">Reduce Drinking</div>
-                <div id="majorGoal4" class="majorGoal button">Quit Drinking</div>
-                <div id="majorGoal5" class="majorGoal button">Maintain Sobriety</div>
+                <div id="majorGoal0" class="majorGoal button">Track Drinking</div>
+                <div id="majorGoal1" class="majorGoal button">Control Drinking</div>
+                <div id="majorGoal2" class="majorGoal button">Reduce Drinking</div>
+                <div id="majorGoal3" class="majorGoal button">Quit Drinking</div>
+                <div id="majorGoal4" class="majorGoal button">Maintain Sobriety</div>
             </div>
 
         </input>
         </div>
         <div id="page4" class="page pageFull center">
 
-            <div id="page4extra" class="questionTitle">
-                <h3>Why do you want to TEXT HERE?</h3>
-                <div class="material-icons md-36 active button-backing2" style="background-color: yellowgreen;">help_outline</div>
-            </div>
+            <!-- <div id="page4extra" class="questionTitle"> -->
+                <h3 style="margin-bottom: 0;">Why do you want to</h3>
+                <h3 id="majorGoalDisplay" style="margin-top: 0;">TEXT HERE?</h3>
+                <!-- <div id="questionButton1" class="material-icons md-36 active button-backing2">help_outline</div> -->
+            <!-- </div> -->
 
             <div id="minorGoals">
-                <button id="minorGoal1" class="minorGoal trigger">Better my Health</button>
-                <button id="minorGoal2" class="minorGoal trigger">Lose Weight</button>
-                <button id="minorGoal3" class="minorGoal trigger">Sleep Better</button>
+                <button id="minorGoal0" class="minorGoal trigger">Better my Health</button>
+                <button id="minorGoal1" class="minorGoal trigger">Lose Weight</button>
+                <button id="minorGoal2" class="minorGoal trigger">Sleep Better</button>
                 <button id="minorGoal3" class="minorGoal trigger">Gain Control</button>
                 <button id="minorGoal4" class="minorGoal trigger">Cope Better</button>
                 <button id="minorGoal5" class="minorGoal trigger">Have Sober Time</button>
@@ -69,52 +68,68 @@
                 <button id="minorGoal7" class="minorGoal trigger">Save Money</button>
                 <button id="minorGoal8" class="minorGoal trigger">Improve Relationships</button>
             </div>
+
+            <!-- <div id="background1" class="background">
+                <div id="questionModal1" class="questionModal">
+                    <h3>Why Identify Reasons?</h3>
+                    <p>Understanding and defining the benefits of not drinking is important in propelling your goals in managing drinking.</p>
+                </div>
+            </div> -->
+
         </div>
         <div id="page5" class="page center">
 
-            <div class="questionTitle center">
+            <!-- <div class="questionTitle center"> -->
                 <h3>Set a Daily Limit</h3>
-                <div class="material-icons md-36 active button-backing2" style="background-color: yellowgreen;">help_outline</div>
-            </div>
+                <!-- <div id="questionButton2" class="material-icons md-36 active button-backing2">help_outline</div> -->
+            <!-- </div> -->
 
             <div class="titleBar center">
-                <div onclick="drinkSub()" class="left material-icons md-36">remove</div>
-                <span id="drinkDisplay">0</span>
-                <div onclick="drinkAdd()" class="right material-icons md-36">add</div>
+                <div onclick="changeLimit(-1)" class="left material-icons md-36">remove</div>
+                <span id="limitDisplay" class="display">0</span>
+                <div onclick="changeLimit(1)" class="right material-icons md-36">add</div>
             </div>
 
             <p>According to dietary guidelines, men should limit consumtion to less than 2 drinks per day.</p>
             <h5>(you can always change this later)</h5>
             
+            <!-- <div id="background2" class="background">
+                <div id="questionModal2" class="questionModal">
+                    <h3>Why set a Daily Limit?</h3>
+                    <p>Setting a daily limit on how many drinks you can have is an effective way to ensure safer drinking. This doesnt mean you should aim to drink this many daily, but to try not to exceed it.</p>
+                </div>
+            </div> -->
         </div>
+
         <div id="page6" class="page center">
         
             <h3>Set some "Dry Days"</h3>
 
             <div id="dayButtons">
-                <button class="dayButton" id="day1">Sun</button>
-                <button class="dayButton" id="day2">Mon</button>
-                <button class="dayButton" id="day3">Tue</button>
-                <button class="dayButton" id="day4">Wed</button>
-                <button class="dayButton" id="day5">Thu</button>
-                <button class="dayButton" id="day6">Fri</button>
-                <button class="dayButton" id="day7">Sat</button>
+                <button class="dayButton" id="day0">Sun</button>
+                <button class="dayButton" id="day1">Mon</button>
+                <button class="dayButton" id="day2">Tue</button>
+                <button class="dayButton" id="day3">Wed</button>
+                <button class="dayButton" id="day4">Thu</button>
+                <button class="dayButton" id="day5">Fri</button>
+                <button class="dayButton" id="day6">Sat</button>
             </div>
+
             <h5>Tap to Select</h5>
             <div class="p-1"></div>
             <p>Having no alcohol days is a good way to challenge yourself and reduce reliance on the drink.</p>
             <h5>(you can always change this later)</h5>
 
         </div>
-        <div id="page7" class="page center">
+        <!-- <div id="page7" class="page center">
 
             <h3>We can remind you to complete your Daily Reflection</h3>
 
-            <input id="time" type="time" value="20:00"></button>
+            <input id="time" type="time"></button>
             <h5>(you can always change this later)</h5>
             
-        </div>
-        <div id="page8" class="page center">
+        </div> -->
+        <div id="page7" class="page center">
 
             <h2>Welcome to Dry Guy</h2>
             <h3>Congrats on taking your first step!</h3>
@@ -126,9 +141,8 @@
         <div id="prevPlaceholder" class="button-hidden material-icons md-36">arrow_back</div>
         <div id="prev" class="material-icons md-36 active" onclick="changePage(-1)">arrow_back</div>
         <div id="next" class="button" onclick="changePage(1)">Next</div>
-        <a id="begin" href="home.html" class="button" style="display: none">Begin</a>
+        <a id="begin" href="home.html" class="button" style="display: none" onclick="pushToStorage()">Begin</a>
         <div class="button-hidden material-icons md-36">arrow_back</div>
-
     </footer>
 
 </body>

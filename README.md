@@ -42,6 +42,18 @@ value:
     responseC: ""
 ---
 
+key: `data`
+value:
+    name: ""
+    dryDays: [7]
+    dailyLimit: 0
+    majorGoal: 0
+    minorGoals: [9]
+
+localStorage.setObject("data", { name: "", 'dryDays': [0, 0, 0, 0, 0, 0, 0], 'dailyLimit': 0, 'majorGoal': 0, 'minorGoals': [0, 0, 0, 0, 0, 0, 0, 0] });
+
+
+
 https://stackoverflow.com/questions/3138564/looping-through-localstorage-in-html5-and-javascript
 can pull keys
 we pull dates from the assignments

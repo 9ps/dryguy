@@ -1,22 +1,21 @@
 :root {
---w1: #F3F3F6;
---w2: #E4E4EB;
---w3: #6E6F72;
---w4: #4E4E4F;
-
---b1: #2E3A59;
---r1: #EC7669;
---y1: #FDD855;
-
---g1: #A4E09D;
---g2: #EFFCF4;
+    --w1: #F3F3F6;
+    --w2: #E4E4EB;
+    --w3: #6E6F72;
+    --w4: #4E4E4F;
+    --b1: #2E3A59;
+    --r1: #EC7669;
+    --y1: #FDD855;
+    --g1: #A4E09D;
+    --g2: #EFFCF4;
 }
 
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
+    font-size: 24px;
+    /* Preferred icon size */
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -24,37 +23,64 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-  
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'liga';
 }
 
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
 
 /* ---------- */
+
+
 /* components */
+
+
 /* ---------- */
+
 
 /* pop up modal */
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 0; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 0;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
-  }
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.75);
+    /* Black w/ opacity */
+}
+
 
 /* bar: basic container; full: the backing; level: the width is the fullness */
+
 .progressBar {
     margin: 0em 2em 0em 2em;
 }
@@ -113,10 +139,10 @@
     text-align: center;
     align-items: center;
     display: flex;
-    position:fixed;
+    position: fixed;
     bottom: 0;
-    width:100%;
-    
+    width: 100%;
+    background-color: white;
 }
 
 .button-backing2 {
@@ -156,15 +182,20 @@
     margin: 1em 2em 1em 2em;
     height: 5em;
 }
+
+
 /* for having 3 elements at the top (like icons, centered title) */
+
 .titleBar {
     display: flex;
     align-items: center;
 }
 
-.left, .right {
+.left,
+.right {
     flex: 1;
 }
+
 
 /* global changes */
 
@@ -205,6 +236,7 @@ h5 {
     color: var(--w4);
 }
 
+
 /* try to use the h0 things */
 
 .font-small {
@@ -218,23 +250,23 @@ h5 {
 }
 
 .p-1 {
-    height:1em;
+    height: 1em;
 }
 
 .p-2 {
-    height:2em;
+    height: 2em;
 }
 
 .p-3 {
-    height:3em;
+    height: 3em;
 }
 
 .p-4 {
-    height:4em;
+    height: 4em;
 }
 
 .p-5 {
-    height:5em;
+    height: 5em;
 }
 
 button {

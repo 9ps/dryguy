@@ -1,0 +1,59 @@
+header {
+    background-color: var(--y1);
+    padding: 15px;
+}
+
+header h1 {
+    display: inline;
+}
+
+.right {
+    float: right;
+}
+
+h5 {
+    text-align: center;
+}
+
+button:not(.settingDays) {
+    margin: 0 auto;
+    display: block;
+}
+
+.settingDays {
+    font-size: 14px;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: var(--w1);
+    box-shadow: -1px 1px 5px var(--w4);
+    margin-bottom: 25px;
+}
+
+.selected {
+    background-color: var(--g1);
+}
+
+main {
+    margin: 20px;
+}
+
+body {
+    margin: 0;
+    padding-bottom: 200px;
+}
+
+.info {
+    background-color: var(--y1);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.info p,
+.info h3 {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}

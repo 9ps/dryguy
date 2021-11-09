@@ -1,58 +1,7 @@
-:root {
-    --w1: #F3F3F6;
-    --w2: #E4E4EB;
-    --w3: #6E6F72;
-    --w4: #4E4E4F;
-    --b1: #2E3A59;
-    --r1: #EC7669;
-    --y1: #FDD855;
-    --g1: #A4E09D;
-    --g2: #EFFCF4;
-}
-
-* {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14pt;
-}
-
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-}
-
-.material-icons.md-18 {
-    font-size: 18px;
-}
-
-.material-icons.md-24 {
-    font-size: 24px;
-}
-
-.material-icons.md-36 {
-    font-size: 36px;
-}
-
-.material-icons.md-48 {
-    font-size: 48px;
-}
-
 header {
     background-color: var(--y1);
-    padding-top: 10px;
+    padding: 10px;
+    padding-bottom: 0px;
 }
 
 header h1,
@@ -297,4 +246,8 @@ footer {
     display: block;
     background-color: var(--g1);
     padding: 5px;
+}
+
+body {
+    margin: 0;
 }

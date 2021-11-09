@@ -1,19 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
     <link href="styles/global.css" rel="stylesheet">
+    <link href="styles/settings.css" rel="stylesheet">
 
     <title>Settings</title>
 </head>
+
 <body>
-    
+    <header>
+        <h1>Settings</h1>
+        <a href="home.html"><span class="material-icons md-36 right">
+            highlight_off
+            </span></a>
+    </header>
+
+    <main>
+        <h2>Daily Drinking Limit</h2>
+        <span class="material-icons right" onclick="activate('limitInfo')">
+            help</span>
+        <button class="bigButton">2 Drinks</button>
+        <h5>Tap to change</h5>
+
+        <div class="info hidden" id="limitInfo" onclick="activate('limitInfo')">
+            <span class="material-icons right">
+                highlight_off
+                </span>
+            <h3>Daily Drinking Limit</h3>
+            <p>Information about daily limit</p>
+        </div>
+
+        <h2>Dry Days</h2>
+        <span class="material-icons right" onclick="activate('daysInfo')">
+            help</span>
+        <button id="sun" class="settingDays" onclick="select('sun')">Sun</button>
+        <button id="mon" class="settingDays" onclick="select('mon')">Mon</button>
+        <button id="tue" class="settingDays" onclick="select('tue')">Tue</button>
+        <button id="wed" class="settingDays" onclick="select('wed')">Wed</button>
+        <button id="thur" class="settingDays" onclick="select('thur')">Thur</button>
+        <button id="fri" class="settingDays" onclick="select('fri')">Fri</button>
+        <button id="sat" class="settingDays" onclick="select('sat')">Sat</button>
+
+
+        <div class="info hidden" id="daysInfo" onclick="activate('daysInfo')">
+            <span class="material-icons right">
+                highlight_off
+                </span>
+            <h3>Dry Days</h3>
+            <p>Information about dry days</p>
+        </div>
+
+        <h2>Reflection Reminder</h2>
+        <span class="material-icons right" onclick="activate('reminderInfo')">
+            help</span>
+        <button class="bigButton">8:00 pm</button>
+        <h5>Tap to change</h5>
+
+        <div class="info hidden" id="reminderInfo">
+            <span class="material-icons right" onclick="activate('reminderInfo')">
+                highlight_off
+                </span>
+            <h3>Reminder</h3>
+            <p>Information about setting reminders and reflections</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <a id="feed" class="navButton" href="feed.html">
+            <span class="material-icons md-36">public</span>
+            <div class="font-small">feed</div>
+        </a>
+
+        <a id="home" class="navButton" href="home.html">
+            <span class="material-icons md-36">home</span>
+            <div class="font-small">home</div>
+        </a>
+
+        <a id="progress" class="navButton" href="progress.html">
+            <span class="material-icons md-36">insights</span>
+            <div class="font-small">prog</div>
+        </a>
+    </footer>
+
+    <script src="scripts/settings.js"></script>
 </body>
+
 </html>

@@ -25,11 +25,11 @@ loadJSON(function(response) {
 
     // Assuming json data is wrapped in square brackets as Drew suggests
     jsonresponse.forEach(post => {
-        //console.log(post);
         //DOM creation for HTML elements
         //Create card div element
         let card = document.createElement('div');
         card.setAttribute("class", "card")
+        card.id = post.id;
 
         //Create profile image
         let dp = document.createElement('img');
@@ -54,16 +54,22 @@ loadJSON(function(response) {
 
         save.addEventListener("click", function() {
             save.classList.toggle("liked");
+
             if (save.classList.contains("liked")) {
                 save.textContent = "Saved"
-                    //let savedCard = document.createElement('div');
-                    //savedCard.setAttribute("class", "card");
-
                 savedContent.appendChild(card.cloneNode(true));
+
             } else {
+
                 save.textContent = "Save"
-                    //savedContent.removeChild(card);
-                    //console.log("unsave");
+                
+                for(i = 0; i < savedContent.children.length; i++) {
+                    if(savedContent.children[i].id == card.id) {
+                        console.log("Index:", i, "Item:", savedContent.children[i]);
+                        savedContent.children[i].remove();
+                        break;
+                    }
+                }
             }
         })
 
@@ -167,6 +173,7 @@ loadJSON2(function(response) {
         //Testing resource stuff (this will loop through a seperate api)
         let card2 = document.createElement('div');
         card2.setAttribute("class", "card")
+        card2.id = post.id;
 
         let saveID = post.id + "savePost";
         let saveBlog = document.createElement('button');
@@ -176,11 +183,22 @@ loadJSON2(function(response) {
 
         saveBlog.addEventListener("click", function() {
             saveBlog.classList.toggle("liked");
+
             if (saveBlog.classList.contains("liked")) {
                 saveBlog.textContent = "Saved"
                 savedContent.appendChild(card2.cloneNode(true));
+
             } else {
+
                 saveBlog.textContent = "Save"
+                
+                for(i = 0; i < savedContent.children.length; i++) {
+                    if(savedContent.children[i].id == card2.id) {
+                        console.log("Index:", i, "Item:", savedContent.children[i]);
+                        savedContent.children[i].remove();
+                        break;
+                    }
+                }
             }
         })
 

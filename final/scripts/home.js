@@ -43,16 +43,9 @@ for(var i = 0; i < numCalender; i++){ //big loop creating the [dates] and format
 	document.querySelector('#datesScroll').appendChild(dateThing);
 	
 	var isCactus = ""; //simple thing that adds cactus to Tue and Thu
-	// for(j = 0; j < dryDays.length; j++){
-	// 	console.log(j, currentDay, dryDays[j]);
-	// 	if(currentDay == dryDays[j]) {
-	// 		isCactus = "🌵";
-	// 	}
-	// }
 	if(dryDays[currentDay]){
 		isCactus = "🌵";
 	}
-	// console.log(dates[i], currentDay);
 
 	var dayCactus = document.createElement('div');
 	dayCactus.className = 'dayCactus';

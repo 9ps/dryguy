@@ -1,34 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
     <link href="styles/global.css" rel="stylesheet">
- 
+    <link href="styles/feed.css" rel="stylesheet">
+
     <title>Feed</title>
 </head>
+
 <body>
-    <footer class="footer">
-        <a id="feed" class="navButton navButtonActive" href="feed.html">
-            <span class="material-icons md-36">public</span>
-            <div class="font-small">feed</div>
-        </a>
+    <header>
+        <h1>Community</h1>
+        <img id="profpic" src="images/profile_picture.jpg" onclick="openProfile('Ricky')">
+        <nav>
+            <div class="navbar">
+                <ul>
+                    <li id="userFeedTab" class="active"><a>User Feed</a></li>
+                    <li id="resourcesTab"><a>Resources</a></li>
+                    <li id="savedTab"><a>Saved</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-        <a id="home" class="navButton" href="home.html">
-            <span class="material-icons md-36">home</span>
-            <div class="font-small">home</div>
-        </a>
+    <main>
+        <div class="content active" id="feedContent"></div>
+        <div class="content hidden" id="resourceContent"></div>
+        <div class="content hidden" id="savedContent"></div>
 
-        <a id="progress" class="navButton" href="progress.html">
-            <span class="material-icons md-36">insights</span>
-            <div class="font-small">prog</div>
-        </a>
-    </footer>
+        <div id="newPost" class="newPost">
+            <button id="newPostBtn">New Post</button>
+        </div>
+        <div class="hidden" id="newPostPopup">
+            <button id="closeBtn">X</button>
+            <form class="newPostForm">
+                <label for="subject">Title</label>
+                <input type="text" id="subject" name="subject"></br>
+                <label for="postBody">Post</label>
+                <textarea name="postBody" id="postBody" rows="6"></textarea></br>
+                <button id="postBtn">Post</button>
+            </form>
+        </div>
+
+        <div id="profileContent" class="hidden">
+            <div class="top">
+                <a id="backButton" class="navButton">
+                    <span class="material-icons md-36">chevron_left</span>
+                </a>
+
+                <a id="settings" class="navButton right">
+                    <span class="material-icons md-36">settings</span>
+                </a>
+
+                <h1>Profile</h1>
+                <img id="mainPic" src="images/profile_picture.jpg">
+
+            </div>
+            <h1 id="username"></h1>
+            <p>Bankstown born and bred!</p>
+            <button class="switchBtn" id="userPostsBtn">Posts</button>
+            <button class="switchBtn" id="userChallengeBtn">Challenge Showcase</button>
+        </div>
+        <footer class="footer">
+            <a id="feed" class="navButton navButtonActive" href="feed.html">
+                <span class="material-icons md-36">public</span>
+                <div class="font-small">feed</div>
+            </a>
+
+            <a id="home" class="navButton" href="home.html">
+                <span class="material-icons md-36">home</span>
+                <div class="font-small">home</div>
+            </a>
+
+            <a id="progress" class="navButton" href="progress.html">
+                <span class="material-icons md-36">insights</span>
+                <div class="font-small">prog</div>
+            </a>
+        </footer>
+        <script src="scripts/feed.js"></script>
 </body>
+
 </html>

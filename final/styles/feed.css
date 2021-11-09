@@ -1,0 +1,300 @@
+:root {
+    --w1: #F3F3F6;
+    --w2: #E4E4EB;
+    --w3: #6E6F72;
+    --w4: #4E4E4F;
+    --b1: #2E3A59;
+    --r1: #EC7669;
+    --y1: #FDD855;
+    --g1: #A4E09D;
+    --g2: #EFFCF4;
+}
+
+* {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14pt;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
+header {
+    background-color: var(--y1);
+    padding-top: 10px;
+}
+
+header h1,
+#profpic,
+nav li {
+    display: inline;
+}
+
+h3 {
+    text-align: center;
+}
+
+h4 {
+    float: right;
+    font-size: 12px;
+    color: var(--w4);
+    margin: 7px;
+}
+
+nav ul {
+    padding-left: 5px;
+}
+
+#profpic {
+    width: 50px;
+    height: 50px;
+    float: right;
+    border-radius: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.active {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 200px;
+}
+
+.card {
+    width: 100%;
+    position: relative;
+    padding: 1rem;
+    margin: 1rem;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+
+.smalldp {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.blogImage {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h2 {
+    display: inline;
+    font-size: 16px;
+    color: var(--w4);
+}
+
+.card h4 {
+    text-align: center;
+}
+
+.card p {
+    padding-left: 10px;
+    margin: 0;
+}
+
+button {
+    border-radius: 10px;
+    border: none;
+    background-color: var(--y1);
+    margin: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#newPostPopup button {
+    background-color: white;
+}
+
+.right {
+    float: right;
+}
+
+#backButton {
+    float: left;
+}
+
+#repliesBtn {
+    margin-left: 10px;
+}
+
+.liked {
+    background-color: var(--g1);
+}
+
+.hidden {
+    display: none;
+}
+
+.newPost {
+    width: 100%;
+    position: fixed;
+    bottom: 100px;
+    background-color: white;
+    padding: 10px;
+}
+
+#newPostBtn {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+#newPostPopup {
+    background-color: var(--y1);
+    width: 70%;
+    height: 45%;
+    padding: 20px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+
+#newPostPopup button {
+    padding: 10px;
+}
+
+#closeBtn {
+    float: right;
+}
+
+#postBtn {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input,
+textarea {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    padding-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.button-backing2 {
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+.button-backing {
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.navButton {
+    padding: 1em;
+    border-radius: 1em;
+    color: var(--w3);
+}
+
+.navButtonActive {
+    background-color: var(--g2);
+}
+
+#profileContent {
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+
+#profileContent h1 {
+    font-size: 26px;
+    text-align: center;
+}
+
+#profileContent p {
+    text-align: center;
+}
+
+#userSettings {
+    float: right;
+}
+
+.top {
+    background-color: var(--y1);
+}
+
+#mainPic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: var(--g1);
+    padding: 5px;
+}

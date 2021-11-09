@@ -95,6 +95,7 @@ nav ul {
 .content {
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 200px;
 }
 
 .card {
@@ -167,7 +168,6 @@ button:hover {
 
 .liked {
     background-color: var(--g1);
-    color: blue;
 }
 
 .hidden {

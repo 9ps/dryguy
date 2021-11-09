@@ -25,7 +25,7 @@ loadJSON(function(response) {
 
     // Assuming json data is wrapped in square brackets as Drew suggests
     jsonresponse.forEach(post => {
-        console.log(post);
+        //console.log(post);
         //DOM creation for HTML elements
         //Create card div element
         let card = document.createElement('div');
@@ -52,6 +52,21 @@ loadJSON(function(response) {
         save.setAttribute('class', 'saveBtn');
         save.textContent = "Save";
 
+        save.addEventListener("click", function() {
+            save.classList.toggle("liked");
+            if (save.classList.contains("liked")) {
+                save.textContent = "Saved"
+                    //let savedCard = document.createElement('div');
+                    //savedCard.setAttribute("class", "card");
+
+                savedContent.appendChild(card.cloneNode(true));
+            } else {
+                save.textContent = "Save"
+                    //savedContent.removeChild(card);
+                    //console.log("unsave");
+            }
+        })
+
         //Create body p element
         let title = document.createElement('h3');
         title.textContent = post.title;
@@ -65,9 +80,23 @@ loadJSON(function(response) {
         btn.setAttribute('id', likeID);
         btn.textContent = post.likes + " likes";
 
+        btn.addEventListener("click", function() {
+            //console.log("liked");
+            btn.classList.toggle("liked");
+            if (btn.classList.contains("liked")) {
+                btn.textContent = post.likes + 1 + " likes";
+            } else {
+                btn.textContent = post.likes + " likes";
+            }
+        })
+
         let replies = document.createElement('button');
         replies.setAttribute('id', 'repliesBtn');
         replies.textContent = post.replies + " replies";
+
+        replies.addEventListener("click", function() {
+
+        });
 
         //Append the text elements to the card element
         card.appendChild(dp);
@@ -145,6 +174,16 @@ loadJSON2(function(response) {
         saveBlog.setAttribute('class', 'saveBtn');
         saveBlog.textContent = "Save";
 
+        saveBlog.addEventListener("click", function() {
+            saveBlog.classList.toggle("liked");
+            if (saveBlog.classList.contains("liked")) {
+                saveBlog.textContent = "Saved"
+                savedContent.appendChild(card2.cloneNode(true));
+            } else {
+                saveBlog.textContent = "Save"
+            }
+        })
+
         let author = document.createElement('h2');
         author.textContent = post.author;
 
@@ -211,13 +250,6 @@ function toggleActive(elementID, activeID) {
     }
 }
 
-
-function addLike(elementID) {
-    var element = document.getElementById(elementID);
-    //console.log(element);
-    element.classList.toggle("liked");
-
-}
 
 function savePost(elementID) {
     var element = document.getElementById(elementID);

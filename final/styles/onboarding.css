@@ -1,0 +1,100 @@
+:root {
+    --w1: #F3F3F6;
+    --w2: #E4E4EB;
+    --w3: #6E6F72;
+    --w4: #4E4E4F;
+    
+    --b1: #2E3A59;
+    --r1: #EC7669;
+    --y1: #FDD855;
+    
+    --g1: #A4E09D;
+    --g2: #EFFCF4;
+    }
+
+body {
+    background-color: var(--y1);
+}
+
+.page {
+    /* margin: 0 2em 0 2em; */
+
+    background-color: aqua;
+
+    display: none;
+    position: fixed;
+    top: 50%;
+
+    /* -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); */
+
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    /* transform: translateX(-50%); */
+}
+
+.pageFull {
+    width: 100%;
+}
+
+#page4extra {
+    margin: 0 2em 0 2em;
+}
+
+#pageButtons {
+    /* position: fixed; */
+    bottom: 2em;
+}
+
+.button-hidden {
+    visibility: hidden;
+    transition-duration: 0ms;
+}
+
+.button {
+    border-radius: 1000px;
+    padding: 0.5em 2em 0.5em 2em;
+    background-color: white;
+    margin: 1em;
+}
+
+.buttonActive {
+    background-color: var(--b1);
+    color: white;
+}
+
+.lineInput {
+    padding: 1em;
+    border-radius: 1em;
+    border: 0;
+}
+
+.majorGoal {
+    display: block;   
+}
+
+.questionTitle {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dayButton {
+    border-radius: 1000px;
+    width: 3em;
+    height: 3em;
+    background-color: white;
+    margin: 0.25em;
+}
+
+.dayButtonActive {
+    background-color: var(--b1);
+    color: white;
+}
+
+#time {
+    padding: 1em;
+    border-radius: 1000px;
+    border: 0;
+}

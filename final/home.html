@@ -10,7 +10,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
 	<link href="styles/global.css" rel="stylesheet">
-
+	<link href="styles/home.css" rel="stylesheet">
 	<title>Home</title>
 </head>
 
@@ -45,7 +45,7 @@
 			<div class="p-1"></div>
 			<!-- TODO make this better -->
 			<div id="logDisplay">
-				<p id="drinksLoggedDisplay" class="font-big">if your reading this it is broken</p>
+				<h2 id="drinksLoggedDisplay">if your reading this it is broken</h2>
 				<button class="logButton material-icons md-36">add</button>
 			</div>
 
@@ -60,8 +60,8 @@
 				<div id="logModalContent">
 
 					<div class="titleBar">
-						<div id="closeButton" class="left button-backing material-icons md-24">close</div>
-						<div class="font-bigger">Track Drinks</div>
+						<div id="logCloseButton" class="left button-backing material-icons md-24">close</div>
+						<h2>Track Drinks</h2>
 						<div class="right button-backing"></div>
 					</div>
 
@@ -105,7 +105,7 @@
 
 			<div class="center">
 				<button id="reflectionButton" class="bigButton">Today's Reflection</button>
-				<p class="font-small" id="reflectionState">Reflection Completed!</p>
+				<h4 id="reflectionState">Reflection Completed!</h4>
 			</div>
 		</div>
 
@@ -132,7 +132,7 @@
 		
 		<div class="titleBar">
 			<div class="reflectionCloseButton material-icons md-24 button-backing left">close</div>
-			<div class="font-bigger">Reflection</div>
+			<h2>Reflection</h2>
 			<div class="right button-backing"></div>
 		</div>
 
@@ -148,7 +148,7 @@
 			<p class="center">Todays Log:</p>
 			
 			<div class="summaryCard">
-				<div class="reflectionDrinksLoggedDisplay center font-big">if your reading this it is broken</div>
+				<h3 class="reflectionDrinksLoggedDisplay center">if your reading this it is broken</h3>
 				<div class="p-1"></div>
 				<div>Current Triggers:</div>
 				<div class="reflectionTriggersDisplay">
@@ -178,7 +178,7 @@
 			<div class="p-2"></div>
 
 			<p>
-				<label for="response1" class="font-big">Was it hard to resist Drinking Today? Why?</label>
+				<h3>Was it hard to resist Drinking Today? Why?</h3>
 				<textarea id="response1" class="textInput" placeholder="Write a Response ..."></textarea>
 			</p>
 
@@ -189,12 +189,12 @@
 		<div class="reflection3 center">
 
 			<p>
-				<label for="response2" class="font-big">Do you think you’ll drink or stay dry tomorrow? Why?</label>
+				<h3>Do you think you’ll drink or stay dry tomorrow? Why?</h3>
 				<textarea id="response2" class="textInput" placeholder="Write a Response ..."></textarea>
 			</p>
 
 			<p>
-				<label for="response3" class="font-big">Whats something good that happened today?</label>
+				<h3>Whats something good that happened today?</h3>
 				<textarea id="response3" class="textInput" placeholder="Write a Response ..."></textarea>
 			</p>          
 

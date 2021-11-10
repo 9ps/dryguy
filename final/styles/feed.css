@@ -250,6 +250,12 @@ footer {
 
 .blogPost {
     width: 80%;
+    white-space: pre-wrap;
+}
+
+.center {
+    margin: 0 auto;
+    display: block;
 }
 
 body {

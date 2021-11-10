@@ -1,7 +1,7 @@
 const content = document.querySelector('#feedContent');
 const resourceContent = document.querySelector('#resourceContent');
 const savedContent = document.querySelector('#savedContent');
-let blogPostContent = document.getElementById('blogPost');
+
 
 function loadJSON(callback) {
 
@@ -136,14 +136,36 @@ let backButton = document.getElementById('backButton');
 userFeed.addEventListener("click", function() {
     let activeElement = document.getElementsByClassName("active");
     toggleActive('userFeedTab', activeElement);
+
+    let blogCard = document.getElementById('blogCard');
+    let blogPostContent = document.getElementById('blogPost');
+
+    if (blogCard !== null) {
+        blogPostContent.removeChild(blogCard);
+    }
 });
 resources.addEventListener("click", function() {
     let activeElement = document.getElementsByClassName("active");
     toggleActive('resourcesTab', activeElement);
+
+    let blogCard = document.getElementById('blogCard');
+    let blogPostContent = document.getElementById('blogPost');
+
+    if (blogCard !== null) {
+        blogPostContent.removeChild(blogCard);
+    }
+
 });
 saved.addEventListener("click", function() {
     let activeElement = document.getElementsByClassName("active");
     toggleActive('savedTab', activeElement);
+
+    let blogCard = document.getElementById('blogCard');
+    let blogPostContent = document.getElementById('blogPost');
+
+    if (blogCard !== null) {
+        blogPostContent.removeChild(blogCard);
+    }
 });
 
 
@@ -223,12 +245,16 @@ loadJSON2(function(response) {
         readBtn.textContent = "Read full post";
 
         readBtn.addEventListener("click", function() {
+            let blogPostContent = document.getElementById('blogPost');
+
+            blogPostContent.classList.remove("hidden");
 
             document.getElementById('feedContent').classList.add("hidden");
             document.getElementById('resourceContent').classList.add("hidden");
             document.getElementById('savedContent').classList.add("hidden");
 
             let card3 = document.createElement('div');
+            card3.setAttribute('id', 'blogCard');
             card3.setAttribute('class', 'card');
 
             let closePost = document.createElement('button');
@@ -245,9 +271,11 @@ loadJSON2(function(response) {
             })
 
             let blogPost = document.createElement('p');
+            //console.log(post.content);
             blogPost.textContent = post.content;
 
             let source = document.createElement('button');
+            source.setAttribute('class', 'center');
             source.textContent = "source";
             source.addEventListener("click", function() {
                 let url = post.source;
@@ -288,7 +316,7 @@ function toggleActive(elementID, activeID) {
     var activeElement = document.getElementById(activeID);
     //console.log(element);
     if (element == activeElement) {} else {
-        console.log(elementID);
+        //console.log(elementID);
         activeID[0].classList.toggle("active");
         element.classList.toggle("active");
         activeID[1].classList.toggle("hidden");
@@ -339,7 +367,13 @@ function openProfile(displayUser) {
     document.getElementById('feedContent').classList.add("hidden");
     document.getElementById('resourceContent').classList.add("hidden");
     document.getElementById('savedContent').classList.add("hidden");
-    blogPostContent.classList.add('hidden');
+
+    let blogCard = document.getElementById('blogCard');
+    let blogPostContent = document.getElementById('blogPost');
+
+    if (blogCard !== null) {
+        blogPostContent.removeChild(blogCard);
+    }
 };
 
 

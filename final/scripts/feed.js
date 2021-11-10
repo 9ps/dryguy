@@ -1,6 +1,7 @@
 const content = document.querySelector('#feedContent');
 const resourceContent = document.querySelector('#resourceContent');
 const savedContent = document.querySelector('#savedContent');
+let blogPostContent = document.getElementById('blogPost');
 
 function loadJSON(callback) {
 
@@ -62,9 +63,9 @@ loadJSON(function(response) {
             } else {
 
                 save.textContent = "Save"
-                
-                for(i = 0; i < savedContent.children.length; i++) {
-                    if(savedContent.children[i].id == card.id) {
+
+                for (i = 0; i < savedContent.children.length; i++) {
+                    if (savedContent.children[i].id == card.id) {
                         console.log("Index:", i, "Item:", savedContent.children[i]);
                         savedContent.children[i].remove();
                         break;
@@ -191,9 +192,9 @@ loadJSON2(function(response) {
             } else {
 
                 saveBlog.textContent = "Save"
-                
-                for(i = 0; i < savedContent.children.length; i++) {
-                    if(savedContent.children[i].id == card2.id) {
+
+                for (i = 0; i < savedContent.children.length; i++) {
+                    if (savedContent.children[i].id == card2.id) {
                         console.log("Index:", i, "Item:", savedContent.children[i]);
                         savedContent.children[i].remove();
                         break;
@@ -220,6 +221,49 @@ loadJSON2(function(response) {
 
         let readBtn = document.createElement('button');
         readBtn.textContent = "Read full post";
+
+        readBtn.addEventListener("click", function() {
+
+            document.getElementById('feedContent').classList.add("hidden");
+            document.getElementById('resourceContent').classList.add("hidden");
+            document.getElementById('savedContent').classList.add("hidden");
+
+            let card3 = document.createElement('div');
+            card3.setAttribute('class', 'card');
+
+            let closePost = document.createElement('button');
+            closePost.setAttribute('class', 'right');
+            closePost.textContent = "close";
+
+            closePost.addEventListener("click", function() {
+                blogPostContent.removeChild(card3)
+                if (resources.classList.contains("active")) {
+                    document.getElementById('resourceContent').classList.remove("hidden");
+                } else if (saved.classList.contains("active")) {
+                    document.getElementById('savedContent').classList.remove("hidden");
+                }
+            })
+
+            let blogPost = document.createElement('p');
+            blogPost.textContent = post.content;
+
+            let source = document.createElement('button');
+            source.textContent = "source";
+            source.addEventListener("click", function() {
+                let url = post.source;
+                window.open(url, '_blank').focus();
+            })
+
+            card3.appendChild(closePost);
+            card3.appendChild(author.cloneNode(true));
+            card3.appendChild(date.cloneNode(true));
+            card3.appendChild(title.cloneNode(true));
+            card3.appendChild(blogPost);
+            card3.appendChild(source);
+
+            blogPostContent.appendChild(card3);
+
+        })
 
         card2.appendChild(image);
         card2.appendChild(author);
@@ -293,8 +337,9 @@ function openProfile(displayUser) {
     document.getElementById('username').textContent = displayUser;
     profile.classList.remove("hidden");
     document.getElementById('feedContent').classList.add("hidden");
-    document.getElementById('feedContent').classList.add("hidden");
-    document.getElementById('feedContent').classList.add("hidden");
+    document.getElementById('resourceContent').classList.add("hidden");
+    document.getElementById('savedContent').classList.add("hidden");
+    blogPostContent.classList.add('hidden');
 };
 
 

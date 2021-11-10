@@ -21,6 +21,8 @@ button:not(.settingDays) {
 }
 
 .settingDays {
+    width: 37px;
+    height: 37px;
     font-size: 14px;
     margin: 2px;
     padding: 5px;

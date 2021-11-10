@@ -248,6 +248,14 @@ footer {
     padding: 5px;
 }
 
+.blogPost {
+    width: 80%;
+}
+
 body {
     margin: 0;
+}
+
+main {
+    padding-bottom: 200px;
 }

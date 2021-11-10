@@ -9,7 +9,10 @@
     white-space: nowrap;
 }
 
+
 /*active these if you want it to not show scrollbar */
+
+
 /* .datesScroll::-webkit-scrollbar {
     display: none;
 }  */
@@ -53,6 +56,7 @@
     font-size: 18pt;
 }
 
+
 /* PAGE CONTENT */
 
 #content {
@@ -63,6 +67,7 @@
     display: flex;
     justify-content: space-evenly;
 }
+
 
 /* LOG STYLING */
 
@@ -83,13 +88,14 @@
     font-size: 12pt;
 }
 
+
 /* REFLECTION STYLING */
 
 #emotionSelector {
     margin: 1em;
 }
 
-.emotionActive{
+.emotionActive {
     background-color: white;
 }
 
@@ -117,4 +123,53 @@ body {
 #dateDisplay {
     padding: 0;
     margin: 1em 0 0 0;
+}
+
+.blogImage {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h2 {
+    display: inline;
+    font-size: 16px;
+    color: var(--w4);
+}
+
+h3 {
+    text-align: center;
+}
+
+h4 {
+    float: right;
+    font-size: 12px;
+    color: var(--w4);
+    margin: 7px;
+}
+
+.card p {
+    padding-left: 10px;
+    margin: 0;
+}
+
+.card {
+    width: 90%;
+    position: relative;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+
+button {
+    border-radius: 10px;
+    border: none;
+    background-color: var(--y1);
+    margin: 5px;
 }

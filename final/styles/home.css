@@ -113,3 +113,8 @@
 body {
     margin: 0;
 }
+
+#dateDisplay {
+    padding: 0;
+    margin: 1em;
+}

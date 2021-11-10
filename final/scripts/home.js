@@ -38,7 +38,7 @@ const logButton = document.querySelector(".logButton");
 const logCloseButton = document.querySelector("#logCloseButton");
 const save = document.querySelector("#save");
 const drinkDisplay = document.querySelector('#drinkDisplay');
-
+const dateDisplay = document.querySelector('#dateDisplay');
 
 //PAGE SETUP
 
@@ -115,13 +115,7 @@ for (i = 0; i < dateTexts.length; i++) {
 }
 
 function updatePage(){ //this sets the page
-	// fullDate.textContent = selectedDate.toDateString(); //this isnt needed
-	drinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
-	
 	console.log("update page request - today:", dayId);
-	
-	// this is about having drinks
-	console.log(dayId);
 	
 	if(dayData.drinks > dailyLimit){
 		dateTexts[dayId].classList.remove('dateTextUnder');
@@ -130,6 +124,20 @@ function updatePage(){ //this sets the page
 		dateTexts[dayId].classList.remove('dateTextOver');
 		dateTexts[dayId].classList.add('dateTextUnder');			
 	}
+
+	var daysAgo;
+	if(dayId == 0) {
+		daysAgo = "Today";
+	} else if (dayId == 1){
+		daysAgo = dayId + " Day Ago";
+	} else {
+		daysAgo = dayId + " Days Ago";
+	}
+
+	dateDisplay.textContent = daysAgo; //this isnt needed
+
+
+	drinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
 
 	if(dayData.reflection) {
 		reflectionState.innerText = "Reflection Completed!";

@@ -92,6 +92,139 @@ for (var i = 0; i < numCalender; i++) { //big loop creating the [dates] and form
     dateThing.appendChild(dateText);
 }
 
+
+//ARTICLE POPULATION
+
+let todaysRead = document.getElementById('blogPost');
+
+function loadJSON(callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'files/BlogContent.json', true);
+    xobj.onreadystatechange = function() {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+
+            // .open will NOT return a value but simply returns undefined in async mode so use a callback
+            callback(xobj.responseText);
+
+        }
+    }
+    xobj.send(null);
+}
+
+// Call to function with anonymous callback
+loadJSON(function(response) {
+    // Do Something with the response e.g.
+    jsonresponse = JSON.parse(response);
+
+    // Assuming json data is wrapped in square brackets as Drew suggests
+    jsonresponse.forEach(post => {
+        //Testing resource stuff (this will loop through a seperate api)
+        let card2 = document.createElement('div');
+        card2.setAttribute("class", "card")
+        card2.id = post.id + "card";
+		// console.log(card2.id);
+        let saveID = post.id + "savePost";
+        let saveBlog = document.createElement('button');
+        saveBlog.setAttribute('saveID', saveID);
+        saveBlog.setAttribute('class', 'saveBtn');
+        saveBlog.textContent = "Save";
+
+        saveBlog.addEventListener("click", function() {
+            saveBlog.classList.toggle("liked");
+
+            if (saveBlog.classList.contains("liked")) {
+                saveBlog.textContent = "Saved"
+                savedContent.appendChild(card2.cloneNode(true));
+
+            } else {
+
+                saveBlog.textContent = "Save"
+
+                for (i = 0; i < savedContent.children.length; i++) {
+                    if (savedContent.children[i].id == card2.id) {
+                        console.log("Index:", i, "Item:", savedContent.children[i]);
+                        savedContent.children[i].remove();
+                        break;
+                    }
+                }
+            }
+        })
+
+        let author = document.createElement('h2');
+        author.textContent = post.author;
+
+        let date = document.createElement('h4');
+        date.textContent = post.date;
+
+        let title = document.createElement('h3');
+        title.textContent = post.title;
+
+        let image = document.createElement('img');
+        image.src = "images/blog_image.jpg";
+        image.setAttribute("class", "blogImage");
+
+        let body = document.createElement('p');
+        body.textContent = post.summary;
+
+        let readBtn = document.createElement('button');
+        readBtn.textContent = "Read full post";
+
+        readBtn.addEventListener("click", function() {
+            let blogPostContent = document.getElementById('blogPost');
+
+            blogPostContent.classList.remove("hidden");
+
+            let card3 = document.createElement('div');
+            card3.setAttribute('id', 'blogCard');
+            card3.setAttribute('class', 'card');
+
+            let closePost = document.createElement('button');
+            closePost.setAttribute('class', 'right');
+            closePost.textContent = "close";
+
+            closePost.addEventListener("click", function() {
+                blogPostContent.removeChild(card3)
+            })
+
+            let blogPost = document.createElement('p');
+            blogPost.textContent = post.content;
+
+            let source = document.createElement('button');
+            source.setAttribute('class', 'center');
+            source.textContent = "source";
+            source.addEventListener("click", function() {
+                let url = post.source;
+                window.open(url, '_blank').focus();
+            })
+
+            card3.appendChild(closePost);
+            card3.appendChild(author.cloneNode(true));
+            card3.appendChild(date.cloneNode(true));
+            card3.appendChild(title.cloneNode(true));
+            card3.appendChild(blogPost);
+            card3.appendChild(source);
+
+            blogPostContent.appendChild(card3);
+
+        })
+
+        card2.appendChild(image);
+        card2.appendChild(author);
+        card2.appendChild(date);
+        card2.appendChild(title);
+        card2.appendChild(body);
+        card2.appendChild(readBtn);
+        card2.appendChild(saveBlog);
+
+
+        todaysRead.appendChild(card2);
+		card2.style.display = "none";
+    });
+
+	updatePage();
+});
+
 //DATE SWITCHER
 var dateTexts = document.querySelectorAll('.dateText');
 var dayData = localStorage.getObject(dates[0].toDateString()); //this sets as current day!!
@@ -115,7 +248,7 @@ for (i = 0; i < dateTexts.length; i++) {
 }
 
 function updatePage() { //this sets the page
-    console.log("update page request - today:", dayId);
+    console.log("Update Page Called: ", dayId);
 
     if (dayData.drinks > dailyLimit) {
         dateTexts[dayId].classList.remove('dateTextUnder');
@@ -136,7 +269,6 @@ function updatePage() { //this sets the page
 
     dateDisplay.textContent = daysAgo; //this isnt needed
 
-
     drinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
 
     if (dayData.reflection) {
@@ -144,11 +276,9 @@ function updatePage() { //this sets the page
     } else {
         reflectionState.innerText = "";
     }
-
     while (triggersDisplay.lastChild) { //removes previous triggers
         triggersDisplay.removeChild(triggersDisplay.lastChild);
     }
-
     var anyTriggerCheck = false;
     for (i = 0; i < dayData.triggers.length; i++) {
         if (dayData.triggers[i] == 1) {
@@ -164,6 +294,18 @@ function updatePage() { //this sets the page
         triggerInstance.innerText = "No Triggers Yet";
         triggersDisplay.appendChild(triggerInstance);
     }
+
+	const readCards = document.querySelectorAll('.card');
+
+	try {
+		for(var i = 0; i < readCards.length; i++){
+			readCards[i].style.display = "none";
+		}
+		readCards[dayId % readCards.length].style.display = "block";
+	} catch (error) {
+		console.log("you should only see this message once");
+	}
+	
 }
 
 //LOG MODAL
@@ -220,7 +362,6 @@ for (var i = 0; i < triggerOptions.length; i++) {
         this.classList.toggle("triggerActive");
 
         dayData.triggers[this.id] = 1 - dayData.triggers[this.id];
-        console.log(dayData.triggers);
     });
 }
 
@@ -381,135 +522,3 @@ for (var i = 0; i < emotions.length; i++) {
     });
 }
 
-//ARTICLE POPULATION
-
-let todaysRead = document.getElementById('blogPost');
-
-function loadJSON(callback) {
-
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'files/BlogContent.json', true);
-    xobj.onreadystatechange = function() {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-
-            // .open will NOT return a value but simply returns undefined in async mode so use a callback
-            callback(xobj.responseText);
-
-        }
-    }
-    xobj.send(null);
-}
-
-// Call to function with anonymous callback
-loadJSON(function(response) {
-    // Do Something with the response e.g.
-    jsonresponse = JSON.parse(response);
-
-    // Assuming json data is wrapped in square brackets as Drew suggests
-    jsonresponse.forEach(post => {
-        //Testing resource stuff (this will loop through a seperate api)
-        let card2 = document.createElement('div');
-        card2.setAttribute("class", "card")
-        card2.id = post.id;
-
-        let saveID = post.id + "savePost";
-        let saveBlog = document.createElement('button');
-        saveBlog.setAttribute('saveID', saveID);
-        saveBlog.setAttribute('class', 'saveBtn');
-        saveBlog.textContent = "Save";
-
-        saveBlog.addEventListener("click", function() {
-            saveBlog.classList.toggle("liked");
-
-            if (saveBlog.classList.contains("liked")) {
-                saveBlog.textContent = "Saved"
-                savedContent.appendChild(card2.cloneNode(true));
-
-            } else {
-
-                saveBlog.textContent = "Save"
-
-                for (i = 0; i < savedContent.children.length; i++) {
-                    if (savedContent.children[i].id == card2.id) {
-                        console.log("Index:", i, "Item:", savedContent.children[i]);
-                        savedContent.children[i].remove();
-                        break;
-                    }
-                }
-            }
-        })
-
-        let author = document.createElement('h2');
-        author.textContent = post.author;
-
-        let date = document.createElement('h4');
-        date.textContent = post.date;
-
-        let title = document.createElement('h3');
-        title.textContent = post.title;
-
-        let image = document.createElement('img');
-        image.src = "images/blog_image.jpg";
-        image.setAttribute("class", "blogImage");
-
-        let body = document.createElement('p');
-        body.textContent = post.summary;
-
-        let readBtn = document.createElement('button');
-        readBtn.textContent = "Read full post";
-
-        readBtn.addEventListener("click", function() {
-            let blogPostContent = document.getElementById('blogPost');
-
-            blogPostContent.classList.remove("hidden");
-
-            let card3 = document.createElement('div');
-            card3.setAttribute('id', 'blogCard');
-            card3.setAttribute('class', 'card');
-
-            let closePost = document.createElement('button');
-            closePost.setAttribute('class', 'right');
-            closePost.textContent = "close";
-
-            closePost.addEventListener("click", function() {
-                blogPostContent.removeChild(card3)
-            })
-
-            let blogPost = document.createElement('p');
-            //console.log(post.content);
-            blogPost.textContent = post.content;
-
-            let source = document.createElement('button');
-            source.setAttribute('class', 'center');
-            source.textContent = "source";
-            source.addEventListener("click", function() {
-                let url = post.source;
-                window.open(url, '_blank').focus();
-            })
-
-            card3.appendChild(closePost);
-            card3.appendChild(author.cloneNode(true));
-            card3.appendChild(date.cloneNode(true));
-            card3.appendChild(title.cloneNode(true));
-            card3.appendChild(blogPost);
-            card3.appendChild(source);
-
-            blogPostContent.appendChild(card3);
-
-        })
-
-        card2.appendChild(image);
-        card2.appendChild(author);
-        card2.appendChild(date);
-        card2.appendChild(title);
-        card2.appendChild(body);
-        card2.appendChild(readBtn);
-        card2.appendChild(saveBlog);
-
-
-        todaysRead.appendChild(card2);
-
-
-    });
-});

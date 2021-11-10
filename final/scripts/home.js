@@ -158,8 +158,7 @@ loadJSON(function(response) {
         date.setAttribute('class', 'dateh4');
         date.textContent = post.date;
 
-        let title = document.createElement('p');
-        title.setAttribute('class', 'titlep');
+        let title = document.createElement('h3');
         title.textContent = post.title;
 
         let image = document.createElement('img');

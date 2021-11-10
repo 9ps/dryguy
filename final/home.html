@@ -68,9 +68,9 @@
 					<div class="p-1"></div>
 					<label>Amount of Standard Drinks:</label>
 					<div class="titleBar center">
-						<div onclick="drinkSub()" class="left material-icons md-36">remove</div>
+						<div onclick="changeDrinks(-1)" class="left material-icons md-36">remove</div>
 						<span id="drinkDisplay" class="display">0</span>
-						<div onclick="drinkAdd()" class="right material-icons md-36">add</div>
+						<div onclick="changeDrinks(1)" class="right material-icons md-36">add</div>
 					</div>
 
 					<div class="p-1"></div>
@@ -90,7 +90,7 @@
 					
 					<div class="p-1"></div>
 					<div class="center">
-						<button class="save bigButton wb">Save</button>
+						<button id="save" class="bigButton wb">Save</button>
 					</div>
 
 				</div>

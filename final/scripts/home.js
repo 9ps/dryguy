@@ -10,22 +10,38 @@ Storage.prototype.getObject = function(key) {
 //IMPORTANT VARIABLES
 //localStorage.setObject("Tue Nov 30 2021", { 'drinks': 100, 'triggers': [1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
 
-const data = localStorage.getObject("data");
+let data = localStorage.getObject("data");
+if(data == null) { //if onboarding not complete
+	console.log("no Data, fallback");
+	localStorage.setObject("data", { name: "Ricky", 'dryDays': [0, 0, 1, 0, 1, 0, 0], 'dailyLimit': 2, 'majorGoal': 3, 'minorGoals': [1, 1, 1, 1, 0, 0, 0, 0] });
+	let data = localStorage.getObject("data");
+}
 var dryDays = data.dryDays;
 var dailyLimit = data.dailyLimit;
+var dayId = 0;
 
 const triggersList = ["Family", "Friends", "Work", "Occasions", "Routine", "Media", "Lonliness", "Stress", "Boredom", "Pain Relief"]
-
-//DATE STUFF
 const daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 var dates = []; //stores Date objects
 var d = new Date(); //temp variable for right now
 var selectedDate = new Date(d.getFullYear(), d.getMonth(), d.getDate()); //current day (stripped of time data);
 const numCalender = 14; //controls amounts of dates displayed in scrolling calender
 
-//PAGE SETUP
 const streakCount = document.querySelector("#streakCount"); 
 const dailyGoal = document.querySelector("#dailyGoal"); 
+const drinksLoggedDisplay = document.querySelector('#drinksLoggedDisplay');
+const triggersDisplay = document.querySelector('#triggersDisplay');
+const reflectionState = document.querySelector("#reflectionState");
+
+const logModal = document.querySelector("#logModal");
+const logButton = document.querySelector(".logButton");
+const logCloseButton = document.querySelector("#logCloseButton");
+const save = document.querySelector("#save");
+const drinkDisplay = document.querySelector('#drinkDisplay');
+
+
+//PAGE SETUP
+
 dailyGoal.textContent = "Daily Limit of " + dailyLimit + " Drinks";
 
 for(var i = 0; i < numCalender; i++){ //big loop creating the [dates] and formatting the calender
@@ -77,10 +93,6 @@ for(var i = 0; i < numCalender; i++){ //big loop creating the [dates] and format
 }    
 
 //DATE SWITCHER
-const drinksLoggedDisplay = document.querySelector('#drinksLoggedDisplay');
-const triggersDisplay = document.querySelector('#triggersDisplay');
-const reflectionState = document.querySelector("#reflectionState");
-
 var dateTexts = document.querySelectorAll('.dateText');
 var dayData = localStorage.getObject(dates[0].toDateString()); //this sets as current day!!
 dateTexts[0].classList.add('dateTextActive');
@@ -90,14 +102,14 @@ for (i = 0; i < dateTexts.length; i++) {
 	dateTexts[i].addEventListener('click', function() {
 		selectedDate = dates[this.id]; //this is important
 		console.log("Selected Calender Date: ", selectedDate.toDateString());
-		
-		for(i = 0; i < dateTexts.length; i++) {
-			dateTexts[i].classList.remove('dateTextActive');
+		dayId = this.id;
+
+		for(j = 0; j < dateTexts.length; j++) {
+			dateTexts[j].classList.remove('dateTextActive');
 		}
 		this.classList.add('dateTextActive');
 
 		dayData = localStorage.getObject(selectedDate.toDateString());
-
 		updatePage();
 	});
 }
@@ -106,7 +118,19 @@ function updatePage(){ //this sets the page
 	// fullDate.textContent = selectedDate.toDateString(); //this isnt needed
 	drinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
 	
-	console.log("update page request");
+	console.log("update page request - today:", dayId);
+	
+	// this is about having drinks
+	console.log(dayId);
+	
+	if(dayData.drinks > dailyLimit){
+		dateTexts[dayId].classList.remove('dateTextUnder');
+		dateTexts[dayId].classList.add('dateTextOver');
+	} else {
+		dateTexts[dayId].classList.remove('dateTextOver');
+		dateTexts[dayId].classList.add('dateTextUnder');			
+	}
+
 	if(dayData.reflection) {
 		reflectionState.innerText = "Reflection Completed!";
 	} else {
@@ -132,22 +156,14 @@ function updatePage(){ //this sets the page
 		triggerInstance.innerText = "No Triggers Yet";
 		triggersDisplay.appendChild(triggerInstance);
 	}
-
-	//triggers
 }
 
 //LOG MODAL
-const logModal = document.querySelector("#logModal");
-const logButton = document.querySelector(".logButton");
-const logCloseButton = document.querySelector("#logCloseButton");
-const save = document.querySelector(".save");
-
 logButton.onclick = function() {
 	openLog();
 }
 
 function openLog(){
-	
 	logModal.style.display = "block";
 	drinkDisplay.textContent = dayData.drinks; //sets the content [?do we need exception handling]
 
@@ -178,23 +194,15 @@ save.onclick = function() {
 }
 
 //DRINK COUNTING
-const drinkDisplay = document.querySelector('#drinkDisplay');
-
-function drinkSub(){
-	if(dayData.drinks <= 0){
+function changeDrinks(n){
+	if(dayData.drinks <= 0 && n == -1){
 		return;
 	}
-	dayData.drinks -= 1;
-	drinkDisplay.textContent = dayData.drinks;
-}
-
-function drinkAdd(){
-	dayData.drinks += 1;
+	dayData.drinks += n;
 	drinkDisplay.textContent = dayData.drinks;
 }
 
 //TRIGGERS
-// var triggers = dayData.triggers;
 var triggerOptions = document.querySelectorAll('.trigger');
 
 for (var i = 0; i < triggerOptions.length; i++) {
@@ -237,7 +245,6 @@ reflection3.style.display = "none";
 const next1 = document.querySelector(".next1");
 const next2 = document.querySelector(".next2");
 const next3 = document.querySelector(".next3");
-
 
 reflectionButton.onclick = function() {
 	reflectionProgress.style.width = "0%";

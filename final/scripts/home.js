@@ -123,7 +123,7 @@ loadJSON(function(response) {
         let card2 = document.createElement('div');
         card2.setAttribute("class", "card")
         card2.id = post.id + "card";
-		// console.log(card2.id);
+        // console.log(card2.id);
         let saveID = post.id + "savePost";
         let saveBlog = document.createElement('button');
         saveBlog.setAttribute('saveID', saveID);
@@ -191,7 +191,7 @@ loadJSON(function(response) {
             blogPost.textContent = post.content;
 
             let source = document.createElement('button');
-            source.setAttribute('class', 'center');
+            source.setAttribute('class', 'centerBtn');
             source.textContent = "source";
             source.addEventListener("click", function() {
                 let url = post.source;
@@ -219,10 +219,10 @@ loadJSON(function(response) {
 
 
         todaysRead.appendChild(card2);
-		card2.style.display = "none";
+        card2.style.display = "none";
     });
 
-	updatePage();
+    updatePage();
 });
 
 //DATE SWITCHER
@@ -295,17 +295,17 @@ function updatePage() { //this sets the page
         triggersDisplay.appendChild(triggerInstance);
     }
 
-	const readCards = document.querySelectorAll('.card');
+    const readCards = document.querySelectorAll('.card');
 
-	try {
-		for(var i = 0; i < readCards.length; i++){
-			readCards[i].style.display = "none";
-		}
-		readCards[dayId % readCards.length].style.display = "block";
-	} catch (error) {
-		console.log("you should only see this message once");
-	}
-	
+    try {
+        for (var i = 0; i < readCards.length; i++) {
+            readCards[i].style.display = "none";
+        }
+        readCards[dayId % readCards.length].style.display = "block";
+    } catch (error) {
+        console.log("you should only see this message once");
+    }
+
 }
 
 //LOG MODAL
@@ -521,4 +521,3 @@ for (var i = 0; i < emotions.length; i++) {
         console.log("dayData Emotion: ", dayData.emotion);
     });
 }
-

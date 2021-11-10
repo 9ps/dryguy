@@ -1,0 +1,30 @@
+header {
+    background-color: var(--y1);
+    padding: 20px;
+    padding-bottom: 0px;
+}
+
+.right {
+    float: right;
+    padding: 0;
+}
+
+header h1,
+#profpic,
+nav li {
+    display: inline;
+}
+
+body {
+    margin: 0;
+}
+
+#profpic {
+    width: 50px;
+    height: 50px;
+    float: right;
+    border-radius: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}

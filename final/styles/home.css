@@ -149,11 +149,7 @@ h3 {
     margin: 7px;
 }
 
-.right {
-    float: right;
-}
-
-.center {
+.centerBtn {
     margin: 0 auto;
     display: block;
 }

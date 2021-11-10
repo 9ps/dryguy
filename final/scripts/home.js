@@ -444,6 +444,7 @@ loadJSON(function(response) {
         author.textContent = post.author;
 
         let date = document.createElement('h4');
+        date.setAttribute("class", "dateh4");
         date.textContent = post.date;
 
         let title = document.createElement('h3');

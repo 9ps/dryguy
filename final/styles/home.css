@@ -149,9 +149,19 @@ h4 {
     margin: 7px;
 }
 
+.right {
+    float: right;
+}
+
+.center {
+    margin: 0 auto;
+    display: block;
+}
+
 .card p {
     padding-left: 10px;
     margin: 0;
+    white-space: pre-wrap;
 }
 
 .card {
@@ -171,5 +181,5 @@ button {
     border-radius: 10px;
     border: none;
     background-color: var(--y1);
-    margin: 5px;
+    margin: 10px;
 }

@@ -202,6 +202,7 @@ loadJSON2(function(response) {
         let saveBlog = document.createElement('button');
         saveBlog.setAttribute('saveID', saveID);
         saveBlog.setAttribute('class', 'saveBtn');
+        saveBlog.setAttribute('class', 'center');
         saveBlog.textContent = "Save";
 
         saveBlog.addEventListener("click", function() {
@@ -241,10 +242,7 @@ loadJSON2(function(response) {
         let body = document.createElement('p');
         body.textContent = post.summary;
 
-        let readBtn = document.createElement('button');
-        readBtn.textContent = "Read full post";
-
-        readBtn.addEventListener("click", function() {
+        card2.addEventListener("click", function() {
             let blogPostContent = document.getElementById('blogPost');
 
             blogPostContent.classList.remove("hidden");
@@ -298,7 +296,6 @@ loadJSON2(function(response) {
         card2.appendChild(date);
         card2.appendChild(title);
         card2.appendChild(body);
-        card2.appendChild(readBtn);
         card2.appendChild(saveBlog);
 
 

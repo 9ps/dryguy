@@ -138,7 +138,8 @@ body {
     color: var(--w4);
 }
 
-h3 {
+h3,
+.titlep {
     text-align: center;
 }
 
@@ -149,7 +150,12 @@ h3 {
     margin: 7px;
 }
 
-.centerBtn {
+.right {
+    float: right;
+}
+
+.centerBtn,
+.saveBtn {
     margin: 0 auto;
     display: block;
 }

@@ -155,23 +155,21 @@ loadJSON(function(response) {
         author.textContent = post.author;
 
         let date = document.createElement('h4');
+        date.setAttribute('class', 'dateh4');
         date.textContent = post.date;
 
-        let title = document.createElement('h3');
+        let title = document.createElement('p');
+        title.setAttribute('class', 'titlep');
         title.textContent = post.title;
 
         let image = document.createElement('img');
         image.src = "images/blog_image.jpg";
         image.setAttribute("class", "blogImage");
 
-        let body = document.createElement('p');
-        body.textContent = post.summary;
-
-        let readBtn = document.createElement('button');
-        readBtn.textContent = "Read full post";
-
-        readBtn.addEventListener("click", function() {
+        card2.addEventListener("click", function() {
             let blogPostContent = document.getElementById('blogPost');
+
+            //document.getElementById('content').style.display = "none";
 
             blogPostContent.classList.remove("hidden");
 
@@ -213,8 +211,6 @@ loadJSON(function(response) {
         card2.appendChild(author);
         card2.appendChild(date);
         card2.appendChild(title);
-        card2.appendChild(body);
-        card2.appendChild(readBtn);
         card2.appendChild(saveBlog);
 
 

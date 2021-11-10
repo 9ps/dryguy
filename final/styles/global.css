@@ -246,6 +246,11 @@ h5 {
     color: var(--w4);
 }
 
+h6 {
+    font-size: 12pt;
+    font-weight: bold;
+    margin: 0;
+}
 
 /* try to use the h0 things */
 

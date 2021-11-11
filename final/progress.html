@@ -41,26 +41,29 @@
                 <span class="material-icons inline md-36">
                 chevron_left
                 </span>
-                <h4 class="inline">September 2021</h4>
+                <h4 class="inline">October 2021</h4>
                 <span class="material-icons inline md-36">
                 chevron_right
                 </span>
             </ul>
             <h4>My Goal:</h4>
-            <h4>Daily limit of <strong>2</strong> drinks</h4>
+            <h4 id="dailyGoal"></h4>
             <h2>Average Daily drinks</h2>
-            <button class="average">1.6</button>
+            <button id="averageDrinks" class="average">1.6</button>
             <h5 class="right">Lower than last month!</h5>
             <h2>Most Tracked Emotion</h2>
-            <button class="average">&#128531;</button>
+            <button id="averageMood" class="average">&#128531;</button>
             <button class="right" onclick="openSupport()">Need Support?</button>
             <h2>Days Reflected</h2>
-            <button class="average">80%</button>
+            <button id="reflectPercent" class="average">80%</button>
             <h5 class="right">The key is consistency</h5>
             <h2>Common Triggers</h2>
             <button class='triggerActive'>Lonliness</button>
             <button class='triggerActive'>Work</button>
             <button class='triggerActive'>Stress</button>
+            <h2>Wettest Days</h2>
+            <h5 class="right">Days when you drink the most</h5>
+            <button class="average">Fri</button>
 
         </div>
         <div id="supportPopUp" class="hidden">
@@ -98,11 +101,12 @@
         <div class="hidden" id="reasons">
             <h4>Current</h4>
             <h2>Main Goals</h2>
-            <button class="triggerActive">Reduce Drinking</button>
+            <button id="mainGoal" class="triggerActive"></button>
             <h4>Tap to edit</h4>
             <h2>Main Reasons</h2>
-            <button class="triggerActive">Cope Better</button>
-            <button class="triggerActive">Better My Health</button>
+            <ul id="mainReasons"></ul>
+            <!-- <button class="triggerActive">Cope Better</button>
+            <button class="triggerActive">Better My Health</button> -->
             <h4>Tap to edit</h4>
         </div>
         <div class="p-5"></div>

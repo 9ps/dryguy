@@ -114,3 +114,7 @@ li button {
     background-color: var(--b1);
     color: white;
 }
+
+.triggerActive {
+    margin: 5px;
+}

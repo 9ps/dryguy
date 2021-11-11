@@ -1,19 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <link href="styles.css" rel="stylesheet">
+
+    <link href="styles/global.css" rel="stylesheet">
+    <link href="styles/profile.css" rel="stylesheet">
 
     <title>Profile</title>
 </head>
+
 <body>
-    
+    <main>
+        <div class="top">
+            <a id="backButton" class="navButton">
+                <span class="material-icons md-36">chevron_left</span>
+            </a>
+
+            <a id="settings" class="navButton right" href="settings.html">
+                <span class="material-icons md-36">settings</span>
+            </a>
+
+            <h1>Profile</h1>
+            <img id="mainPic" src="images/profile_picture.jpg">
+
+        </div>
+        <h1 id="username"></h1>
+        <p>Bankstown born and bred!</p>
+        <ul>
+            <li><button class="activeList" id="userPostsBtn">Posts</button></li>
+            <li><button id="userChallengeBtn">Challenge Showcase</button></li>
+        </ul>
+    </main>
+    <footer class="footer">
+        <a id="feed" class="navButton" href="feed.html">
+            <span class="material-icons md-36 active">public</span>
+            <div class="font-small">feed</div>
+        </a>
+
+        <a id="home" class="navButton" href="home.html">
+            <span class="material-icons md-36">home</span>
+            <div class="font-small">home</div>
+        </a>
+
+        <a id="progress" class="navButton" href="progress.html">
+            <span class="material-icons md-36">insights</span>
+            <div class="font-small">prog</div>
+        </a>
+    </footer>
 </body>
+
 </html>

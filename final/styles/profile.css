@@ -1,0 +1,53 @@
+.top {
+    background-color: var(--y1);
+}
+
+#mainPic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: var(--g1);
+    padding: 5px;
+}
+
+.right {
+    float: right;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+body {
+    margin: 0px;
+}
+
+ul {
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    display: inline;
+}
+
+li button {
+    border-radius: 20px;
+    height: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--w2);
+}
+
+.activeList {
+    background-color: var(--b1);
+    color: white;
+}

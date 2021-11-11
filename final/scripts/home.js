@@ -124,32 +124,6 @@ loadJSON(function(response) {
         card2.setAttribute("class", "card")
         card2.id = post.id + "card";
         // console.log(card2.id);
-        let saveID = post.id + "savePost";
-        let saveBlog = document.createElement('button');
-        saveBlog.setAttribute('saveID', saveID);
-        saveBlog.setAttribute('class', 'saveBtn');
-        saveBlog.textContent = "Save";
-
-        saveBlog.addEventListener("click", function() {
-            saveBlog.classList.toggle("liked");
-
-            if (saveBlog.classList.contains("liked")) {
-                saveBlog.textContent = "Saved"
-                savedContent.appendChild(card2.cloneNode(true));
-
-            } else {
-
-                saveBlog.textContent = "Save"
-
-                for (i = 0; i < savedContent.children.length; i++) {
-                    if (savedContent.children[i].id == card2.id) {
-                        console.log("Index:", i, "Item:", savedContent.children[i]);
-                        savedContent.children[i].remove();
-                        break;
-                    }
-                }
-            }
-        })
 
         let author = document.createElement('h2');
         author.textContent = post.author;
@@ -216,7 +190,6 @@ loadJSON(function(response) {
         card2.appendChild(author);
         card2.appendChild(date);
         card2.appendChild(title);
-        card2.appendChild(saveBlog);
 
 
         todaysRead.appendChild(card2);
@@ -312,6 +285,7 @@ function updatePage() { //this sets the page
 //LOG MODAL
 logButton.onclick = function() {
     openLog();
+    document.getElementById('blogPost').style.display = 'none';
 }
 
 function openLog() {
@@ -329,11 +303,13 @@ function openLog() {
 
 logCloseButton.onclick = function() {
     logModal.style.display = "none";
+    document.getElementById('blogPost').style.display = 'block';
 }
 
 window.onclick = function(event) {
     if (event.target == logModal) {
         logModal.style.display = "none";
+        document.getElementById('blogPost').style.display = 'block';
     }
 }
 

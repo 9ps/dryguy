@@ -88,3 +88,29 @@ main {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.inline {
+    display: inline-block;
+}
+
+ul {
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    display: inline;
+}
+
+li button {
+    width: 100px;
+    border-radius: 20px;
+    height: 30px;
+    padding: 3px;
+    background-color: var(--w2);
+}
+
+.activeList {
+    background-color: var(--b1);
+    color: white;
+}

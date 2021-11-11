@@ -61,7 +61,6 @@ body {
     color: var(--w4);
 }
 
-
 .lineInput {
     padding: 1em;
     border-radius: 1em;
@@ -88,12 +87,6 @@ body {
 .dayButtonActive {
     background-color: var(--b1);
     color: white;
-}
-
-#time {
-    padding: 1em;
-    border-radius: 1000px;
-    border: 0;
 }
 
 #begin {

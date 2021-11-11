@@ -230,7 +230,7 @@ loadJSON(function(response) {
 var dateTexts = document.querySelectorAll('.dateText');
 var dayData = localStorage.getObject(dates[0].toDateString()); //this sets as current day!!
 dateTexts[0].classList.add('dateTextActive');
-updatePage(); //this processes the current day
+// updatePage(); //this processes the current day
 
 for (i = 0; i < dateTexts.length; i++) {
     dateTexts[i].addEventListener('click', function() {

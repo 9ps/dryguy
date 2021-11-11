@@ -1,61 +1,84 @@
-header {
-    background-color: var(--y1);
-    padding: 15px;
+:root {
+    --w1: #F3F3F6;
+    --w2: #E4E4EB;
+    --w3: #6E6F72;
+    --w4: #4E4E4F;
+    --b1: #2E3A59;
+    --r1: #EC7669;
+    --y1: #FDD855;
+    --g1: #A4E09D;
+    --g2: #EFFCF4;
 }
 
-header h1 {
-    display: inline;
-}
-
-.right {
-    float: right;
-}
-
-h5 {
-    text-align: center;
-}
-
-button:not(.settingDays) {
-    margin: 0 auto;
-    display: block;
-}
-
-.settingDays {
-    width: 37px;
-    height: 37px;
-    font-size: 14px;
-    margin: 2px;
-    padding: 5px;
-    border-radius: 50%;
-    background-color: var(--w1);
-    box-shadow: -1px 1px 5px var(--w4);
-    margin-bottom: 25px;
-}
-
-.selected {
-    background-color: var(--g1);
-}
+/* Whole Page Things */
 
 main {
-    margin: 20px;
+    margin: 0 2em 0 2em;
 }
 
 body {
     margin: 0;
-    padding-bottom: 200px;
+    /* padding-bottom: 200px; */
 }
+
+
+/* Header */
+
+header {
+    background-color: var(--y1);
+    padding: 0 1em 0 1em;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Displays */
+
+#limitDisplay {
+    background-color: var(--w2);
+}
+
+.dayButton {
+    border-radius: 1000px;
+    width: 3em;
+    height: 3em;
+    background-color: var(--w2);
+    color: var(--w4);
+    margin: 0.25em;
+}
+
+.dayButtonActive {
+    background-color: var(--b1);
+    color: white;
+}
+
+/* Modal */
 
 .info {
     background-color: var(--y1);
-    border-radius: 10px;
-    padding: 5px;
-}
-
-.info p,
-.info h3 {
-    text-align: center;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 0 2em 0 2em;
 }
 
 .hidden {
     display: none;
+}
+
+#modalBacking {
+    position: fixed;
+    z-index: 0;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.75);
 }

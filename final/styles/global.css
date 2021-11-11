@@ -46,38 +46,20 @@
 }
 
 
-/* ---------- */
-
-
-/* components */
-
-
-/* ---------- */
-
-
 /* pop up modal */
 
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 0;
-    /* Sit on top */
     padding-top: 100px;
-    /* Location of the box */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.75);
-    /* Black w/ opacity */
 }
-
 
 /* bar: basic container; full: the backing; level: the width is the fullness */
 
@@ -302,4 +284,12 @@ button {
     width: 50%;
     font-size: 18pt;
     border-radius: 100px;
+}
+
+.np {
+    padding: 0;
+}
+
+.nm {
+    margin: 0;
 }

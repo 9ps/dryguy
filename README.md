@@ -1,59 +1,32 @@
 # dryguy 
+Dry Guy is an app targeted towards older men to give them the tools to cut their drinking
+Prototype produced with HTML/CSS/JS stack
 
-* list of articles > bookmarking feature
-* community section > bookmarking feature
-* posting/replying feature > profile (no clue how to do this lol)
+## notes
+- progress is under development...
 
-**global**
-* daily drink limit
-* active challenges?
-* current streak
+## data
 
-**per day**
-* dry day
-
-* total drink count
-* drink types - drink counts
-    * beer (0.6-1.6) [main difference is low-medium-high strength]
-    * wine (1-1.6) [gov uses "restaurant" v "standard", also differentiates champagne]
-    * spirit (1)
-    * cocktail? [not listed, highly variable]
-    * "standard" fallback
-* triggers [checklist of items, what should it be?] (negative emotions, people, places, social situations, pain relief, boredom, media)
-
-* reflection [done/not done]
-    * emotion
-    * reflection A [do we randomly serve a question?]
-    * reflection B
-    * reflection C?
-
-tracking:
-every date is a key, stored in local storage when someone updates it
-
-
+```
 key: `date`
 value:
-    drinks: 1 //number of drinks  
-    triggers: {[10]} family, friends, work, occasions, routine, media, lonliness, stress, boredom, pain relief
-    reflection: 1 //0 if it hasnt been done yet
-    emotion: 5 //1-5 of the emotions
+    drinks: 0 (current Drink Count)
+    triggers: {[10]} (1 if specific trigger, 0 if not)
+    reflection: 0 (1 if complete, 0 if not)
+    emotion: 5 (1-5 represents emotion)
     responseA: ""
     responseB: ""
     responseC: ""
----
+```
+`localStorage.setObject("data", { name: "Ricky", 'dryDays': [0, 0, 1, 0, 1, 0, 0], 'dailyLimit': 2, 'majorGoal': 3, 'minorGoals': [1, 1, 1, 1, 0, 0, 0, 0] });`
 
+```
 key: `data`
 value:
-    name: ""
-    dryDays: [7]
-    dailyLimit: 0
-    majorGoal: 0
-    minorGoals: [9]
-
-localStorage.setObject("data", { name: "", 'dryDays': [0, 0, 0, 0, 0, 0, 0], 'dailyLimit': 0, 'majorGoal': 0, 'minorGoals': [0, 0, 0, 0, 0, 0, 0, 0] });
-
-
-
-https://stackoverflow.com/questions/3138564/looping-through-localstorage-in-html5-and-javascript
-can pull keys
-we pull dates from the assignments
+    name: "" 
+    dryDays: [7] (1 if dryDay, 0 if not)
+    dailyLimit: 0 
+    majorGoal: 0 (1-5 represents goal (i think))
+    minorGoals: [9] (1 if goal, 0 if not)
+```
+`localStorage.setObject("data", { name: "", 'dryDays': [0, 0, 0, 0, 0, 0, 0], 'dailyLimit': 0, 'majorGoal': 0, 'minorGoals': [0, 0, 0, 0, 0, 0, 0, 0] });`

@@ -48,12 +48,19 @@ body {
     padding: 0.5em 2em 0.5em 2em;
     background-color: white;
     margin: 1em;
+    color: black;
 }
 
 .buttonActive {
     background-color: var(--b1);
     color: white;
 }
+
+.buttonInactive {
+    background-color: var(--w2);
+    color: var(--w4);
+}
+
 
 .lineInput {
     padding: 1em;
@@ -93,6 +100,7 @@ body {
     text-decoration: none;
     color: black;
 }
+
 
 /* .background {
     display: none;

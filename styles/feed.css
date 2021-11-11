@@ -40,7 +40,7 @@ nav ul {
     margin-right: 10px;
 }
 
-.active {
+..active:not(span) {
     background-color: white;
     border-radius: 20px 20px 0 0;
     padding: 10px;

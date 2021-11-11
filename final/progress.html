@@ -31,9 +31,67 @@
         </nav>
     </header>
     <main>
-        <div class="active" id="overview"></div>
-        <div class="hidden" id="reflections"></div>
-        <div class="hidden" id="reasons"></div>
+        <div class="active" id="overview">
+            <h4>My Goal:</h4>
+            <h4>Daily limit of <strong>2</strong> drinks</h4>
+            <h2>Average Daily drinks</h2>
+            <button class="average">1.6</button>
+            <h5 class="right">Lower than last month!</h5>
+            <h2>Most Tracked Emotion</h2>
+            <button class="average">&#128531;</button>
+            <button class="right" onclick="openSupport()">Need Support?</button>
+            <h2>Days Reflected</h2>
+            <button class="average">80%</button>
+            <h5 class="right">The key is consistency</h5>
+            <h2>Common Triggers</h2>
+            <button class='triggerActive'>Lonliness</button>
+            <button class='triggerActive'>Work</button>
+            <button class='triggerActive'>Stress</button>
+
+        </div>
+        <div id="supportPopUp" class="hidden">
+            <span onclick="closeSupport()" class="material-icons md-36">
+                cancel
+                </span>
+            <h3>Need more support?</h3>
+            <p>Here are some resources that may help</p>
+            <h4><strong>Mensline Australia</strong></h4>
+            <a href='https://mensline.org.au/'>https://mensline.org.au/</a>
+            <a><span class="material-icons right md-36">
+                call
+                </span></a>
+            <h4><strong>Alcoholics Anonymous</strong></h4>
+            <a href='https://aa.org.au/'>https://aa.org.au/</a>
+            <a><span class="material-icons right md-36">
+                call
+                </span></a>
+            <h4><strong>Lifeline</strong></h4>
+            <a href='www.lifeline.org.au/'>www.lifeline.org.au/</a>
+            <a><span class="material-icons right md-36">
+                call
+                </span></a>
+            <h4><strong>Beyond Blue</strong></h4>
+            <a href='https://www.beyondblue.org.au/'>https://www.beyondblue.org.au/</a>
+            <a><span class="material-icons right md-36">
+                call
+                </span></a>
+        </div>
+
+        <div class="hidden" id="reflections">
+            <p>theres gonna be a calendar here lol idk</p>
+        </div>
+
+        <div class="hidden" id="reasons">
+            <h4>Current</h4>
+            <h2>Main Goals</h2>
+            <button class="triggerActive">Reduce Drinking</button>
+            <h4>Tap to edit</h4>
+            <h2>Main Reasons</h2>
+            <button class="triggerActive">Cope Better</button>
+            <button class="triggerActive">Better My Health</button>
+            <h4>Tap to edit</h4>
+        </div>
+        <div class="p-5"></div>
     </main>
 
     <footer class="footer">

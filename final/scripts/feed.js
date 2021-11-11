@@ -314,10 +314,10 @@ function toggleActive(elementID, activeID) {
     //console.log(element);
     if (element == activeElement) {} else {
         //console.log(elementID);
-        activeID[0].classList.toggle("active");
-        element.classList.toggle("active");
-        activeID[1].classList.toggle("hidden");
-        activeID[1].classList.toggle("active");
+        activeID[0].classList.remove("active");
+        element.classList.add("active");
+        activeID[1].classList.add("hidden");
+        activeID[1].classList.remove("active");
         if (elementID == 'userFeedTab') {
             var visibleElement = document.getElementById('feedContent');
             visibleElement.classList.add("active");

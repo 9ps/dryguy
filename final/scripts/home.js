@@ -169,6 +169,7 @@ loadJSON(function(response) {
             let blogPostContent = document.getElementById('blogPost');
 
             //document.getElementById('content').style.display = "none";
+            console.log(document.getElementById('content'));
 
             blogPostContent.classList.remove("hidden");
 
@@ -203,6 +204,11 @@ loadJSON(function(response) {
             card3.appendChild(source);
 
             blogPostContent.appendChild(card3);
+
+            if (blogPostContent.childNodes.length == 6) {
+                console.log('true');
+                blogPostContent.removeChild(card3)
+            }
 
         })
 

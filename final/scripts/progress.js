@@ -88,8 +88,10 @@ function toggleActive(elementID, activeID) {
     var element = document.getElementById(elementID);
     var activeElement = document.getElementById(activeID);
     if (element == activeElement) {} else {
-        //console.log(elementID);
-        //console.log(activeID);
+        console.log(elementID);
+        console.log(element);
+        console.log(activeID);
+        console.log(activeElement);
         activeID[0].classList.remove("active");
         element.classList.add("active");
         activeID[1].classList.add("hidden");
@@ -106,6 +108,63 @@ function toggleActive(elementID, activeID) {
             var visibleElement = document.getElementById('reasons');
             //console.log(visibleElement);
             visibleElement.classList.add("active");
+            visibleElement.classList.remove("hidden");
+        }
+    }
+}
+
+//switch between views
+
+const weeklyContent = document.getElementById('weeklyContent');
+const monthlyContent = document.getElementById('monthlyContent');
+const yearlyContent = document.getElementById('yearlyContent');
+
+const weekBtn = document.getElementById('weekBtn');
+const monthBtn = document.getElementById('monthBtn');
+const yearBtn = document.getElementById('yearBtn');
+
+weekBtn.addEventListener("click", function() {
+    let activeElement = document.querySelectorAll(".activeBtn");
+    toggleActiveView('weekBtn', activeElement);
+    //console.log('click');
+});
+monthBtn.addEventListener("click", function() {
+    let activeElement = document.querySelectorAll(".activeBtn");
+    toggleActiveView('monthBtn', activeElement);
+});
+yearBtn.addEventListener("click", function() {
+    let activeElement = document.querySelectorAll(".activeBtn");
+    toggleActiveView('yearBtn', activeElement);
+});
+
+//function to switch between tabs
+function toggleActiveView(elementID, activeID) {
+    var element = document.getElementById(elementID);
+    var activeElement = document.getElementById(activeID);
+    if (element == activeElement) {} else {
+        console.log(elementID);
+        console.log(element);
+        console.log(activeID);
+        console.log(activeElement);
+        activeID[0].classList.remove("activeBtn");
+        activeID[0].classList.remove("activeList");
+        element.classList.add("activeBtn");
+        element.classList.add("activeList");
+        activeID[1].classList.add("hidden");
+        activeID[1].classList.remove("activeBtn");
+        if (elementID == 'weekBtn') {
+            var visibleElement = document.getElementById('weeklyContent');
+            visibleElement.classList.add("activeBtn");
+            visibleElement.classList.remove("hidden");
+            console.log(visibleElement);
+        } else if (elementID == 'monthBtn') {
+            var visibleElement = document.getElementById('monthlyContent');
+            visibleElement.classList.add("activeBtn");
+            visibleElement.classList.remove("hidden");
+        } else if (elementID == 'yearBtn') {
+            var visibleElement = document.getElementById('yearlyContent');
+            //console.log(visibleElement);
+            visibleElement.classList.add("activeBtn");
             visibleElement.classList.remove("hidden");
         }
     }

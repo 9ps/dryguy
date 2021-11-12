@@ -10,6 +10,7 @@
 ```
 key: `date`
 value:
+    track: 0 (-1 if nothing, 0 if under, 1 if over)
     drinks: 0 (current Drink Count)
     triggers: {[10]} (1 if specific trigger, 0 if not)
     reflection: 0 (1 if complete, 0 if not)

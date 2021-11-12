@@ -56,7 +56,6 @@ h4 {
 .content {
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: 200px;
 }
 
 .card {

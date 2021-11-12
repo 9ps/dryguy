@@ -392,6 +392,7 @@ loadJSON2(function(response) {
 });
 
 
+var newReply = document.getElementById("newReply");
 
 //function to switch between tabs
 function toggleActive(elementID, activeID) {
@@ -414,11 +415,13 @@ function toggleActive(elementID, activeID) {
             visibleElement.classList.add("active");
             visibleElement.classList.remove("hidden");
             newPost.classList.add("hidden");
+            newReply.classList.add("hidden");
         } else if (elementID == 'savedTab') {
             var visibleElement = document.getElementById('savedContent');
             visibleElement.classList.add("active");
             visibleElement.classList.remove("hidden");
             newPost.classList.add("hidden");
+            newReply.classList.add("hidden");
         }
     }
 }

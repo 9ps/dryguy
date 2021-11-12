@@ -46,7 +46,7 @@ const dateDisplay = document.querySelector('#dateDisplay');
 const todaysRead = document.getElementById('blogPost');
 
 
-const readText = document.querySelector('#readText'); 
+const readText = document.querySelector('#readText');
 const footer = document.querySelector(".footer");
 
 //PAGE SETUP
@@ -87,7 +87,7 @@ for (var i = 0; i < numCalender; i++) { //big loop creating the [dates] and form
     dateText.textContent = currentDate;
 
     if (localStorage.getObject(dates[i].toDateString()) == null) { //creates a localStorage thing if it isnt found [i guess for reflection we check if null or reflections]
-        localStorage.setObject(dates[i].toDateString(), {'track': -1, 'drinks': -1, 'triggers': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
+        localStorage.setObject(dates[i].toDateString(), { 'track': -1, 'drinks': -1, 'triggers': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
     }
 
     var e = localStorage.getObject(dates[i].toDateString()).track; //dictating the color
@@ -148,24 +148,20 @@ loadJSON(function(response) {
         image.setAttribute("class", "blogImage");
 
         card2.addEventListener("click", function() {
-            let blogPostContent = document.getElementById('blogPost');
+            let blogPostContent = document.getElementById('bigPostConent');
+            let bigPost = document.getElementById('bigPost');
 
             //document.getElementById('content').style.display = "none";
             console.log(document.getElementById('content'));
 
-            blogPostContent.classList.remove("hidden");
+            document.getElementById('top').style.display = "none";
+            document.getElementById('content').style.display = "none";
+
+            bigPost.classList.remove("hidden");
 
             let card3 = document.createElement('div');
             card3.setAttribute('id', 'blogCard');
             card3.setAttribute('class', 'card');
-
-            let closePost = document.createElement('button');
-            closePost.setAttribute('class', 'right');
-            closePost.textContent = "close";
-
-            closePost.addEventListener("click", function() {
-                blogPostContent.removeChild(card3)
-            })
 
             let blogPost = document.createElement('p');
             blogPost.textContent = post.content;
@@ -178,7 +174,13 @@ loadJSON(function(response) {
                 window.open(url, '_blank').focus();
             })
 
-            card3.appendChild(closePost);
+            let closePost = document.getElementById('closePost');
+            closePost.addEventListener("click", function() {
+                document.getElementById('top').style.display = "block";
+                document.getElementById('content').style.display = "block";
+                blogPostContent.removeChild(card3);
+            })
+
             card3.appendChild(author.cloneNode(true));
             card3.appendChild(date.cloneNode(true));
             card3.appendChild(title.cloneNode(true));
@@ -187,9 +189,9 @@ loadJSON(function(response) {
 
             blogPostContent.appendChild(card3);
 
-            if (blogPostContent.childNodes.length == 6) {
+            if (blogPostContent.childNodes.length > 2) {
                 console.log('true');
-                blogPostContent.removeChild(card3)
+                blogPostContent.removeChild(card3);
             }
 
         })
@@ -230,15 +232,15 @@ for (i = 0; i < dateTexts.length; i++) {
 
 function updatePage(flag) { //this sets the page
     console.log("Update Page Called: ", dayId, flag);
-    
+
     // Formatting of Date Calender Day
-    if (dayData.track != -1){
+    if (dayData.track != -1) {
         dateTexts[dayId].classList.remove('dateTextInactive');
     }
     if (dayData.track == 0) {
         dateTexts[dayId].classList.remove('dateTextOver');
         dateTexts[dayId].classList.add('dateTextUnder');
-    } else if (dayData.track == 1){
+    } else if (dayData.track == 1) {
         dateTexts[dayId].classList.remove('dateTextUnder');
         dateTexts[dayId].classList.add('dateTextOver');
     }
@@ -254,7 +256,7 @@ function updatePage(flag) { //this sets the page
     }
     dateDisplay.textContent = daysAgo;
 
-    if(dayData.drinks == -1) {
+    if (dayData.drinks == -1) {
         drinksLoggedDisplay.textContent = "Let's Log Today:"
     } else {
         drinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
@@ -288,7 +290,7 @@ function updatePage(flag) { //this sets the page
     }
 
     // Reload Articles
-    if(flag == 0 || flag == 3){ 
+    if (flag == 0 || flag == 3) {
         const readCards = document.querySelectorAll('.card');
         for (var i = 0; i < readCards.length; i++) {
             readCards[i].style.display = "none";
@@ -297,18 +299,18 @@ function updatePage(flag) { //this sets the page
     }
 
 
-    if(flag == 2 || flag == 3) {
+    if (flag == 2 || flag == 3) {
         updateStreak();
     }
 }
 
-function updateStreak(){
+function updateStreak() {
     streak = 0;
     streakOver = false;
 
-    for(var i = 0; i < dates.length; i++){
+    for (var i = 0; i < dates.length; i++) {
         var d = localStorage.getObject(dates[i].toDateString()).track;
-        if(d != 0){
+        if (d != 0) {
             break;
         } else {
             streak += 1;
@@ -329,7 +331,7 @@ function openLog() {
     footer.style.display = "none";
     logModal.style.display = "block";
 
-    if(dayData.drinks == -1) {
+    if (dayData.drinks == -1) {
         dayData.drinks = 0;
     }
 
@@ -356,15 +358,15 @@ window.onclick = function(event) {
 
 save.onclick = function() {
     console.log("saving: ", selectedDate.toDateString());
-    
+
     dayData.track = 0;
 
-    if(data.dryDays[selectedDate.getDay()]){
-        if(dayData.drinks > 0) {
+    if (data.dryDays[selectedDate.getDay()]) {
+        if (dayData.drinks > 0) {
             dayData.track = 1;
             console.log("shame");
         }
-    } else if(dayData.drinks > data.dailyLimit) {
+    } else if (dayData.drinks > data.dailyLimit) {
         dayData.track = 1;
     }
 
@@ -373,7 +375,7 @@ save.onclick = function() {
     updatePage(2);
 }
 
-function closeModal(){
+function closeModal() {
     logModal.style.display = "none";
     footer.style.display = "flex";
     document.getElementById('blogPost').style.display = 'block';

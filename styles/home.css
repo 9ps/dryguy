@@ -7,13 +7,14 @@
 #datesScroll {
     overflow-y: hidden;
     white-space: nowrap;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 
 /*active these if you want it to not show scrollbar */
-
 
 .datesScroll::-webkit-scrollbar {
     display: none;
@@ -198,4 +199,20 @@ button {
 
 .shadow {
     box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+}
+
+.top {
+    background-color: var(--y1);
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.top h2 {
+    margin: 10px;
+    display: inline;
+}
+
+.hidden {
+    display: none;
 }

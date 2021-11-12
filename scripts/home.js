@@ -20,13 +20,15 @@ if (data == null) { //if onboarding not complete
 var dryDays = data.dryDays; //this causes an issue
 var dailyLimit = data.dailyLimit;
 var dayId = 0;
-
+var streak = 0;
+var streakOver = false;
 const triggersList = ["Family", "Friends", "Work", "Occasions", "Routine", "Media", "Lonliness", "Stress", "Boredom", "Pain Relief"]
 const daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const numCalender = 14; //controls amounts of dates displayed in scrolling calender
+
 var dates = []; //stores Date objects
 var d = new Date(); //temp variable for right now
 var selectedDate = new Date(d.getFullYear(), d.getMonth(), d.getDate()); //current day (stripped of time data);
-const numCalender = 14; //controls amounts of dates displayed in scrolling calender
 
 const streakCount = document.querySelector("#streakCount");
 const dailyGoal = document.querySelector("#dailyGoal");
@@ -41,15 +43,16 @@ const save = document.querySelector("#save");
 const drinkDisplay = document.querySelector('#drinkDisplay');
 const dateDisplay = document.querySelector('#dateDisplay');
 
+const todaysRead = document.getElementById('blogPost');
+
+
 const readText = document.querySelector('#readText'); 
 const footer = document.querySelector(".footer");
 
 //PAGE SETUP
-
 dailyGoal.textContent = "Daily Limit of " + dailyLimit + " Drinks";
 readText.textContent = data.name + "'s Read:"
-var streak = 0;
-streakOver = false;
+
 
 for (var i = 0; i < numCalender; i++) { //big loop creating the [dates] and formatting the calender
     if (dates.length == 0) { //sets today
@@ -102,9 +105,6 @@ for (var i = 0; i < numCalender; i++) { //big loop creating the [dates] and form
 }
 
 //ARTICLE POPULATION
-
-let todaysRead = document.getElementById('blogPost');
-
 function loadJSON(callback) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
@@ -229,12 +229,12 @@ for (i = 0; i < dateTexts.length; i++) {
 }
 
 function updatePage(flag) { //this sets the page
-    console.log("Update Page Called: ", dayId);
+    console.log("Update Page Called: ", dayId, flag);
     
+    // Formatting of Date Calender Day
     if (dayData.track != -1){
         dateTexts[dayId].classList.remove('dateTextInactive');
     }
-
     if (dayData.track == 0) {
         dateTexts[dayId].classList.remove('dateTextOver');
         dateTexts[dayId].classList.add('dateTextUnder');
@@ -243,6 +243,7 @@ function updatePage(flag) { //this sets the page
         dateTexts[dayId].classList.add('dateTextOver');
     }
 
+    // Generic Text Handling
     var daysAgo;
     if (dayId == 0) {
         daysAgo = "Today";
@@ -251,7 +252,6 @@ function updatePage(flag) { //this sets the page
     } else {
         daysAgo = dayId + " Days Ago";
     }
-
     dateDisplay.textContent = daysAgo;
 
     if(dayData.drinks == -1) {
@@ -265,6 +265,8 @@ function updatePage(flag) { //this sets the page
     } else {
         reflectionState.innerText = "";
     }
+
+    // Triggers Handling
     while (triggersDisplay.lastChild) { //removes previous triggers
         triggersDisplay.removeChild(triggersDisplay.lastChild);
     }
@@ -285,19 +287,15 @@ function updatePage(flag) { //this sets the page
         triggersDisplay.appendChild(triggerInstance);
     }
 
-    const readCards = document.querySelectorAll('.card');
-
-    // reload articles
-    if(!flag){ 
-        try {
-            for (var i = 0; i < readCards.length; i++) {
-                readCards[i].style.display = "none";
-            }
-            readCards[dayId % readCards.length].style.display = "block";
-        } catch (error) {
-            console.log("you should only see this message once");
+    // Reload Articles
+    if(flag == 0 || flag == 3){ 
+        const readCards = document.querySelectorAll('.card');
+        for (var i = 0; i < readCards.length; i++) {
+            readCards[i].style.display = "none";
         }
+        readCards[dayId % readCards.length].style.display = "block";
     }
+
 
     if(flag == 2 || flag == 3) {
         updateStreak();
@@ -381,7 +379,6 @@ function closeModal(){
     document.getElementById('blogPost').style.display = 'block';
 }
 
-
 //DRINK COUNTING
 function changeDrinks(n) {
     if (dayData.drinks <= 0 && n == -1) {
@@ -405,7 +402,6 @@ for (var i = 0; i < triggerOptions.length; i++) {
         dayData.triggers[this.id] = 1 - dayData.triggers[this.id];
     });
 }
-
 
 //REFLECTION HIDER
 
@@ -435,6 +431,8 @@ reflection3.style.display = "none";
 const next1 = document.querySelector(".next1");
 const next2 = document.querySelector(".next2");
 const next3 = document.querySelector(".next3");
+
+const emotions = document.querySelectorAll('.emotion'); //all the emotions
 
 reflectionButton.onclick = function() {
     reflectionProgress.style.width = "0%";
@@ -547,8 +545,6 @@ reflectionCloseButton.onclick = function() {
     reflection3.style.display = "none";
     document.getElementsByTagName("BODY")[0].style.removeProperty("background-color");
 }
-
-const emotions = document.querySelectorAll('.emotion'); //all the emotions
 
 for (var i = 0; i < emotions.length; i++) {
     emotions[i].addEventListener('click', function() { //if an emotion is clicked

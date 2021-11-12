@@ -127,3 +127,8 @@ body {
     background-color: var(--y1);
     padding: 1em;
 } */
+
+.starterImage{
+    height: 128px;
+    width: 128px;
+}

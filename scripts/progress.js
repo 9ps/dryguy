@@ -115,59 +115,66 @@ function toggleActive(elementID, activeID) {
 
 //switch between views
 
-const weeklyContent = document.getElementById('weeklyContent');
-const monthlyContent = document.getElementById('monthlyContent');
-const yearlyContent = document.getElementById('yearlyContent');
-
 const weekBtn = document.getElementById('weekBtn');
 const monthBtn = document.getElementById('monthBtn');
 const yearBtn = document.getElementById('yearBtn');
 
+const dateText  = document.querySelector('#dateText');
+const averageDrinks  = document.querySelector('#averageDrinks');
+const averageDrinksText  = document.querySelector('#averageDrinksText');
+const averageMood  = document.querySelector('#averageMood');
+const reflectPercent  = document.querySelector('#reflectPercent');
+const trigger1  = document.querySelector('#trigger1');
+const trigger2  = document.querySelector('#trigger2');
+const trigger3  = document.querySelector('#trigger3');
+const wettestDay  = document.querySelector('#wettestDay');
+const wettestDayText  = document.querySelector('#wettestDayText');
+
+const data1 = ["15-21 November", "November 2021", "2021"];
+const data2 = ["1.6", "1.8", "2.3"];
+const data3 = ["Lower than last week!", "Higher than last month!", "Good Progress!"];
+const data4 = ["😓", "😐", "😊"];
+const data5 = ["80%", "60%", "50%"];
+const data6 = ["Lonliness", "Lonliness", "Stress"];
+const data7 = ["Work", "Stress", "Work"];
+const data8 = ["Routine", "Stress", "Lonliness"];
+const data9 = ["Fri", "Sat", "Sun"];
+const data10 = ["1.7x greater than Average", "1.3x greater than Average", "1.7x less than Average"];
+
 weekBtn.addEventListener("click", function() {
-    let activeElement = document.querySelectorAll(".activeBtn");
-    toggleActiveView('weekBtn', activeElement);
-    //console.log('click');
-});
-monthBtn.addEventListener("click", function() {
-    let activeElement = document.querySelectorAll(".activeBtn");
-    toggleActiveView('monthBtn', activeElement);
-});
-yearBtn.addEventListener("click", function() {
-    let activeElement = document.querySelectorAll(".activeBtn");
-    toggleActiveView('yearBtn', activeElement);
+    toggleView(0);
 });
 
-//function to switch between tabs
-function toggleActiveView(elementID, activeID) {
-    var element = document.getElementById(elementID);
-    var activeElement = document.getElementById(activeID);
-    if (element == activeElement) {} else {
-        console.log(elementID);
-        console.log(element);
-        console.log(activeID);
-        console.log(activeElement);
-        activeID[0].classList.remove("activeBtn");
-        activeID[0].classList.remove("activeList");
-        element.classList.add("activeBtn");
-        element.classList.add("activeList");
-        activeID[1].classList.add("hidden");
-        activeID[1].classList.remove("activeBtn");
-        if (elementID == 'weekBtn') {
-            var visibleElement = document.getElementById('weeklyContent');
-            visibleElement.classList.add("activeBtn");
-            visibleElement.classList.remove("hidden");
-            console.log(visibleElement);
-        } else if (elementID == 'monthBtn') {
-            var visibleElement = document.getElementById('monthlyContent');
-            visibleElement.classList.add("activeBtn");
-            visibleElement.classList.remove("hidden");
-        } else if (elementID == 'yearBtn') {
-            var visibleElement = document.getElementById('yearlyContent');
-            //console.log(visibleElement);
-            visibleElement.classList.add("activeBtn");
-            visibleElement.classList.remove("hidden");
-        }
+monthBtn.addEventListener("click", function() {
+    toggleView(1);
+});
+
+yearBtn.addEventListener("click", function() {
+    toggleView(2);
+
+});
+
+const buttons = document.querySelectorAll(".dateBtns");
+
+function toggleView(n){
+
+    for(var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("dateBtnsActive");
     }
+    
+    buttons[n].classList.add("dateBtnsActive");
+
+    console.log("toggling view");
+    dateText.innerText = data1[n];
+    averageDrinks.innerText = data2[n];
+    averageDrinksText.innerText = data3[n];
+    averageMood.innerText = data4[n];
+    reflectPercent.innerText = data5[n];
+    trigger1.innerText = data6[n];
+    trigger2.innerText = data7[n];
+    trigger3.innerText = data8[n];
+    wettestDay.innerText = data9[n];
+    wettestDayText.innerText = data10[n];
 }
 
 function openSupport() {

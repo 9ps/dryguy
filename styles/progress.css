@@ -21,6 +21,11 @@ header {
     margin-top: 0px;
 }
 
+.navBar {
+    display: inline-flex;
+    overflow: hidden;
+}
+
 header h1,
 #profpic,
 nav li {
@@ -36,10 +41,17 @@ nav ul {
     padding-left: 0;
 }
 
+.tab {
+    border-radius: 1em 1em 0 0;
+    padding: 0.5em 1em 0.5em 1em;
+    margin: 0;
+    display: inline-flex;
+    color: var(--w4);
+}
+
 .active {
     background-color: white;
-    border-radius: 20px 20px 0 0;
-    padding: 10px;
+    color: #2E3A59;
 }
 
 .hidden {
@@ -137,5 +149,30 @@ li button {
 
 #reflectPercent {
     background-color: var(--r1);
+    color: white;
+}
+
+#overview {
+    margin: 0 1em 0 1em;
+}
+
+#buttonHolder {
+    background-color: var(--w2);
+    border-radius: 1000px;
+    padding: 0;
+}
+
+#dateSelectorContainer {
+    align-items: center;
+}
+
+.centerAlign {
+   display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+}
+
+.dateBtnsActive {
+    background-color: var(--b1);
     color: white;
 }

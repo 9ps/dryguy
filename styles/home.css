@@ -193,15 +193,11 @@ button {
 }
 
 .top {
+    display: flex;
     background-color: var(--y1);
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 10px;
-}
-
-.top h2 {
-    margin: 10px;
-    display: inline;
+    padding: 0.5em;
+    align-items: center;
 }
 
 .hidden {
@@ -214,4 +210,8 @@ button {
 
 #makeYellow {
     background-color: var(--y1);
+}
+
+#blogPost {
+    overflow: hidden;
 }

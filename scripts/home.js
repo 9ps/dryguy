@@ -148,7 +148,7 @@ loadJSON(function(response) {
         image.setAttribute("class", "blogImage");
 
         card2.addEventListener("click", function() {
-            let blogPostContent = document.getElementById('bigPostConent');
+            let blogPostContent = document.getElementById('bigPostContent');
             let bigPost = document.getElementById('bigPost');
 
             //document.getElementById('content').style.display = "none";

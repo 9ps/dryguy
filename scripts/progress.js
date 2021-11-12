@@ -201,6 +201,7 @@ function openSupport() {
 
 function closeSupport() {
     modalBacking.style.display = "none";
+    footer.style.display = "flex";
 }
 
 window.onclick = function(event) {
@@ -256,6 +257,7 @@ function openDay(date){
 function closeDay() {
     console.log("close");
     modalBacking2.style.display = "none";
+    footer.style.display = "flex";
 }
 
 Object.keys(localStorage).forEach(function(key) {

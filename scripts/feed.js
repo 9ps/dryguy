@@ -356,29 +356,11 @@ closeBtn.addEventListener("click", function() {
     newPost.classList.remove("hidden");
 });
 
-let profile = document.getElementById('profileContent')
-
-function openProfile(displayUser) {
-    document.getElementById('username').textContent = displayUser;
-    profile.classList.remove("hidden");
-    document.getElementById('feedContent').classList.add("hidden");
-    document.getElementById('resourceContent').classList.add("hidden");
-    document.getElementById('savedContent').classList.add("hidden");
-
-    let blogCard = document.getElementById('blogCard');
-    let blogPostContent = document.getElementById('blogPost');
-
-    if (blogCard !== null) {
-        blogPostContent.removeChild(blogCard);
+window.onclick = function(event) {
+    //console.log(event);
+    //console.log(event.target);
+    if (event.target == newPostPopup) {
+        newPostPopup.style.display = "none";
+        newPost.classList.remove("hidden");
     }
-};
-
-
-backButton.addEventListener("click", function() {
-    profile.classList.add("hidden");
-    document.getElementById('feedContent').classList.remove("hidden");
-    userFeed.classList.add("active");
-    resources.classList.remove("active");
-    saved.classList.remove("active");
-    newPost.classList.remove("hidden");
-});
+}

@@ -13,3 +13,7 @@ if (data == null) { //if onboarding not complete
     localStorage.setObject("data", { name: "Ricky", 'dryDays': [0, 0, 1, 0, 1, 0, 0], 'dailyLimit': 2, 'majorGoal': 3, 'minorGoals': [1, 1, 1, 1, 0, 0, 0, 0] });
     let data = localStorage.getObject("data");
 }
+
+let username = document.getElementById('username');
+username.textContent = data.name;
+print(username);

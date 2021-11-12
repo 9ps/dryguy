@@ -178,6 +178,7 @@ loadJSON(function(response) {
             closePost.addEventListener("click", function() {
                 document.getElementById('top').style.display = "block";
                 document.getElementById('content').style.display = "block";
+                bigPost.classList.add("hidden");
                 blogPostContent.removeChild(card3);
             })
 

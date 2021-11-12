@@ -8,15 +8,16 @@ Storage.prototype.getObject = function(key) {
 }
 
 //IMPORTANT VARIABLES
-//localStorage.setObject("Tue Nov 30 2021", { 'drinks': 100, 'triggers': [1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
+//localStorage.setObject("Tue Nov 30 2021", {'track: 0', 'drinks': 100, 'triggers': [1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
 
 let data = localStorage.getObject("data");
 if (data == null) { //if onboarding not complete
     console.log("no Data, fallback");
     localStorage.setObject("data", { name: "Ricky", 'dryDays': [0, 0, 1, 0, 1, 0, 0], 'dailyLimit': 2, 'majorGoal': 3, 'minorGoals': [1, 1, 1, 1, 0, 0, 0, 0] });
-    let data = localStorage.getObject("data");
+    data = localStorage.getObject("data");
 }
-var dryDays = data.dryDays;
+
+var dryDays = data.dryDays; //this causes an issue
 var dailyLimit = data.dailyLimit;
 var dayId = 0;
 
@@ -40,9 +41,15 @@ const save = document.querySelector("#save");
 const drinkDisplay = document.querySelector('#drinkDisplay');
 const dateDisplay = document.querySelector('#dateDisplay');
 
+const readText = document.querySelector('#readText'); 
+const footer = document.querySelector(".footer");
+
 //PAGE SETUP
 
 dailyGoal.textContent = "Daily Limit of " + dailyLimit + " Drinks";
+readText.textContent = data.name + "'s Read:"
+var streak = 0;
+streakOver = false;
 
 for (var i = 0; i < numCalender; i++) { //big loop creating the [dates] and formatting the calender
     if (dates.length == 0) { //sets today
@@ -77,11 +84,13 @@ for (var i = 0; i < numCalender; i++) { //big loop creating the [dates] and form
     dateText.textContent = currentDate;
 
     if (localStorage.getObject(dates[i].toDateString()) == null) { //creates a localStorage thing if it isnt found [i guess for reflection we check if null or reflections]
-        localStorage.setObject(dates[i].toDateString(), { 'drinks': 0, 'triggers': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
+        localStorage.setObject(dates[i].toDateString(), {'track': -1, 'drinks': -1, 'triggers': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'done': 0, 'emotion': 0, 'reflections': ["", "", ""] });
     }
 
-    var e = localStorage.getObject(dates[i].toDateString()).drinks > dailyLimit; //dictating the color
-    if (e) {
+    var e = localStorage.getObject(dates[i].toDateString()).track; //dictating the color
+    if (e == -1) {
+        dateText.classList.add('dateTextInactive');
+    } else if (e == 1) {
         dateText.classList.add('dateTextOver');
     } else {
         dateText.classList.add('dateTextUnder');
@@ -91,7 +100,6 @@ for (var i = 0; i < numCalender; i++) { //big loop creating the [dates] and form
     dateThing.appendChild(dayText);
     dateThing.appendChild(dateText);
 }
-
 
 //ARTICLE POPULATION
 
@@ -136,7 +144,7 @@ loadJSON(function(response) {
         title.textContent = post.title;
 
         let image = document.createElement('img');
-        image.src = "images/blog_image.jpg";
+        image.src = post.image;
         image.setAttribute("class", "blogImage");
 
         card2.addEventListener("click", function() {
@@ -196,14 +204,13 @@ loadJSON(function(response) {
         card2.style.display = "none";
     });
 
-    updatePage();
+    updatePage(3);
 });
 
 //DATE SWITCHER
 var dateTexts = document.querySelectorAll('.dateText');
 var dayData = localStorage.getObject(dates[0].toDateString()); //this sets as current day!!
 dateTexts[0].classList.add('dateTextActive');
-// updatePage(); //this processes the current day
 
 for (i = 0; i < dateTexts.length; i++) {
     dateTexts[i].addEventListener('click', function() {
@@ -217,19 +224,23 @@ for (i = 0; i < dateTexts.length; i++) {
         this.classList.add('dateTextActive');
 
         dayData = localStorage.getObject(selectedDate.toDateString());
-        updatePage();
+        updatePage(0);
     });
 }
 
-function updatePage() { //this sets the page
+function updatePage(flag) { //this sets the page
     console.log("Update Page Called: ", dayId);
+    
+    if (dayData.track != -1){
+        dateTexts[dayId].classList.remove('dateTextInactive');
+    }
 
-    if (dayData.drinks > dailyLimit) {
-        dateTexts[dayId].classList.remove('dateTextUnder');
-        dateTexts[dayId].classList.add('dateTextOver');
-    } else {
+    if (dayData.track == 0) {
         dateTexts[dayId].classList.remove('dateTextOver');
         dateTexts[dayId].classList.add('dateTextUnder');
+    } else if (dayData.track == 1){
+        dateTexts[dayId].classList.remove('dateTextUnder');
+        dateTexts[dayId].classList.add('dateTextOver');
     }
 
     var daysAgo;
@@ -241,9 +252,13 @@ function updatePage() { //this sets the page
         daysAgo = dayId + " Days Ago";
     }
 
-    dateDisplay.textContent = daysAgo; //this isnt needed
+    dateDisplay.textContent = daysAgo;
 
-    drinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
+    if(dayData.drinks == -1) {
+        drinksLoggedDisplay.textContent = "Let's Log Today:"
+    } else {
+        drinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
+    }
 
     if (dayData.reflection) {
         reflectionState.innerText = "Reflection Completed!";
@@ -265,22 +280,46 @@ function updatePage() { //this sets the page
     }
     if (!anyTriggerCheck) {
         var triggerInstance = document.createElement('div');
+        triggerInstance.className = 'triggerDisplay';
         triggerInstance.innerText = "No Triggers Yet";
         triggersDisplay.appendChild(triggerInstance);
     }
 
     const readCards = document.querySelectorAll('.card');
 
-    try {
-        for (var i = 0; i < readCards.length; i++) {
-            readCards[i].style.display = "none";
+    // reload articles
+    if(!flag){ 
+        try {
+            for (var i = 0; i < readCards.length; i++) {
+                readCards[i].style.display = "none";
+            }
+            readCards[dayId % readCards.length].style.display = "block";
+        } catch (error) {
+            console.log("you should only see this message once");
         }
-        readCards[dayId % readCards.length].style.display = "block";
-    } catch (error) {
-        console.log("you should only see this message once");
     }
 
+    if(flag == 2 || flag == 3) {
+        updateStreak();
+    }
 }
+
+function updateStreak(){
+    streak = 0;
+    streakOver = false;
+
+    for(var i = 0; i < dates.length; i++){
+        var d = localStorage.getObject(dates[i].toDateString()).track;
+        if(d != 0){
+            break;
+        } else {
+            streak += 1;
+        }
+    }
+
+    streakCount.textContent = streak + " Day Streak!";
+
+};
 
 //LOG MODAL
 logButton.onclick = function() {
@@ -289,7 +328,13 @@ logButton.onclick = function() {
 }
 
 function openLog() {
+    footer.style.display = "none";
     logModal.style.display = "block";
+
+    if(dayData.drinks == -1) {
+        dayData.drinks = 0;
+    }
+
     drinkDisplay.textContent = dayData.drinks; //sets the content [?do we need exception handling]
 
     for (var i = 0; i < triggerOptions.length; i++) { //sets the triggers
@@ -302,31 +347,50 @@ function openLog() {
 }
 
 logCloseButton.onclick = function() {
-    logModal.style.display = "none";
-    document.getElementById('blogPost').style.display = 'block';
+    closeModal();
 }
 
 window.onclick = function(event) {
     if (event.target == logModal) {
-        logModal.style.display = "none";
-        document.getElementById('blogPost').style.display = 'block';
+        closeModal();
     }
 }
 
 save.onclick = function() {
     console.log("saving: ", selectedDate.toDateString());
+    
+    dayData.track = 0;
+
+    if(data.dryDays[selectedDate.getDay()]){
+        if(dayData.drinks > 0) {
+            dayData.track = 1;
+            console.log("shame");
+        }
+    } else if(dayData.drinks > data.dailyLimit) {
+        dayData.track = 1;
+    }
+
     localStorage.setObject(selectedDate.toDateString(), dayData);
-    logModal.style.display = "none";
-    updatePage();
+    closeModal();
+    updatePage(2);
 }
+
+function closeModal(){
+    logModal.style.display = "none";
+    footer.style.display = "flex";
+    document.getElementById('blogPost').style.display = 'block';
+}
+
 
 //DRINK COUNTING
 function changeDrinks(n) {
     if (dayData.drinks <= 0 && n == -1) {
         return;
     }
+
     dayData.drinks += n;
     drinkDisplay.textContent = dayData.drinks;
+
 }
 
 //TRIGGERS
@@ -472,7 +536,7 @@ next3.onclick = function() {
 
     console.log("saving: ", selectedDate.toDateString());
     localStorage.setObject(selectedDate.toDateString(), dayData);
-    updatePage();
+    updatePage(1);
 }
 
 reflectionCloseButton.onclick = function() {

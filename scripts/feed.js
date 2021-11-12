@@ -104,6 +104,8 @@ loadJSON(function(response) {
 
         replies.addEventListener("click", function() {
 
+            document.getElementById('newPost').classList.add('hidden');
+
             repliesContent.appendChild(card.cloneNode(true));
             document.getElementById('header').classList.add('hidden');
             content.classList.add('hidden');
@@ -119,18 +121,20 @@ loadJSON(function(response) {
 
             repliesContent.appendChild(card5);
 
-
-
             let closeReplies = document.getElementById('closePost');
             closeReplies.addEventListener("click", function() {
                 document.getElementById('header').classList.remove('hidden');
+                document.getElementById('newPost').classList.remove('hidden');
                 content.classList.remove('hidden');
-                repliesContent.classList.add("hidden");
+                repliesSection.classList.add("hidden");
+                console.log(repliesContent.childNodes)
                 let sectionLength = repliesContent.childNodes.length;
                 for (let i = 0; i < sectionLength; i++) {
-                    console.log(repliesContent.childNodes[i])
-                        //repliesContent.removeChild(repliesContent.childNodes[i]);
+                    if (i !== 0) {
+                        console.log(repliesContent.childNodes[i])
+                        repliesContent.removeChild(repliesContent.childNodes[i]);
                         //repliesContent.removeChild(card5);
+                    }
                 }
             })
         });
@@ -403,13 +407,6 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
 function handleFormSubmit(event) {
     newPostPopup.classList.add("hidden");
     newPost.classList.remove("hidden");
@@ -480,3 +477,89 @@ function handleFormSubmit(event) {
 
 const form = document.querySelector('.newPostForm');
 form.addEventListener('submit', handleFormSubmit);
+
+
+// Get the modal
+var replyModal = document.getElementById("replyModal");
+
+// Get the button that opens the modal
+var replyBtn = document.getElementById("newReplyBtn");
+
+// Get the <span> element that closes the modal
+var replySpan = document.getElementById("replyCloseBtn");
+
+// When the user clicks on the button, open the modal
+replyBtn.onclick = function() {
+    replyModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+replySpan.onclick = function() {
+    replyModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == replyModal) {
+        replyModal.style.display = "none";
+    }
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+const replyForm = document.getElementById('newReplyForm');
+replyForm.addEventListener('submit', handleFormSubmitReply);
+
+function handleFormSubmitReply(event) {
+    replyModal.classList.add("hidden");
+    replyBtn.classList.remove("hidden");
+
+    event.preventDefault();
+
+    const data = new FormData(event.target);
+
+    const results = Object.fromEntries(data.entries());
+
+
+    const repliesContent = document.getElementById('repliesContent');
+    //let results = JSON.stringify(formJSON, null, 2);
+
+    console.log(results)
+
+    let card6 = document.createElement('div');
+    card6.setAttribute("class", "card")
+
+    //Create profile image
+    let dp = document.createElement('img');
+    dp.setAttribute("class", "smalldp");
+    dp.src = "images/profile_picture.jpg";
+    //dp.onclick = openProfile();
+
+    //Create title username element
+    let heading = document.createElement('h2');
+    heading.textContent = "ricky-boi"
+
+    //Create date element
+    let date = document.createElement('h4');
+    date.textContent = "today"
+
+    //Create body p element
+
+    let description = document.createElement('p');
+    description.textContent = results.postReply;
+
+    //Append the text elements to the card element
+    card6.appendChild(dp);
+    card6.appendChild(heading);
+    card6.appendChild(date);
+    card6.appendChild(description);
+
+    console.log(card6);
+
+    //Append the card element to the page
+    repliesContent.appendChild(card6);
+
+    //repliesContent.insertBefore(card6, repliesContent.childNodes[0]);
+    //Content population
+}

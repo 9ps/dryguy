@@ -2,9 +2,6 @@
 * Dry Guy is an app targeted towards older men to give them the tools to cut their drinking
 * Prototype produced with HTML/CSS/JS stack
 
-## notes
-- progress is under development...
-
 ## Software Requirements
 - Dry Guy works best on Android phones, using Android verion 10 or later.
 - Can be used on Apple phones, however some visual elements may be lost or deteriorated
@@ -17,11 +14,14 @@ Community page
 - When replying to a post it will also create a blank post in the 'User Feed'
 
 Progress
+- Progress doesnt pull from user data, instead showcasing how such would look
 - Arrows to change week/month/year don't do anything in 'Overview'
 - Arrows to change month don't do anything in 'Calendar'
 
 Profile
-- Cannot hide replies after openning them
+- Cannot hide replies after opening them
+
+---
 
 ## data
 

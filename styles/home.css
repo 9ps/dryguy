@@ -89,6 +89,8 @@
     width: 80%;
     border-radius: 2em;
     background-color: var(--y1);
+    overflow: scroll;
+    max-height: 70%;
 }
 
 /* REFLECTION STYLING */
@@ -205,4 +207,12 @@ button {
 
 .hidden {
     display: none;
+}
+
+#content {
+    overflow: scroll;
+}
+
+#makeYellow {
+    background-color: var(--y1);
 }

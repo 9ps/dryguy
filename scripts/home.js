@@ -325,10 +325,10 @@ function updateStreak() {
 //LOG MODAL
 logButton.onclick = function() {
     openLog();
-    document.getElementById('blogPost').style.display = 'none';
 }
 
 function openLog() {
+    document.getElementById('blogPost').style.display = 'none';
     footer.style.display = "none";
     logModal.style.display = "block";
 
@@ -436,6 +436,8 @@ const next2 = document.querySelector(".next2");
 const next3 = document.querySelector(".next3");
 
 const emotions = document.querySelectorAll('.emotion'); //all the emotions
+const goalText = document.querySelector(".goalText");
+const goalText2 = document.querySelector(".goalText2");
 
 reflectionButton.onclick = function() {
     reflectionProgress.style.width = "0%";
@@ -445,14 +447,26 @@ reflectionButton.onclick = function() {
     reflection1.style.display = "block";
     document.getElementsByTagName("BODY")[0].style.background = "var(--y1)";
 
-    // this is here because i want it to update only when reflection is clicked
+    console.log("reflection date: ", selectedDate);
 
-    const goalText = document.querySelector(".goalText");
-    const goalText2 = document.querySelector(".goalText2");
+    if(dayData.track == -1) {
+        goalText.textContent = "You should complete your log";
+        goalText2.textContent = "before doing the reflection";
+
+        reflectionDrinksLoggedDisplay.textContent = "Log not Complete!";
+        return;
+
+    } else if (dayData.track == 0) {
+        goalText.textContent = "You stayed Under the Limit"
+        goalText2.textContent = "Great Work Today!";
+    } else {
+        goalText.textContent = "You went over the Limit";
+        goalText2.textContent = "It is okay!";
+    }
 
     reflectionDrinksLoggedDisplay.textContent = dayData.drinks + " Drinks Logged";
 
-    //repeated code die mad about it
+    // Removes other days triggers
     while (reflectionTriggersDisplay.lastChild) { //removes previous triggers
         reflectionTriggersDisplay.removeChild(reflectionTriggersDisplay.lastChild);
     }
@@ -469,36 +483,9 @@ reflectionButton.onclick = function() {
     }
     if (!anyTriggerCheck) {
         var triggerInstance = document.createElement('div');
-        triggerInstance.innerText = "No Triggers Yet";
+        triggerInstance.className = 'triggerDisplay';
+        triggerInstance.innerText = "No Triggers";
         reflectionTriggersDisplay.appendChild(triggerInstance);
-    }
-
-    console.log("reflection date: ", selectedDate);
-
-    var isDry = false;
-    var isOver = false;
-    for (j = 0; j < dryDays.length; j++) { //checks if its a dry day
-        if (selectedDate == dryDays[j]) {
-            isDry = true;
-            if (dayData.drinks > 0) {
-                isUnder = true;
-                break;
-            }
-        }
-    }
-
-    if (isDry == false) {
-        if (dayData.drinks > dailyLimit) {
-            isOver = true;
-        }
-    }
-
-    if (isOver) {
-        goalText.textContent = "You went over the Limit";
-        goalText2.textContent = "It is okay!";
-    } else {
-        goalText.textContent = "You stayed Under the Limit"
-        goalText2.textContent = "Great Work Today!";
     }
 }
 

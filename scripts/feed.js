@@ -136,6 +136,22 @@ loadJSON(function(response) {
                 // Assuming json data is wrapped in square brackets as Drew suggests
                 jsonresponse2.every(reply => {
 
+                    let closeReplies = document.getElementById('closePost');
+                    closeReplies.addEventListener("click", function() {
+                        document.getElementById('header').classList.remove('hidden');
+                        document.getElementById('newPost').classList.remove('hidden');
+                        content.classList.remove('hidden');
+                        repliesSection.classList.add("hidden");
+                        repliesContent.removeChild(card5);
+                        for (let i = 0; i < post.replies + 1; i++) {
+                            if (i !== 0) {
+                                console.log(repliesContent.childNodes[i])
+                                repliesContent.removeChild(repliesContent.childNodes[i]);
+
+                            }
+                        }
+                    })
+
                     if (countReplies == post.replies) {
                         return false;
                     }
@@ -164,22 +180,7 @@ loadJSON(function(response) {
 
                 })
             });
-            let closeReplies = document.getElementById('closePost');
-            closeReplies.addEventListener("click", function() {
-                document.getElementById('header').classList.remove('hidden');
-                document.getElementById('newPost').classList.remove('hidden');
-                content.classList.remove('hidden');
-                repliesSection.classList.add("hidden");
-                console.log(repliesContent.childNodes)
-                let sectionLength = repliesContent.childNodes.length;
-                for (let i = 0; i < sectionLength; i++) {
-                    if (i !== 0) {
-                        console.log(repliesContent.childNodes[i])
-                        repliesContent.removeChild(repliesContent.childNodes[i]);
-                        //repliesContent.removeChild(card5);
-                    }
-                }
-            })
+
         });
 
 

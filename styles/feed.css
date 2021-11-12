@@ -205,6 +205,7 @@ input {
 
 .top {
     background-color: var(--y1);
+    margin-top: -90px;
 }
 
 #mainPic {

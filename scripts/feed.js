@@ -19,6 +19,22 @@ function loadJSON(callback) {
     xobj.send(null);
 }
 
+function loadJSON3(callback) {
+
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'files/Replies.json', true);
+    xobj.onreadystatechange = function() {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+
+            // .open will NOT return a value but simply returns undefined in async mode so use a callback
+            callback(xobj.responseText);
+
+        }
+    }
+    xobj.send(null);
+}
+
 // Call to function with anonymous callback
 loadJSON(function(response) {
     // Do Something with the response e.g.
@@ -111,16 +127,34 @@ loadJSON(function(response) {
             content.classList.add('hidden');
 
             repliesSection.classList.remove('hidden');
-            let card5 = document.createElement('div');
-            card5.setAttribute('class', 'card');
 
-            let p = document.createElement('p');
-            p.textContent = 'test';
+            loadJSON3(function(response2) {
+                jsonresponse2 = JSON.parse(response2);
 
-            card5.appendChild(p);
+                // Assuming json data is wrapped in square brackets as Drew suggests
+                jsonresponse2.forEach(reply => {
 
-            repliesContent.appendChild(card5);
 
+                    let card5 = document.createElement('div');
+                    card5.setAttribute('class', 'card');
+
+                    let p = document.createElement('p');
+                    p.textContent = reply.body;
+
+                    let profilePic = document.createElement('img');
+                    profilePic.setAttribute('class', 'smalldp')
+                    profilePic.src = reply.pofPic;
+
+                    let replyUser = document.createElement('h2');
+                    replyUser.textContent = reply.username;
+
+                    card5.appendChild(profilePic);
+                    card5.appendChild(replyUser);
+                    card5.appendChild(p);
+
+                    repliesContent.appendChild(card5);
+                })
+            });
             let closeReplies = document.getElementById('closePost');
             closeReplies.addEventListener("click", function() {
                 document.getElementById('header').classList.remove('hidden');

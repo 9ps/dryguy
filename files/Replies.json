@@ -1,0 +1,43 @@
+[{
+        "id": 1,
+        "body": "hey man, keep it up, you're gonna do great!",
+        "username": "elbayeh",
+        "pofPic": "https://images.unsplash.com/photo-1555888997-03e986fc157b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+    },
+    {
+        "id": 2,
+        "body": "when the going gets tough just think why you're doing it",
+        "username": "oldLad",
+        "pofPic": "https://images.unsplash.com/photo-1508028922235-7b9a1b690358?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+    },
+    {
+        "id": 3,
+        "body": "keep making progress my dude",
+        "username": "the_best_steve",
+        "pofPic": "https://images.unsplash.com/photo-1454418747937-bd95bb945625?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
+    },
+    {
+        "id": 4,
+        "body": "You are doing an excellent job.",
+        "username": "cat_lover",
+        "pofPic": "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+    },
+    {
+        "id": 5,
+        "body": "Don't sweat the small stuff",
+        "username": "natureMan",
+        "pofPic": "https://images.unsplash.com/photo-1501761095094-94d36f57edbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=930&q=80"
+    },
+    {
+        "id": 6,
+        "body": "We all have challenges but you're gonna smash through them",
+        "username": "Mattttt",
+        "pofPic": "https://images.unsplash.com/photo-1541364983171-a8ba01e95cfc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+    },
+    {
+        "id": 7,
+        "body": "I've found telling my family has really helped",
+        "username": "stanley",
+        "pofPic": "https://images.unsplash.com/photo-1609741199878-3e8ebdb1dbc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80"
+    }
+]

@@ -342,44 +342,41 @@ loadJSON2(function(response) {
         body.textContent = post.summary;
 
         card2.addEventListener("click", function() {
-            let blogPostContent = document.getElementById('blogPost');
+            let blogPostContent = document.getElementById('bigPostConent');
+            let bigPost = document.getElementById('bigPost');
 
-            blogPostContent.classList.remove("hidden");
+            //document.getElementById('content').style.display = "none";
+            console.log(document.getElementById('content'));
 
-            document.getElementById('feedContent').classList.add("hidden");
-            document.getElementById('resourceContent').classList.add("hidden");
-            document.getElementById('savedContent').classList.add("hidden");
+            document.getElementById('header').classList.add('hidden');
+            resourceContent.classList.add('hidden');
+
+            bigPost.classList.remove("hidden");
 
             let card3 = document.createElement('div');
             card3.setAttribute('id', 'blogCard');
             card3.setAttribute('class', 'card');
 
-            let closePost = document.createElement('button');
-            closePost.setAttribute('class', 'right');
-            closePost.textContent = "close";
-
-            closePost.addEventListener("click", function() {
-                blogPostContent.removeChild(card3)
-                if (resources.classList.contains("active")) {
-                    document.getElementById('resourceContent').classList.remove("hidden");
-                } else if (saved.classList.contains("active")) {
-                    document.getElementById('savedContent').classList.remove("hidden");
-                }
-            })
-
             let blogPost = document.createElement('p');
-            //console.log(post.content);
             blogPost.textContent = post.content;
 
             let source = document.createElement('button');
-            source.setAttribute('class', 'center');
+            source.setAttribute('class', 'centerBtn');
             source.textContent = "source";
             source.addEventListener("click", function() {
                 let url = post.source;
                 window.open(url, '_blank').focus();
             })
 
-            card3.appendChild(closePost);
+            let closePost = document.getElementById('closePostBlog');
+            closePost.addEventListener("click", function() {
+                document.getElementById('header').classList.remove('hidden');
+                document.getElementById('resourceContent').classList.remove('hidden');
+                bigPost.classList.add("hidden");
+                blogPostContent.removeChild(card3);
+            })
+
+
             card3.appendChild(author.cloneNode(true));
             card3.appendChild(date.cloneNode(true));
             card3.appendChild(title.cloneNode(true));
@@ -388,7 +385,35 @@ loadJSON2(function(response) {
 
             blogPostContent.appendChild(card3);
 
+            if (blogPostContent.childNodes.length > 2) {
+                console.log('true');
+                blogPostContent.removeChild(card3);
+            }
+
+
         })
+
+        let blogPost = document.createElement('p');
+        //console.log(post.content);
+        blogPost.textContent = post.content;
+
+        let source = document.createElement('button');
+        source.setAttribute('class', 'center');
+        source.textContent = "source";
+        source.addEventListener("click", function() {
+                let url = post.source;
+                window.open(url, '_blank').focus();
+            })
+            /*
+                                card3.appendChild(closePost);
+                                card3.appendChild(author.cloneNode(true));
+                                card3.appendChild(date.cloneNode(true));
+                                card3.appendChild(title.cloneNode(true));
+                                card3.appendChild(blogPost);
+                                card3.appendChild(source);
+
+                                blogPostContent.appendChild(card3);
+            */
 
         card2.appendChild(image);
         card2.appendChild(author);
@@ -396,7 +421,6 @@ loadJSON2(function(response) {
         card2.appendChild(title);
         card2.appendChild(body);
         card2.appendChild(saveBlog);
-
 
         resourceContent.appendChild(card2);
 

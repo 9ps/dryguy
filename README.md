@@ -5,6 +5,17 @@
 ## notes
 - progress is under development...
 
+## Software Requirements
+- Dry Guy works best on Android phones, using Android verion 10 or later.
+- Can be used on Apple phones, however some visual elements may be lost or deteriorated
+- To view on desktops follow the instructions here - https://www.browserstack.com/guide/view-mobile-version-of-website-on-chrome
+
+## Known Issues
+Community page
+- New posts from the user are not saved anywhere so disapear when reloading or switching pages
+- Cannot unsave posts from the saved tab
+- Cannot view replies to posts, or post a reply to a post
+
 ## data
 
 ```

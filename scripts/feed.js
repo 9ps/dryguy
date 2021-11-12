@@ -252,8 +252,9 @@ saved.addEventListener("click", function() {
     if (blogCard !== null) {
         blogPostContent.removeChild(blogCard);
     }
-    console.log(savedContent.childNodes.length)
-    if (savedContent.childNodes.length == 1) {
+    console.log(savedContent.childNodes)
+    console.log(savedContent.childNodes[1])
+    if (savedContent.childNodes[1] == 'p.advice' || savedContent.childNodes[1] == null) {
         savedContent.appendChild(advice);
     } else if (savedContent.childNodes.length > 1) {
         savedContent.removeChild(advice);

@@ -125,10 +125,13 @@ loadJSON(function(response) {
             closeReplies.addEventListener("click", function() {
                 document.getElementById('header').classList.remove('hidden');
                 content.classList.remove('hidden');
-                repliesSection.classList.add("hidden");
-                console.log(repliesContent.childNodes)
-                    //repliesContent.removeChild(repliesContent.childNodes[0]);
-                    //repliesContent.removeChild(card5);
+                repliesContent.classList.add("hidden");
+                let sectionLength = repliesContent.childNodes.length;
+                for (let i = 0; i < sectionLength; i++) {
+                    console.log(repliesContent.childNodes[i])
+                        //repliesContent.removeChild(repliesContent.childNodes[i]);
+                        //repliesContent.removeChild(card5);
+                }
             })
         });
 

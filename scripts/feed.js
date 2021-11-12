@@ -104,7 +104,7 @@ loadJSON(function(response) {
 
         replies.addEventListener("click", function() {
 
-            repliesSection.insertBefore(card.cloneNode(true), repliesSection.childNodes[0]);
+            repliesContent.appendChild(card.cloneNode(true));
             document.getElementById('header').classList.add('hidden');
             content.classList.add('hidden');
 
@@ -119,12 +119,16 @@ loadJSON(function(response) {
 
             repliesContent.appendChild(card5);
 
+
+
             let closeReplies = document.getElementById('closePost');
             closeReplies.addEventListener("click", function() {
-                document.getElementById('header').style.display = "block";
-                content.style.display = "block";
-                replies.classList.add("hidden");
-                repliesContent.removeChild(card5);
+                document.getElementById('header').classList.remove('hidden');
+                content.classList.remove('hidden');
+                repliesSection.classList.add("hidden");
+                console.log(repliesContent.childNodes)
+                    //repliesContent.removeChild(repliesContent.childNodes[0]);
+                    //repliesContent.removeChild(card5);
             })
         });
 

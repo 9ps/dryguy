@@ -14,7 +14,7 @@
 Community page
 - New posts from the user are not saved anywhere so disapear when reloading or switching pages
 - Cannot unsave posts from the saved tab
-- Cannot view replies to posts, or post a reply to a post
+- (working on it) Cannot view replies to posts, or post a reply to a post
 
 ## data
 

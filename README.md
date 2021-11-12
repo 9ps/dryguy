@@ -7,6 +7,11 @@
 - Can be used on Apple phones, however some visual elements may be lost or deteriorated
 - To view on desktops, open the link in Chrome & follow the instructions here - https://www.browserstack.com/guide/view-mobile-version-of-website-on-chrome
 
+
+## TODO
+- Cactus and better text needed in onboarding
+- make whole post clickable in feed
+
 ## Known Issues
 Community page
 - New posts & replies from the user are not saved anywhere so disapear when reloading or switching pages

@@ -141,6 +141,9 @@ const data8 = ["Routine", "Stress", "Lonliness"];
 const data9 = ["Fri", "Sat", "Sun"];
 const data10 = ["1.7x greater than Average", "1.3x greater than Average", "1.7x less than Average"];
 
+const color1 = ["good", "good", "bad"];
+const color2 = ["good", "bad", "bad"];
+
 weekBtn.addEventListener("click", function() {
     toggleView(0);
 });
@@ -161,15 +164,25 @@ function toggleView(n){
     for(var i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("dateBtnsActive");
     }
-    
+
     buttons[n].classList.add("dateBtnsActive");
 
     console.log("toggling view");
     dateText.innerText = data1[n];
     averageDrinks.innerText = data2[n];
+
+    averageDrinks.classList.remove("good");
+    averageDrinks.classList.remove("bad");
+    averageDrinks.classList.add(color1[n]);
+
     averageDrinksText.innerText = data3[n];
     averageMood.innerText = data4[n];
     reflectPercent.innerText = data5[n];
+
+    reflectPercent.classList.remove("good");
+    reflectPercent.classList.remove("bad");
+    reflectPercent.classList.toggle(color2[n]);
+
     trigger1.innerText = data6[n];
     trigger2.innerText = data7[n];
     trigger3.innerText = data8[n];

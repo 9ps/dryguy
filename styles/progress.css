@@ -143,15 +143,6 @@ li button {
     margin: 5px;
 }
 
-#averageDrinks {
-    background-color: var(--g1);
-}
-
-#reflectPercent {
-    background-color: var(--r1);
-    color: white;
-}
-
 #overview {
     margin: 0 1em 0 1em;
 }
@@ -174,5 +165,15 @@ li button {
 
 .dateBtnsActive {
     background-color: var(--b1);
+    color: white;
+}
+
+.good {
+    background-color: var(--g1);
+    color: black;
+}
+
+.bad {
+    background-color: var(--r1);
     color: white;
 }

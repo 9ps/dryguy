@@ -11,7 +11,7 @@ let data = localStorage.getObject("data");
 if (data == null) { //if onboarding not complete
     console.log("no Data, fallback");
     localStorage.setObject("data", { name: "Ricky", 'dryDays': [0, 0, 1, 0, 1, 0, 0], 'dailyLimit': 2, 'majorGoal': 3, 'minorGoals': [1, 1, 1, 1, 0, 0, 0, 0] });
-    let data = localStorage.getObject("data");
+    data = localStorage.getObject("data");
 }
 
 const triggersList = ["Family", "Friends", "Work", "Occasions", "Routine", "Media", "Lonliness", "Stress", "Boredom", "Pain Relief"]

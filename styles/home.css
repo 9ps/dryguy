@@ -195,3 +195,7 @@ button {
     background-color: var(--y1);
     margin: 10px;
 }
+
+.shadow {
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+}

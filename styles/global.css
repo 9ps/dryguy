@@ -148,9 +148,10 @@
 }
 
 .navButton {
-    padding: 1em;
+    padding: 0.5em 1.25em 0.5em 1.25em;
     border-radius: 1em;
     color: var(--w3);
+    text-decoration: none;
 }
 
 .navButtonActive {

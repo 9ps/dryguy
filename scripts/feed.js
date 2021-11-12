@@ -252,7 +252,19 @@ saved.addEventListener("click", function() {
     if (blogCard !== null) {
         blogPostContent.removeChild(blogCard);
     }
+    console.log(savedContent.childNodes.length)
+    if (savedContent.childNodes.length == 1) {
+        savedContent.appendChild(advice);
+    } else if (savedContent.childNodes.length > 1) {
+        savedContent.removeChild(advice);
+    }
+
+
 });
+
+let advice = document.createElement('p');
+advice.setAttribute('class', 'advice')
+advice.textContent = "You haven't saved anything yet! Check out the User Feed or Resources. Any posts you save will be displayed here!"
 
 
 function loadJSON2(callback) {

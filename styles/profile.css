@@ -1,5 +1,6 @@
 .top {
     background-color: var(--y1);
+    padding-top: 10px;
 }
 
 #mainPic {
@@ -30,11 +31,16 @@
     float: right;
 }
 
+.left {
+    float: left;
+    padding: 20px;
+}
+
 h1 {
     text-align: center;
 }
 
-p {
+p:not(.card p) {
     text-align: center;
 }
 
@@ -62,4 +68,69 @@ li button {
 .activeList {
     background-color: var(--b1);
     color: white;
+}
+
+.smalldp {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card {
+    width: 100%;
+    position: relative;
+    padding: 1rem;
+    margin: 1rem;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+
+.card h2 {
+    display: inline;
+    font-size: 16px;
+    color: var(--w4);
+}
+
+.card h4 {
+    text-align: center;
+}
+
+.card p {
+    padding-left: 10px;
+    margin: 0;
+}
+
+button {
+    border-radius: 10px;
+    border: none;
+    background-color: var(--y1);
+    margin: 5px;
+}
+
+#repliesBtn {
+    margin-left: 10px;
+}
+
+.liked {
+    background-color: var(--g1);
+}
+
+.blogPost {
+    width: 80%;
+    white-space: pre-wrap;
+}
+
+h4 {
+    float: right;
+    font-size: 12px;
+    color: var(--w4);
+    margin: 7px;
+}
+
+h3 {
+    text-align: center;
 }

@@ -186,19 +186,6 @@ input {
     padding-bottom: 10px;
 }
 
-#profileContent h1 {
-    font-size: 26px;
-    text-align: center;
-}
-
-#profileContent p {
-    text-align: center;
-}
-
-#userSettings {
-    float: right;
-}
-
 .top {
     background-color: var(--y1);
 }

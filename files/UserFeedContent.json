@@ -1,92 +1,111 @@
-[
- {
-   "id": 1,
-   "name": "Steve",
-   "username": "steveo91",
-   "likes": 42,
-   "title": "progress!",
-   "date": "01-11-2021",
-   "post": "really enjoying my progress so far, down to less than 5 drinks a week",
-   "replies": 4
- },
- {
-   "id": 2,
-   "name": "Barney",
-   "username": "barney.gmb",
-   "likes": 26,
-   "title": "struggling",
-   "date": "31-10-2021",
-   "post": "How do you guys take your mind off drinking? It's only been a few days and I'm already feeling the temptation...",
-   "replies": 9
- },
- {
-   "id": 3,
-   "name": "Mike",
-   "username": "bigmike64",
-   "likes": 36,
-   "title": "We got this guys.",
-   "date": "31-10-2021",
-   "post": "We're all gonna make it guys!",
-   "replies": 11
- },
- {
-   "id": 4,
-   "name": "Anon",
-   "username": "User030752",
-   "likes": 13,
-   "title": "Need some advice guys.",
-   "date": "30-10-2021",
-   "post": "Feeling a little bored sometimes out of work and my only hobby of gardening. What do you guys do that helps take your mind off things and keeps you busy? Extra points for hobbies that are also  inexpensive.",
-   "replies": 18
- },
- {
-   "id": 5,
-   "name": "John",
-   "username": "JohnD12",
-   "likes": 40,
-   "title": "100 day milestone!!!",
-   "date": "30-10-2021",
-   "post": "It's Saturday and I've just hit my 100 day milestone of being completely clean!! Owe it all to this incredible community <3",
-   "replies": 12
- },
- {
-   "id": 6,
-   "name": "Praveen",
-   "username": "pravchi60",
-   "likes": 29,
-   "title": "Saturday Things!",
-   "date": "30-10-2021",
-   "post": "Morning guys and we made it to Saturday! I just did a nice hike and got roughly 10,000 steps and all before 11am! Post below what you guys are doing for your Saturday/weekend!!",
-   "replies": 26
- },
- {
-   "id": 7,
-   "name": "Raveen",
-   "username": "Raveen1",
-   "likes": 56,
-   "title": "1 YEAR LETS GOO!!",
-   "date": "29-10-2021",
-   "post": "Just wanted to share that it's been a full 1 YEAR SINCE IVE BEEN DRY LETS GO DRY GUYS!! Also it's Friday evening and I have no temptation at all to drink - and it's all thanks to you guys. Thank you <3",
-   "replies": 20
- },
- {
-   "id": 8,
-   "name": "Anon",
-   "username": "abcd123!",
-   "likes": 16,
-   "title": "Advice on drinks",
-   "date": "29-10-2021",
-   "post": "Just trying to reduce my drinks for the time being. Anyone recommend what alcoholic drinks they consume with the least amount of alcohol during their journey?",
-   "replies": 19
- },
- {
-   "id": 9,
-   "name": "Anon",
-   "username": "elbayeh",
-   "likes": 32,
-   "title": "Hey guys!",
-   "date": "29-10-2021",
-   "post": "First time here and just starting on my journey - just wanted to say hi to y'all!",
-   "replies": 22
- }
+[{
+        "id": 1,
+        "name": "Steve",
+        "username": "steveo91",
+        "likes": 42,
+        "title": "progress!",
+        "date": "01-11-2021",
+        "post": "really enjoying my progress so far, down to less than 5 drinks a week",
+        "replies": 4,
+        "profPic": "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2064&q=80"
+    },
+    {
+        "id": 2,
+        "name": "Barney",
+        "username": "barney.gmb",
+        "likes": 26,
+        "title": "struggling",
+        "date": "31-10-2021",
+        "post": "How do you guys take your mind off drinking? It's only been a few days and I'm already feeling the temptation...",
+        "replies": 9,
+        "profPic": "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+    },
+    {
+        "id": 3,
+        "name": "Mike",
+        "username": "bigmike64",
+        "likes": 36,
+        "title": "We got this guys.",
+        "date": "31-10-2021",
+        "post": "We're all gonna make it guys!",
+        "replies": 11,
+        "profPic": "https://images.unsplash.com/photo-1594498152810-4de937ac2c58?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=770&q=80"
+    },
+    {
+        "id": 4,
+        "name": "Anon",
+        "username": "User030752",
+        "likes": 13,
+        "title": "Need some advice guys.",
+        "date": "30-10-2021",
+        "post": "Feeling a little bored sometimes out of work and my only hobby of gardening. What do you guys do that helps take your mind off things and keeps you busy? Extra points for hobbies that are also  inexpensive.",
+        "replies": 18,
+        "profPic": "https://images.unsplash.com/photo-1603711549213-768a23c97437?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+        "id": 5,
+        "name": "John",
+        "username": "JohnD12",
+        "likes": 40,
+        "title": "100 day milestone!!!",
+        "date": "30-10-2021",
+        "post": "It's Saturday and I've just hit my 100 day milestone of being completely clean!! Owe it all to this incredible community <3",
+        "replies": 12,
+        "profPic": "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
+    },
+    {
+        "id": 6,
+        "name": "Praveen",
+        "username": "pravchi60",
+        "likes": 29,
+        "title": "Saturday Things!",
+        "date": "30-10-2021",
+        "post": "Morning guys and we made it to Saturday! I just did a nice hike and got roughly 10,000 steps and all before 11am! Post below what you guys are doing for your Saturday/weekend!!",
+        "replies": 26,
+        "profPic": "https://images.unsplash.com/photo-1608649672403-3609a75eae18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"
+    },
+    {
+        "id": 7,
+        "name": "Raveen",
+        "username": "Raveen1",
+        "likes": 56,
+        "title": "1 YEAR LETS GOO!!",
+        "date": "29-10-2021",
+        "post": "Just wanted to share that it's been a full 1 YEAR SINCE IVE BEEN DRY LETS GO DRY GUYS!! Also it's Friday evening and I have no temptation at all to drink - and it's all thanks to you guys. Thank you <3",
+        "replies": 20,
+        "profPic": "https://images.unsplash.com/photo-1454418747937-bd95bb945625?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
+    },
+    {
+        "id": 8,
+        "name": "Anon",
+        "username": "abcd123!",
+        "likes": 16,
+        "title": "Advice on drinks",
+        "date": "29-10-2021",
+        "post": "Just trying to reduce my drinks for the time being. Anyone recommend what alcoholic drinks they consume with the least amount of alcohol during their journey?",
+        "replies": 19,
+        "profPic": "https://images.unsplash.com/photo-1508028922235-7b9a1b690358?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+    },
+    {
+        "id": 9,
+        "name": "Anon",
+        "username": "elbayeh",
+        "likes": 32,
+        "title": "Hey guys!",
+        "date": "29-10-2021",
+        "post": "First time here and just starting on my journey - just wanted to say hi to y'all!",
+        "replies": 22,
+        "profPic": "https://images.unsplash.com/photo-1555888997-03e986fc157b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+    },
+    {
+        "id": 10,
+        "name": "Ricky",
+        "username": "ricky-boi",
+        "likes": 12,
+        "title": "Hello",
+        "date": "28-10-2021",
+        "post": "Starting out and wanting to make a good first impression. Good luck on this journey everybody!",
+        "replies": 5,
+        "profPic": "https://images.unsplash.com/photo-1608681299041-cc19878f79f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
+    }
 ]

@@ -35,7 +35,7 @@ loadJSON(function(response) {
         //Create profile image
         let dp = document.createElement('img');
         dp.setAttribute("class", "smalldp");
-        dp.src = "images/profile_picture.jpg";
+        dp.src = post.profPic;
         //dp.onclick = openProfile();
 
         //Create title username element
@@ -236,7 +236,7 @@ loadJSON2(function(response) {
         title.textContent = post.title;
 
         let image = document.createElement('img');
-        image.src = "images/blog_image.jpg";
+        image.src = post.image;
         image.setAttribute("class", "blogImage");
 
         let body = document.createElement('p');

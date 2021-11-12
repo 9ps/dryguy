@@ -191,6 +191,7 @@ function toggleView(n){
 }
 
 const modalBacking = document.querySelector("#modalBacking");
+const modalBacking2 = document.querySelector("#modalBacking2");
 const footer = document.querySelector(".footer");
 
 function openSupport() {
@@ -205,10 +206,59 @@ function closeSupport() {
 window.onclick = function(event) {
     if (event.target == modalBacking) {
         closeSupport();
+    } else if(event.target == modalBacking2) {
+        closeDay();
     }
 }
 
+dates = document.querySelectorAll(".date");
+
+for (var i = 0; i < dates.length; i++) {
+    if(i%5 != 0 && i%9 != 0){
+        dates[i].classList.add("activeDay");
+    }
+    dates[i].addEventListener('click', function() {
+        if(!this.classList.contains("activeDay")){
+            return;
+        }
+        console.log(this.innerText);
+        openDay(this.innerText);
+    });
+}
+
+const replaceDayText = document.querySelector("#replaceDayText");
+
+function openDay(date){
+    
+    replaceStr = "November " + date;
+
+    if(date == 1){
+        replaceStr += "st"
+    }
+    else if (date == 2){
+        replaceStr += "nd"
+
+    }
+    else if (date == 3){
+        replaceStr += "rd"
+
+    } else {
+        replaceStr += "th"
+    }
+
+    replaceDayText.textContent = replaceStr;
+
+    footer.style.display = "none";
+    modalBacking2.style.display = "block";
+    
+}
+
+function closeDay() {
+    console.log("close");
+    modalBacking2.style.display = "none";
+}
 
 Object.keys(localStorage).forEach(function(key) {
     //console.log(localStorage.getItem(key));
 });
+

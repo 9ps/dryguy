@@ -293,3 +293,12 @@ button {
 .nm {
     margin: 0;
 }
+
+.triggerDisplay {
+    display: inline-block;
+    background-color: var(--w2);
+    border-radius: 1000px;
+    padding: 0.25em 1em 0.25em 1em;
+    margin: 0.25em;
+    font-size: 12pt;
+}

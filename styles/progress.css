@@ -153,8 +153,10 @@ li button {
     padding: 0;
 }
 
-#dateSelectorContainer {
+.dateSelectorContainer {
     align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .centerAlign {
@@ -178,7 +180,7 @@ li button {
     color: white;
 }
 
-#modalBacking {
+.modalBacking {
     display: none;
     position: fixed;
     z-index: 0;
@@ -189,4 +191,75 @@ li button {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.75);
+}
+
+#calendarMonth {
+    justify-content: space-between;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0.25em 1em;
+}
+
+tr {
+    margin: 1em;
+}
+
+.week th {
+    
+    border-radius: 1000px;
+    height: calc(100vw/9);
+    position: relative;
+}
+
+th {
+    font-weight: normal;
+}
+
+#weekdays th {
+    font-weight: bold;
+}
+
+.activeDay {
+    background-color: var(--y1);
+}
+
+.modalContent {
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 2em;
+    background-color: var(--y1);
+}
+
+.reflectionTitle {
+    background-color: var(--w2);
+    border-radius: 1em 1em 0 0;
+    padding: 1em;
+    font-weight: bold;
+}
+
+.reflectionContent {
+    background-color: white;
+    border-radius: 0 0 1em 1em;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+#dayModal {
+    height: 80%;
+    overflow: scroll;
+}
+
+#biggerTrigger {
+    font-size: 14pt;
+}
+
+#biggerEmotion {
+    font-size: 22pt;
+}
+
+#dayTriggerEmotion {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1em;
 }

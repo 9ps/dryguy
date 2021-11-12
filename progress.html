@@ -42,9 +42,9 @@
             </ul>
 
             <div class="activeBtn">
-                <ul id="dateSelectorContainer" class="nm">
+                <ul class="dateSelectorContainer nm">
                     <span class="material-icons inline md-36 button-backing2">chevron_left</span>
-                    <span class="inline" id="dateText">October 2021</span>
+                    <span class="inline" id="dateText">November 2021</span>
                     <span class="material-icons inline md-36 button-backing2">chevron_right</span>
                 </ul>
                 <div class="p-1"></div>
@@ -79,8 +79,8 @@
             </div>
         </div>
 
-        <div id="modalBacking" class="hidden">
-            <div id="supportPopUp">
+        <div class="modalBacking" id="modalBacking" class="hidden">
+            <div id="supportPopUp" class="modalContent">
                 <div class="titleBar">
                     <div onclick="closeSupport()" class="left button-backing material-icons md-24">close</div>
                     <h2>Need Support?</h2>
@@ -110,11 +110,105 @@
 
         <!-- Calendar -->
         <div class="hidden" id="calendar">
-            <p>theres gonna be a calendar here lol idk</p>
+            <ul class="dateSelectorContainer center nm">
+                <span class="material-icons inline md-36 button-backing2">chevron_left</span>
+                <span id="dateText">November 2021</span>
+                <span class="material-icons inline md-36 button-backing2">chevron_right</span>
+            </ul>
         </div>
 
+        <table id="calendarMonth">
+            <tr id="weekdays">
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+            <tr class="week">
+                <th class="date">1</th>
+                <th class="date">2</th>
+                <th class="date">3</th>
+                <th class="date">4</th>
+                <th class="date">5</th>
+                <th class="date">6</th>
+                <th class="date">7</th>
+            </tr>
+            <tr class="week">
+                <th class="date">8</th>
+                <th class="date">9</th>
+                <th class="date">10</th>
+                <th class="date">11</th>
+                <th class="date">12</th>
+                <th class="date">13</th>
+                <th class="date">14</th>
+            </tr>
+            <tr class="week">
+                <th class="date">15</th>
+                <th class="date">16</th>
+                <th class="date">17</th>
+                <th class="date">18</th>
+                <th class="date">19</th>
+                <th class="date">20</th>
+                <th class="date">21</th>
+            </tr>
+            <tr class="week">
+                <th class="date">22</th>
+                <th class="date">23</th>
+                <th class="date">24</th>
+                <th class="date">25</th>
+                <th class="date">26</th>
+                <th class="date">28</th>
+                <th class="date">29</th>
+            </tr>
+            <tr class="week">
+                <th class="date">30</th>
+            </tr>
+        </table>
 
+        <div class="modalBacking" id="modalBacking2" class="hidden">
+            <div class="modalContent" id="dayModal">
+                <div class="titleBar">
+                    <div onclick="closeDay()" class="left button-backing material-icons md-24">close</div>
+                    <h2 id="replaceDayText"></h2>
+                    <div class="right button-backing"></div>
+                </div>
+                
+                <h3 class="center">1 Drink Logged</h3>
 
+                <div id="dayTriggerEmotion">
+                    <div>
+                        <h6>Triggers:</h6>
+                        <div id="biggerTrigger" class="triggerDisplay">Occasion</div>
+                    </div>
+
+                    <div>
+                        <h6>Emotion:</h6>
+                        <button id="biggerEmotion" class="average">😊</button>
+                    </div>
+                </div>
+                
+                <div class="p-2"></div>
+                <h6>Reflections:</h6>
+                <div class="reflectionDisplay">
+                    <div class="reflectionTitle">Was it hard to resist Drinking Today? Why?</div>
+                    <div class="reflectionContent">Because of a birthday, I felt obliged to have a drink, but I could limit myself to one.</div>
+                </div>
+
+                <div class="reflectionDisplay">
+                    <div class="reflectionTitle">Do you think you’ll drink or stay dry tomorrow? Why?</div>
+                    <div class="reflectionContent">I want to be able to spend quality time with my grandson without feeling sluggish and disorientated - he is my sunshine! So I won't drink.</div>
+                </div>
+
+                <div class="reflectionDisplay">
+                    <div class="reflectionTitle">Whats something good that happened today?</div>
+                    <div class="reflectionContent">Celebrated Daniel's birthday, and cake galore, always nice when the kids are home.</div>
+                </div>
+
+            </div>
+        </div>
 
         <div class="hidden" id="reasons">
             <div class="p-1"></div>

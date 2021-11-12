@@ -203,11 +203,6 @@ input {
     padding-bottom: 10px;
 }
 
-.top {
-    background-color: var(--y1);
-    margin-top: -90px;
-}
-
 #mainPic {
     width: 200px;
     height: 200px;

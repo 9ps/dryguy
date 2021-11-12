@@ -8,13 +8,20 @@
 ## Software Requirements
 - Dry Guy works best on Android phones, using Android verion 10 or later.
 - Can be used on Apple phones, however some visual elements may be lost or deteriorated
-- To view on desktops follow the instructions here - https://www.browserstack.com/guide/view-mobile-version-of-website-on-chrome
+- To view on desktops, open the link in Chrome & follow the instructions here - https://www.browserstack.com/guide/view-mobile-version-of-website-on-chrome
 
 ## Known Issues
 Community page
-- New posts from the user are not saved anywhere so disapear when reloading or switching pages
-- Cannot unsave posts from the saved tab
-- (working on it) Cannot view replies to posts, or post a reply to a post
+- New posts & replies from the user are not saved anywhere so disapear when reloading or switching pages
+- Cannot unsave posts when in the 'Saved' tab
+- When replying to a post it will also create a blank post in the 'User Feed'
+
+Progress
+- Arrows to change week/month/year don't do anything in 'Overview'
+- Arrows to change month don't do anything in 'Calendar'
+
+Profile
+- Cannot hide replies after openning them
 
 ## data
 

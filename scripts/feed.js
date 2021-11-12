@@ -128,12 +128,17 @@ loadJSON(function(response) {
 
             repliesSection.classList.remove('hidden');
 
+            let countReplies = 0;
+
             loadJSON3(function(response2) {
                 jsonresponse2 = JSON.parse(response2);
 
                 // Assuming json data is wrapped in square brackets as Drew suggests
-                jsonresponse2.forEach(reply => {
+                jsonresponse2.every(reply => {
 
+                    if (countReplies == post.replies) {
+                        return false;
+                    }
 
                     let card5 = document.createElement('div');
                     card5.setAttribute('class', 'card');
@@ -153,6 +158,10 @@ loadJSON(function(response) {
                     card5.appendChild(p);
 
                     repliesContent.appendChild(card5);
+
+                    countReplies++
+                    return true;
+
                 })
             });
             let closeReplies = document.getElementById('closePost');
@@ -574,10 +583,6 @@ function handleFormSubmitReply(event) {
     let heading = document.createElement('h2');
     heading.textContent = "ricky-boi"
 
-    //Create date element
-    let date = document.createElement('h4');
-    date.textContent = "today"
-
     //Create body p element
 
     let description = document.createElement('p');
@@ -586,7 +591,6 @@ function handleFormSubmitReply(event) {
     //Append the text elements to the card element
     card6.appendChild(dp);
     card6.appendChild(heading);
-    card6.appendChild(date);
     card6.appendChild(description);
 
     console.log(card6);

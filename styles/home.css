@@ -7,15 +7,17 @@
 #datesScroll {
     overflow-y: hidden;
     white-space: nowrap;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 
 /*active these if you want it to not show scrollbar */
 
 
-/* .datesScroll::-webkit-scrollbar {
+.datesScroll::-webkit-scrollbar {
     display: none;
-}  */
+}
 
 .dayCactus {
     font-size: 18pt;
@@ -40,15 +42,23 @@
     /* if we ever implement inactive days */
 }
 
+.dateTextInactive {
+    background-color: var(--w2);
+    color: var(--w4);
+}
+
 .dateTextOver {
     background-color: var(--r1);
+    color: black;
 }
 
 .dateTextUnder {
     background-color: var(--g1);
+    color: black;
 }
 
 .dateTextActive {
+    color: black;
     padding-bottom: 1em;
     border-radius: 1000px 1000px 0px 0px;
     background-color: white;
@@ -66,6 +76,7 @@
 #logDisplay {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 

@@ -364,3 +364,74 @@ window.onclick = function(event) {
         newPost.classList.remove("hidden");
     }
 }
+
+function handleFormSubmit(event) {
+    newPostPopup.classList.add("hidden");
+    newPost.classList.remove("hidden");
+
+    event.preventDefault();
+
+    const data = new FormData(event.target);
+
+    const results = Object.fromEntries(data.entries());
+
+
+    const neewUserPost = document.querySelector('.newUserPost');
+    //let results = JSON.stringify(formJSON, null, 2);
+
+    console.log(results)
+
+    let card4 = document.createElement('div');
+    card4.setAttribute("class", "card")
+
+    //Create profile image
+    let dp = document.createElement('img');
+    dp.setAttribute("class", "smalldp");
+    dp.src = "images/profile_picture.jpg";
+    //dp.onclick = openProfile();
+
+    //Create title username element
+    let heading = document.createElement('h2');
+    heading.textContent = "ricky-boi"
+
+    //Create date element
+    let date = document.createElement('h4');
+    date.textContent = "today"
+
+    //Create body p element
+    let title = document.createElement('h3');
+    title.textContent = results.subject;
+
+    let description = document.createElement('p');
+    description.textContent = results.postBody;
+
+    //create like & replies buttons
+    let btn = document.createElement('button');
+    btn.textContent = 0 + " likes";
+
+    let replies = document.createElement('button');
+    replies.setAttribute('id', 'repliesBtn');
+    replies.textContent = 0 + " replies";
+
+    replies.addEventListener("click", function() {
+
+    });
+
+    //Append the text elements to the card element
+    card4.appendChild(dp);
+    card4.appendChild(heading);
+    card4.appendChild(date);
+    card4.appendChild(title);
+    card4.appendChild(description);
+    card4.appendChild(btn);
+    card4.appendChild(replies);
+
+    //Append the card element to the page
+    neewUserPost.appendChild(card4);
+
+    neewUserPost.insertBefore(card4, neewUserPost.childNodes[0]);
+    //Content population
+}
+
+const form = document.querySelector('.newPostForm');
+form.addEventListener('submit', handleFormSubmit);

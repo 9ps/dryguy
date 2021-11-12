@@ -25,8 +25,8 @@
             <div class="navbar">
                 <ul>
                     <li id="overviewTab" class="tab active"><a>Overview</a></li>
-                    <li id="reflectionsTab" class="tab"><a>Data</a></li>
-                    <li id="reasonsTab" class="tab"><a>Reasons</a></li>
+                    <li id="calendarTab" class="tab"><a>Calendar</a></li>
+                    <li id="reasonsTab" class="tab"><a>Goals</a></li>
                 </ul>
             </div>
         </nav>
@@ -78,41 +78,46 @@
                 </div>
             </div>
         </div>
-        <div id="supportPopUp" class="hidden">
-            <span onclick="closeSupport()" class="material-icons md-36">
-                cancel
-                </span>
-            <h3>Need more support?</h3>
-            <p>Here are some resources that may help</p>
-            <h4><strong>Mensline Australia</strong></h4>
-            <a href='https://mensline.org.au/'>https://mensline.org.au/</a>
-            <a><span class="material-icons right md-36">
-                call
-                </span></a>
-            <h4><strong>Alcoholics Anonymous</strong></h4>
-            <a href='https://aa.org.au/'>https://aa.org.au/</a>
-            <a><span class="material-icons right md-36">
-                call
-                </span></a>
-            <h4><strong>Lifeline</strong></h4>
-            <a href='www.lifeline.org.au/'>www.lifeline.org.au/</a>
-            <a><span class="material-icons right md-36">
-                call
-                </span></a>
-            <h4><strong>Beyond Blue</strong></h4>
-            <a href='https://www.beyondblue.org.au/'>https://www.beyondblue.org.au/</a>
-            <a><span class="material-icons right md-36">
-                call
-                </span></a>
+
+        <div id="modalBacking" class="hidden">
+            <div id="supportPopUp">
+                <div class="titleBar">
+                    <div onclick="closeSupport()" class="left button-backing material-icons md-24">close</div>
+                    <h2>Need Support?</h2>
+                    <div class="right button-backing"></div>
+                </div>
+
+                <p>These resources that may help!</p>
+
+                <h4><strong>Mensline Australia</strong></h4>
+                <a href='https://mensline.org.au/'>mensline.org.au</a>
+                <a><span class="material-icons right md-36">call</span></a>
+
+                <h4><strong>Alcoholics Anonymous</strong></h4>
+                <a href='https://aa.org.au/'>aa.org.au</a>
+                <a><span class="material-icons right md-36">call</span></a>
+
+                <h4><strong>Lifeline</strong></h4>
+                <a href='www.lifeline.org.au/'>lifeline.org.au/</a>
+                <a><span class="material-icons right md-36">call</span></a>
+
+                <h4><strong>Beyond Blue</strong></h4>
+                <a href='https://www.beyondblue.org.au/'>www.beyondblue.org.au</a>
+                <a><span class="material-icons right md-36">call</span></a>
+                <div class="p-2"></div>
+            </div>
         </div>
 
-        <!-- Reflections -->
-        <div class="hidden" id="reflections">
+        <!-- Calendar -->
+        <div class="hidden" id="calendar">
             <p>theres gonna be a calendar here lol idk</p>
         </div>
 
+
+
+
         <div class="hidden" id="reasons">
-            <h4>Current</h4>
+            <div class="p-1"></div>
             <h2>Main Goals</h2>
             <button id="mainGoal" class="triggerActive"></button>
             <div class="p-2"></div>

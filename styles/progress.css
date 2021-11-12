@@ -51,7 +51,7 @@ nav ul {
 
 .active {
     background-color: white;
-    color: #2E3A59;
+    color: black;
 }
 
 .hidden {
@@ -176,4 +176,17 @@ li button {
 .bad {
     background-color: var(--r1);
     color: white;
+}
+
+#modalBacking {
+    display: none;
+    position: fixed;
+    z-index: 0;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.75);
 }

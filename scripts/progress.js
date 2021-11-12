@@ -55,13 +55,13 @@ const dailyGoal = document.querySelector("#dailyGoal");
 dailyGoal.textContent = "Daily Limit of " + dailyLimit + " Drinks";
 
 const overviewContent = document.getElementById('overview');
-const reflectionsContent = document.getElementById('reflections');
+const calendarContent = document.getElementById('calendar');
 const reasonsContent = document.getElementById('reasons');
 
 let popup = document.getElementById('supportPopUp');
 
 let overviewTab = document.getElementById('overviewTab');
-let reflectionsTab = document.getElementById('reflectionsTab');
+let calendarTab = document.getElementById('calendarTab');
 let reasonsTab = document.getElementById('reasonsTab');
 
 
@@ -71,9 +71,9 @@ overviewTab.addEventListener("click", function() {
     //console.log('click');
     popup.classList.add('hidden');
 });
-reflectionsTab.addEventListener("click", function() {
+calendarTab.addEventListener("click", function() {
     let activeElement = document.getElementsByClassName("active");
-    toggleActive('reflectionsTab', activeElement);
+    toggleActive('calendarTab', activeElement);
     popup.classList.add('hidden');
 
 });
@@ -89,9 +89,9 @@ function toggleActive(elementID, activeID) {
     var activeElement = document.getElementById(activeID);
     if (element == activeElement) {} else {
         console.log(elementID);
-        console.log(element);
-        console.log(activeID);
-        console.log(activeElement);
+        // console.log(element);
+        // console.log(activeID);
+        // console.log(activeElement);
         activeID[0].classList.remove("active");
         element.classList.add("active");
         activeID[1].classList.add("hidden");
@@ -100,8 +100,8 @@ function toggleActive(elementID, activeID) {
             var visibleElement = document.getElementById('overview');
             visibleElement.classList.add("active");
             visibleElement.classList.remove("hidden");
-        } else if (elementID == 'reflectionsTab') {
-            var visibleElement = document.getElementById('reflections');
+        } else if (elementID == 'calendarTab') {
+            var visibleElement = document.getElementById('calendar');
             visibleElement.classList.add("active");
             visibleElement.classList.remove("hidden");
         } else if (elementID == 'reasonsTab') {
@@ -190,15 +190,24 @@ function toggleView(n){
     wettestDayText.innerText = data10[n];
 }
 
+const modalBacking = document.querySelector("#modalBacking");
+const footer = document.querySelector(".footer");
+
 function openSupport() {
-    popup.classList.remove('hidden');
-    overviewContent.classList.add('hidden');
+    footer.style.display = "none";
+    modalBacking.style.display = "block";
 }
 
 function closeSupport() {
-    popup.classList.add('hidden');
-    overviewContent.classList.remove('hidden');
+    modalBacking.style.display = "none";
 }
+
+window.onclick = function(event) {
+    if (event.target == modalBacking) {
+        closeSupport();
+    }
+}
+
 
 Object.keys(localStorage).forEach(function(key) {
     //console.log(localStorage.getItem(key));

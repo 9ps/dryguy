@@ -38,18 +38,23 @@
         <div class="content hidden" id="resourceContent"></div>
         <div class="content hidden" id="savedContent"></div>
 
+
         <div id="newPost" class="newPost">
             <button id="newPostBtn">New Post</button>
         </div>
-        <div class="hidden" id="newPostPopup">
-            <button id="closeBtn">X</button>
-            <form class="newPostForm">
-                <label for="subject">Title</label>
-                <input type="text" id="subject" name="subject"></br>
-                <label for="postBody">Post</label>
-                <textarea name="postBody" id="postBody" rows="6"></textarea></br>
-                <button type="submit" id="postBtn">Post</button>
-            </form>
+        <div id="myModal" class="modal hidden">
+            <div id="newPostPopup">
+                <span id="closeBtn" class="material-icons right md-36">
+                    highlight_off
+                    </span>
+                <form class="newPostForm">
+                    <label for="subject">Title</label>
+                    <input type="text" id="subject" name="subject"></br>
+                    <label for="postBody">Post</label>
+                    <textarea name="postBody" id="postBody" rows="6"></textarea></br>
+                    <button type="submit" id="postBtn">Post</button>
+                </form>
+            </div>
         </div>
 
         <!-- <div id="profileContent" class="hidden">

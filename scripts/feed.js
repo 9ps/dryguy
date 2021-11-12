@@ -97,13 +97,38 @@ loadJSON(function(response) {
             }
         })
 
+        let repliesID = post.id + "replies";
         let replies = document.createElement('button');
-        replies.setAttribute('id', 'repliesBtn');
+        replies.setAttribute('id', repliesID);
         replies.textContent = post.replies + " replies";
 
         replies.addEventListener("click", function() {
 
+            repliesSection.insertBefore(card.cloneNode(true), repliesSection.childNodes[0]);
+            document.getElementById('header').classList.add('hidden');
+            content.classList.add('hidden');
+
+            repliesSection.classList.remove('hidden');
+            let card5 = document.createElement('div');
+            card5.setAttribute('class', 'card');
+
+            let p = document.createElement('p');
+            p.textContent = 'test';
+
+            card5.appendChild(p);
+
+            repliesContent.appendChild(card5);
+
+            let closeReplies = document.getElementById('closePost');
+            closeReplies.addEventListener("click", function() {
+                document.getElementById('header').style.display = "block";
+                content.style.display = "block";
+                replies.classList.add("hidden");
+                repliesContent.removeChild(card5);
+            })
         });
+
+
 
         //Append the text elements to the card element
         card.appendChild(dp);
@@ -122,6 +147,9 @@ loadJSON(function(response) {
 
 });
 
+let repliesSection = document.getElementById('replies');
+let repliesContent = document.getElementById('repliesContent');
+
 
 let userFeed = document.getElementById('userFeedTab');
 let resources = document.getElementById('resourcesTab');
@@ -139,6 +167,10 @@ userFeed.addEventListener("click", function() {
 
     let blogCard = document.getElementById('blogCard');
     let blogPostContent = document.getElementById('blogPost');
+
+
+    console.log(blogCard)
+    console.log(blogPostContent)
 
     if (blogCard !== null) {
         blogPostContent.removeChild(blogCard);

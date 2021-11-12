@@ -17,21 +17,32 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <h1>Community</h1>
         <a href="profile.html"><img id="profpic" src="images/profile_picture.jpg"></a>
         <nav>
             <div class="navbar">
                 <ul>
-                    <li id="userFeedTab" class="active"><a>User Feed</a></li>
-                    <li id="resourcesTab"><a>Resources</a></li>
-                    <li id="savedTab"><a>Saved</a></li>
+                    <li id="userFeedTab" class="active tab"><a>User Feed</a></li>
+                    <li id="resourcesTab" class="tab"><a>Resources</a></li>
+                    <li id="savedTab" class="tab"><a>Saved</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main id="main">
+        <div id="replies" class="hidden blogPost">
+            <div class="top">
+                <span id="closePost" class="material-icons left md-36">
+                    chevron_left
+                    </span>
+                <h2>Back to User Feed</h2>
+            </div>
+            <div id="repliesContent" class="blogPost">
+            </div>
+        </div>
+
         <div class="content active" id="feedContent">
             <div class="newUserPost blogPost"></div>
         </div>
@@ -56,6 +67,8 @@
                 </form>
             </div>
         </div>
+
+
 
         <!-- <div id="profileContent" class="hidden">
             <div class="top">

@@ -2,7 +2,7 @@
 * Dry Guy is an app targeted towards older men to give them the tools to cut their drinking
 * Prototype produced with HTML/CSS/JS stack
 
-[live prototype](https://github.com/9ps/dryguy/)
+[live prototype](https://9ps.github.io/dryguy/)
 
 ## Software Requirements
 - Dry Guy works best on Android phones, using Android verion 10 or later.

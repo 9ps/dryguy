@@ -42,7 +42,7 @@ const triggersList = [
   "Pain Relief",
 ];
 const daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const numCalender = 30; //controls amounts of dates displayed in scrolling calender
+const numCalender = 15; //controls amounts of dates displayed in scrolling calender
 
 var dates = []; //stores Date objects
 var d = new Date(); //temp variable for right now

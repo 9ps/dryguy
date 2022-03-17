@@ -11,17 +11,12 @@
   --g2: #effcf4;
 }
 
-/*  */
-
-body {
-  display: flex;
-}
-
 /* TOP PARTS */
 
 #datesScroll {
   overflow-y: hidden;
   white-space: nowrap;
+  overflow-x: scroll;
 }
 
 .date {

@@ -33,7 +33,7 @@
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: bold;
   line-height: 1;
 }
@@ -64,7 +64,7 @@ h6 {
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   line-height: 1.75;
 }
@@ -133,14 +133,14 @@ a {
 button {
   border: none;
   border-radius: 1000px;
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
 }
 
 .btn-normal {
-  padding: 16px 32px 16px 32px;
+  padding: 8px 16px 8px 16px;
   margin: 0px 4px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   border-radius: 20px;
 }
 
@@ -161,16 +161,16 @@ button {
 
 .btn-circle {
   border-radius: 1000px;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
+  width: 48px;
+  height: 48px;
+  margin: 4px;
 }
 
 .btn-circle-small {
   border-radius: 1000px;
   width: 48px;
   height: 48px;
-  margin: 4px;
+  margin: 0px;
 }
 
 .btn-square {
@@ -472,7 +472,6 @@ nav {
 }
 
 main {
-  height: 100vh;
   transition: 300ms;
 }
 

@@ -44,7 +44,7 @@ h2 {
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: normal;
 }
 
@@ -161,8 +161,8 @@ button {
 
 .btn-circle {
   border-radius: 1000px;
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   margin: 4px;
 }
 

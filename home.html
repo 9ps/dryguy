@@ -1,223 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <link href="styles/global.css" rel="stylesheet">
-    <link href="styles/home.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link href="styles/global.css" rel="stylesheet" />
+    <link href="styles/home.css" rel="stylesheet" />
     <title>Dry Guy - Home</title>
-</head>
+  </head>
 
-<body class="body">
+  <body class="body">
     <!-- this is to hide things for the fullscreen reflection -->
-    <div class="hideReflection">
-        <div id="top">
+    <div id="hideReflection">
+      <nav>
+        <span
+          class="material-icons md-36 active left pad"
+          onclick="sidebarAction(0)"
+          id="sidebarClose"
+          >menu</span
+        >
 
-            <div id="makeYellow" class="titleBar center">
+        <a id="home" class="navButton navButtonCurrent" href="home.html">
+          <span class="material-icons md-36">home</span>
+          <span class="nav-text">Home</span>
+        </a>
 
-                <a id="settings" class="navButton left" href="settings.html">
-                    <span class="material-icons md-36 active">settings</span>
-                </a>
+        <a id="progress" class="navButton" href="progress.html">
+          <span class="material-icons md-36">insights</span>
+          <span class="nav-text">Progress</span>
+        </a>
 
-                <div>
-                    <div id="streakCount">[Loading]</div>
-                    <div id="dailyGoal"></div>
-                </div>
+        <a
+          id="history"
+          class="navButton"
+          href="history.html"
+          onclick="pushToStorage()"
+        >
+          <span class="material-icons md-36">calendar_month</span>
+          <span class="nav-text">History</span>
+        </a>
 
-                <a id="profile" class="navButton right" href="profile.html">
-                    <span class="material-icons md-36 active">account_circle</span>
-                </a>
-
-            </div>
-            <div class="p-1"></div>
-            <div id="datesScroll">
-                <!-- we want dates to end up here -->
-            </div>
+        <a id="settings" class="navButton" href="settings.html">
+          <span class="material-icons md-36">settings</span>
+          <span class="nav-text">Settings</span>
+        </a>
+      </nav>
+      <main>
+        <div class="titleBar yb">
+          <span
+            class="material-icons md-36 active left pad"
+            onclick="sidebarAction(1)"
+            id="sidebarOpen"
+            >menu</span
+          >
+          <div class="left center-text center-vertical p1">
+            <h5 id="streakCount"></h5>
+            <h5 id="dailyGoal"></h5>
+          </div>
+          <span class="right"></span>
+        </div>
+        <div class="yb" id="datesScroll">
+          <!-- we want dates to end up here -->
         </div>
 
         <div id="content">
-            <h5 id="dateDisplay" class="center"></h5>
-            <div id="logDisplay">
-                <h2 id="drinksLoggedDisplay">[Loading]</h2>
-                <button class="shadow logButton material-icons md-36">add</button>
-            </div>
+          <h5 id="dateDisplay" class="center-text"></h5>
+          <div id="logDisplay">
+            <h2 id="drinksLoggedDisplay">[Loading]</h2>
+            <button
+              class="btn-square btn-yellow material-icons md-36"
+              id="logButton"
+            >
+              add
+            </button>
+          </div>
 
-            <h6>Current Triggers:</h6>
-            <div id="triggersDisplay">
+          <h6>Current Triggers:</h6>
+          <div id="triggersDisplay">
+            <!-- triggers update here -->
+          </div>
 
-                <!-- triggers update here -->
-            </div>
-
-            <!-- The Log -->
-            <div id="logModal" class="logModal modal">
-                <div id="logModalContent">
-
-                    <div class="titleBar stickyTop by">
-                        <div id="logCloseButton" class="left button-backing material-icons md-24">close</div>
-                        <h2>Track Drinks</h2>
-                        <div class="right button-backing"></div>
-                    </div>
-
-                    <div class="p-1"></div>
-                    <label>Amount of Standard Drinks:</label>
-                    <div class="titleBar center">
-                        <div onclick="changeDrinks(-1)" class="left material-icons md-36">remove</div>
-                        <span id="drinkDisplay" class="display">0</span>
-                        <div onclick="changeDrinks(1)" class="right material-icons md-36">add</div>
-                    </div>
-
-                    <div class="p-1"></div>
-                    <label>What Triggered you?:</label>
-                    <div>
-                        <div class="trigger" id="0">Family</div>
-                        <div class="trigger" id="1">Friends</div>
-                        <div class="trigger" id="2">Work</div>
-                        <div class="trigger" id="3">Occasions</div>
-                        <div class="trigger" id="4">Routine</div>
-                        <div class="trigger" id="5">Media</div>
-                        <div class="trigger" id="6">Lonliness</div>
-                        <div class="trigger" id="7">Stress</div>
-                        <div class="trigger" id="8">Boredom</div>
-                        <div class="trigger" id="9">Pain Relief</div>
-                    </div>
-
-                    <div class="p-1"></div>
-                    <div class="center">
-                        <button id="save" class="bigButton wb">Save</button>
-                    </div>
-
+          <!-- The Log -->
+          <div id="logModal" class="modal">
+            <div class="modalContent" id="logModalContent">
+              <div class="titleBar stickyTop">
+                <div
+                  id="logCloseButton"
+                  class="left button-backing material-icons md-24"
+                >
+                  close
                 </div>
+                <h2>Track Drinks</h2>
+                <div class="right"></div>
+              </div>
+
+              <p class="p2">Amount of Standard Drinks:</p>
+              <div class="titleBar center-text">
+                <div
+                  onclick="changeDrinks(-1)"
+                  class="left material-icons md-36"
+                >
+                  remove
+                </div>
+                <span id="drinkDisplay" class="display">0</span>
+                <div
+                  onclick="changeDrinks(1)"
+                  class="right material-icons md-36"
+                >
+                  add
+                </div>
+              </div>
+
+              <p class="p4">What Triggered you?:</p>
+              <div class="center-text">
+                <button class="trigger btn-normal btn-white" id="0">
+                  Family
+                </button>
+                <button class="trigger btn-normal btn-white" id="1">
+                  Friends
+                </button>
+                <button class="trigger btn-normal btn-white" id="2">
+                  Work
+                </button>
+                <button class="trigger btn-normal btn-white" id="3">
+                  Occasions
+                </button>
+                <button class="trigger btn-normal btn-white" id="4">
+                  Routine
+                </button>
+                <button class="trigger btn-normal btn-white" id="5">
+                  Media
+                </button>
+                <button class="trigger btn-normal btn-white" id="6">
+                  Lonliness
+                </button>
+                <button class="trigger btn-normal btn-white" id="7">
+                  Stress
+                </button>
+                <button class="trigger btn-normal btn-white" id="8">
+                  Boredom
+                </button>
+                <button class="trigger btn-normal btn-white" id="9">
+                  Pain Relief
+                </button>
+              </div>
+
+              <div class="center-text p4">
+                <button id="save" class="btn-round btn-white">Save</button>
+              </div>
             </div>
+          </div>
 
-            <div class="p-1"></div>
-            <div class="center">
-                <button id="reflectionButton" class="bigButton shadow">Today's Reflection</button>
-                <h4 id="reflectionState">Reflection Completed!</h4>
-            </div>
-
-            <h6 id="readText">Today's Read:</h6>
-
-            <div id="blogPost" class="blogPost"></div>
-
-
-            <div class="p-2"></div>
+          <h6 class="p2" id="readText">Today's Read:</h6>
+          <div id="blogPost" class="blogPost"></div>
         </div>
 
-        <footer class="footer">
-            <a id="feed" class="navButton" href="feed.html">
-                <span class="material-icons md-36">public</span>
-                <div class="font-small">feed</div>
-            </a>
-
-            <a id="home" class="navButton navButtonActive" href="home.html">
-                <span class="material-icons md-36">home</span>
-                <div class="font-small">home</div>
-            </a>
-
-            <a id="progress" class="navButton" href="progress.html">
-                <span class="material-icons md-36">insights</span>
-                <div class="font-small">prog</div>
-            </a>
-        </footer>
+        <button id="reflectionButton" class="bottom btn-wide btn-yellow">
+          Today's Reflection
+        </button>
+      </main>
     </div>
 
     <!-- Blog post stuff -->
     <div id="bigPost" class="hidden">
-        <div class="top">
-            <span id="closePost" class="material-icons left md-36 button-backing2">chevron_left</span>
-            <h2>Back to Homepage</h2>
-            <div class="right"></div>
-        </div>
-        <div id="bigPostContent">
-
-        </div>
+      <div class="top">
+        <span id="closePost" class="material-icons left md-36 button-backing2"
+          >chevron_left</span
+        >
+        <h2>Back to Homepage</h2>
+        <div class="right"></div>
+      </div>
+      <div id="bigPostContent"></div>
     </div>
 
     <!-- reflection content goes here -->
     <div class="reflection">
+      <div class="titleBar">
+        <div
+          class="reflectionCloseButton material-icons md-24 button-backing left"
+        >
+          close
+        </div>
+        <h2>Reflection</h2>
+        <div class="right button-backing"></div>
+      </div>
 
-        <div class="titleBar">
-            <div class="reflectionCloseButton material-icons md-24 button-backing left">close</div>
-            <h2>Reflection</h2>
-            <div class="right button-backing"></div>
+      <div class="progressBar center-text">
+        <h6>Progress</h6>
+        <div class="progressFull">
+          <div class="progressLevel" id="reflectionProgress"></div>
+        </div>
+      </div>
+
+      <div class="reflection1">
+        <p class="center-text p5">Todays Log:</p>
+
+        <div class="summaryCard">
+          <h3 class="reflectionDrinksLoggedDisplay center-text">
+            REPLACE CONTENT
+          </h3>
+          <h6 class="p2">Current Triggers:</h6>
+          <div class="reflectionTriggersDisplay">
+            <!-- triggers update here -->
+          </div>
+        </div>
+        <p class="center-text">Tap to Edit</p>
+
+        <div class="center-text p5">
+          <h3 class="goalText nm">Line 1</h3>
+          <h3 class="goalText2 nm">Line 2</h3>
         </div>
 
-        <div class="progressBar center">
-            <div class="font-small">Progress</div>
-            <div class="progressFull">
-                <div class="progressLevel" id="reflectionProgress"></div>
-            </div>
+        <footer class="footer2">
+          <button class="btn-round btn-white p2 next1">Next</button>
+        </footer>
+      </div>
+
+      <div class="reflection2 center-text">
+        <p class="p5">How did you feel today?</p>
+        <div id="emotionSelector">
+          <span id="1" class="emotion emotionInactive">😀</span>
+          <span id="2" class="emotion emotionInactive">😊</span>
+          <span id="3" class="emotion emotionInactive">😐</span>
+          <span id="4" class="emotion emotionInactive">😥</span>
+          <span id="5" class="emotion emotionInactive">😠</span>
         </div>
 
-        <div class="reflection1">
-            <div class="p-5"></div>
-            <p class="center">Todays Log:</p>
+        <h3 class="p5">Was it hard to resist Drinking Today? Why?</h3>
+        <textarea
+          id="response1"
+          class="textInput"
+          placeholder="Write a Response ..."
+        ></textarea>
 
-            <div class="summaryCard">
-                <h3 class="reflectionDrinksLoggedDisplay center">if your reading this it is broken</h3>
-                <div class="p-1"></div>
-                <h6>Current Triggers:</h6>
-                <div class="reflectionTriggersDisplay">
-                    <!-- triggers update here -->
-                </div>
-            </div>
-            <div class="font-small center">Tap to Edit</div>
+        <footer class="footer2">
+          <button class="btn-round btn-white p2 next2">Next</button>
+        </footer>
+      </div>
 
-            <div class="p-4"></div>
-            <div class="center">
-                <p class="goalText nm">Line 1</p>
-                <p class="goalText2 nm">Line 2</p>
-                <div class="p-1"></div>
-                <button class="normalButton wb next1">Next</button>
-            </div>
-        </div>
+      <div class="reflection3 center-text">
+        <h3 class="p5">Do you think you’ll drink or stay dry tomorrow? Why?</h3>
+        <textarea
+          id="response2"
+          class="textInput"
+          placeholder="Write a Response ..."
+        ></textarea>
 
-        <div class="reflection2 center">
-            <p>How did you feel today?</p>
-            <div id="emotionSelector">
-                <span id="1" class="emotion emotionInactive">😀</span>
-                <span id="2" class="emotion emotionInactive">😊</span>
-                <span id="3" class="emotion emotionInactive">😐</span>
-                <span id="4" class="emotion emotionInactive">😥</span>
-                <span id="5" class="emotion emotionInactive">😠</span>
-            </div>
+        <h3 class="p5">Whats something good that happened today?</h3>
+        <textarea
+          id="response3"
+          class="textInput"
+          placeholder="Write a Response ..."
+        ></textarea>
 
-            <div class="p-2"></div>
-
-            <p>
-                <h3>Was it hard to resist Drinking Today? Why?</h3>
-                <textarea id="response1" class="textInput" placeholder="Write a Response ..."></textarea>
-            </p>
-
-            <button class="normalButton wb next2">Confirm</button>
-
-        </div>
-
-        <div class="reflection3 center">
-
-            <p>
-                <h3>Do you think you’ll drink or stay dry tomorrow? Why?</h3>
-                <textarea id="response2" class="textInput" placeholder="Write a Response ..."></textarea>
-            </p>
-
-            <p>
-                <h3>Whats something good that happened today?</h3>
-                <textarea id="response3" class="textInput" placeholder="Write a Response ..."></textarea>
-            </p>
-
-            <button class="normalButton wb next3">Finish</button>
-        </div>
+        <footer class="footer2">
+          <button class="btn-round btn-white p2 next3">Finish</button>
+        </footer>
+      </div>
     </div>
     <div id="largeBlogPost" class="largeBlogPost"></div>
-    <div class="p-5"></div>
-</body>
-<script src='scripts/home.js'></script>
-
+  </body>
+  <script src="scripts/home.js"></script>
+  <script src="scripts/sidebar.js"></script>
 </html>

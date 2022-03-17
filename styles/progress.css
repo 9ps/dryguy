@@ -1,265 +1,85 @@
 :root {
-    --w1: #F3F3F6;
-    --w2: #E4E4EB;
-    --w3: #6E6F72;
-    --w4: #4E4E4F;
-    --b1: #2E3A59;
-    --r1: #EC7669;
-    --y1: #FDD855;
-    --g1: #A4E09D;
-    --g2: #EFFCF4;
+  --w1: #f3f3f6;
+  --w2: #e4e4eb;
+  --w3: #6e6f72;
+  --w4: #4e4e4f;
+  --b1: #2e3a59;
+  --r1: #ec7669;
+  --y1: #fdd855;
+  --g1: #a4e09d;
+  --g2: #effcf4;
 }
 
 header {
-    background-color: var(--y1);
-    padding: 20px;
-    padding-bottom: 0px;
+  background-color: var(--y1);
 }
 
 .right {
-    float: right;
-    margin-top: 0px;
+  float: right;
 }
 
-.navBar {
-    display: inline-flex;
-    overflow: hidden;
-}
-
-header h1,
-#profpic,
-nav li {
-    display: inline;
-}
-
-nav li {
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-nav ul {
-    padding-left: 0;
-}
-
-.tab {
-    border-radius: 1em 1em 0 0;
-    padding: 0.5em 1em 0.5em 1em;
-    margin: 0;
-    display: inline-flex;
-    color: var(--w4);
-}
-
-.active {
-    background-color: white;
-    color: black;
-}
-
-.hidden {
-    display: none;
-}
-
-body {
-    margin: 0;
-}
-
-#profpic {
-    width: 50px;
-    height: 50px;
-    float: right;
-    border-radius: 10px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-}
-
-#supportPopUp {
-    background-color: var(--y1);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
-}
-
-#supportPopUp h3,
+#supportPopUp h2,
 #supportPopUp p {
-    text-align: center;
-}
-
-#supportPopUp h3,
-#supportPopUp span {
-    display: inline;
-}
-
-h4 {
-    text-align: center;
-}
-
-button {
-    background-color: var(--y1);
-    padding: 10px;
-    border-radius: 10px;
-}
-
-#reasons {
-    text-align: center;
-}
-
-.average {
-    width: 80px;
-    background-color: var(--w2);
-}
-
-main {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.inline {
-    display: inline-block;
+  text-align: center;
 }
 
 ul {
-    padding: 0;
-    text-align: center;
+  text-align: center;
 }
 
 li {
-    display: inline;
-}
-
-li button {
-    width: 100px;
-    border-radius: 20px;
-    height: 30px;
-    padding: 3px;
-    background-color: var(--w2);
+  display: inline;
 }
 
 .activeList {
-    background-color: var(--b1);
-    color: white;
-}
-
-.triggerActive {
-    margin: 5px;
-}
-
-#overview {
-    margin: 0 1em 0 1em;
-}
-
-#buttonHolder {
-    background-color: var(--w2);
-    border-radius: 1000px;
-    padding: 0;
+  background-color: var(--b1);
+  color: white;
 }
 
 .dateSelectorContainer {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .centerAlign {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-}
-
-.dateBtnsActive {
-    background-color: var(--b1);
-    color: white;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .good {
-    background-color: var(--g1);
-    color: black;
+  background-color: var(--g1);
+  color: black;
+}
+
+.average {
+  background-color: var(--w2);
 }
 
 .bad {
-    background-color: var(--r1);
-    color: white;
+  background-color: var(--r1);
+  color: white;
 }
 
-.modalBacking {
-    display: none;
-    position: fixed;
-    z-index: 0;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.75);
-}
-
-#calendarMonth {
-    justify-content: space-between;
-    width: 100%;
-    table-layout: fixed;
-    border-spacing: 0.25em 1em;
-}
-
-tr {
-    margin: 1em;
-}
-
-.week th {
-    border-radius: 1000px;
-    height: calc(100vw/9);
-    position: relative;
-}
-
-th {
-    font-weight: normal;
-}
-
-#weekdays th {
-    font-weight: bold;
-}
-
-.activeDay {
-    background-color: var(--y1);
-}
+/* Shared */
 
 .modalContent {
-    margin: auto;
-    padding: 20px;
-    padding-top: 0;
-    width: 80%;
-    border-radius: 2em;
-    background-color: var(--y1);
+  margin: auto;
+  padding: 20px;
+  padding-top: 0;
+  width: 80%;
+  border-radius: 2em;
+  background-color: var(--y1);
 }
 
-.reflectionTitle {
-    background-color: var(--w2);
-    border-radius: 1em 1em 0 0;
-    padding: 1em;
-    font-weight: bold;
+/*  */
+
+.dateBtnsActive {
+  background-color: var(--b1);
+  color: white;
 }
 
-.reflectionContent {
-    background-color: white;
-    border-radius: 0 0 1em 1em;
-    padding: 1em;
-    margin-bottom: 1em;
-}
-
-#dayModal {
-    height: 70%;
-    overflow: scroll;
-}
-
-#biggerTrigger {
-    font-size: 14pt;
-}
-
-#biggerEmotion {
-    font-size: 22pt;
-}
-
-#dayTriggerEmotion {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 1em;
+#dateText {
+  width: 200px;
 }

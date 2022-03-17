@@ -15,111 +15,111 @@
     <title>DryGuy - Onboarding</title>
 </head>
 <body>
-    <div class="p-1"></div>
-    <div class="progressBar center">
-        <div class="font-small">Progress</div>
+    <div class="progressBar center-margin p2">
+        <h6 class="center-text">Progress</h6>
         <div class="progressFull">
             <div class="progressLevel" id="onboardingProgress"></div>
         </div>
     </div> 
 
     <div id="pages">
-        <div id="page1" class="page center">
-            <img src="images/dryguy1.png" class="starterImage"></img>
-            <h2>Welcome to Dry Guy</h2>
-            <p>Lets get to know each other better</p>
+        <div id="page1" class="page center-text">
+            <a href="home.html">
+                <img src="images/dryguy1.png" class="starterImage" alt="cactus guy" title="click to skip onboarding"></img>
+            </a>
+            <h1 class="p2">Welcome to Dry Guy</h1>
+            <h3>Lets get to know each other better</h3>
         </div>
 
-        <div id="page2" class="page center">
+        <div id="page2" class="page center-text">
 
             <h3>What should we call you?</h3>
-            <input id="nameInput" type="text" class="lineInput" placeholder="Enter Given Name..."></input>
+            <input id="nameInput" type="text" class="p2" placeholder="Enter Given Name..."></input>
         </div>
 
-        <div id="page3" class="page center">
+        <div id="page3" class="page center-text">
 
             <h3>What do you want to do?</h3>
 
-            <div id="majorGoals">
-                <div id="majorGoal0" class="majorGoal button">Track Drinking</div>
-                <div id="majorGoal1" class="majorGoal button">Control Drinking</div>
-                <div id="majorGoal2" class="majorGoal button">Reduce Drinking</div>
-                <div id="majorGoal3" class="majorGoal button">Quit Drinking</div>
-                <div id="majorGoal4" class="majorGoal button">Maintain Sobriety</div>
+            <div id="majorGoals" class="center-text center-margin">
+                <button id="majorGoal0" class="majorGoal btn-wide btn-white">Track Drinking</button>
+                <button id="majorGoal1" class="majorGoal btn-wide btn-white">Control Drinking</button>
+                <button id="majorGoal2" class="majorGoal btn-wide btn-white">Reduce Drinking</button>
+                <button id="majorGoal3" class="majorGoal btn-wide btn-white">Quit Drinking</button>
+                <button id="majorGoal4" class="majorGoal btn-wide btn-white">Maintain Sobriety</button>
             </div>
 
         </input>
         </div>
-        <div id="page4" class="page pageFull center">
+        <div id="page4" class="page pageFull center-text">
 
             <h3 style="margin-bottom: 0;">Why do you want to</h3>
-            <h3 id="majorGoalDisplay" style="margin-top: 0;">TEXT HERE?</h3>
+            <h2 id="majorGoalDisplay">MAJOR GOAL TEXT</h2>
 
-            <div id="minorGoals">
-                <button id="minorGoal0" class="minorGoal trigger">Better my Health</button>
-                <button id="minorGoal1" class="minorGoal trigger">Lose Weight</button>
-                <button id="minorGoal2" class="minorGoal trigger">Sleep Better</button>
-                <button id="minorGoal3" class="minorGoal trigger">Gain Control</button>
-                <button id="minorGoal4" class="minorGoal trigger">Cope Better</button>
-                <button id="minorGoal5" class="minorGoal trigger">Have Sober Time</button>
-                <button id="minorGoal6" class="minorGoal trigger">Be more Social</button>
-                <button id="minorGoal7" class="minorGoal trigger">Save Money</button>
-                <button id="minorGoal8" class="minorGoal trigger">Improve Relationships</button>
+            <div class="p2" id="minorGoals">
+                <button id="minorGoal0" class="minorGoal btn-normal btn-white trigger">Better my Health</button>
+                <button id="minorGoal1" class="minorGoal btn-normal btn-white trigger">Lose Weight</button>
+                <button id="minorGoal2" class="minorGoal btn-normal btn-white trigger">Sleep Better</button>
+                <button id="minorGoal3" class="minorGoal btn-normal btn-white trigger">Gain Control</button>
+                <button id="minorGoal4" class="minorGoal btn-normal btn-white trigger">Cope Better</button>
+                <button id="minorGoal5" class="minorGoal btn-normal btn-white trigger">Have Sober Time</button>
+                <button id="minorGoal6" class="minorGoal btn-normal btn-white trigger">Be more Social</button>
+                <button id="minorGoal7" class="minorGoal btn-normal btn-white trigger">Save Money</button>
+                <button id="minorGoal8" class="minorGoal btn-normal btn-white trigger">Improve Relationships</button>
             </div>
 
 
 
         </div>
-        <div id="page5" class="page center">
+        <div id="page5" class="page center-text">
 
             <h3>Set a Daily Limit</h3>
 
-            <div class="titleBar center">
-                <div onclick="changeLimit(-1)" class="left material-icons md-36">remove</div>
-                <span id="limitDisplay" class="display">0</span>
-                <div onclick="changeLimit(1)" class="right material-icons md-36">add</div>
+            <div class="titleBar center p2">
+                <div onclick="changeLimit(-1)" class="left material-icons md-36 center-text">remove</div>
+                <span id="limitDisplay" class="display center-text">0</span>
+                <div onclick="changeLimit(1)" class="right material-icons md-36 center-text">add</div>
             </div>
 
-            <p>According to dietary guidelines, men should limit consumtion to less than 2 drinks per day.</p>
-            <h5>(you can always change this later)</h5>
+            <p class="p2">According to dietary guidelines, men should limit consumtion to less than <b>2 drinks per day</b>. You can always change this later.</p>
             
         </div>
 
-        <div id="page6" class="page center">
+        <div id="page6" class="page center-text">
         
             <h3>Set some Dry Days 🌵</h3>
 
-            <div id="dayButtons">
-                <button class="dayButton" id="day0">Sun</button>
-                <button class="dayButton" id="day1">Mon</button>
-                <button class="dayButton" id="day2">Tue</button>
-                <button class="dayButton" id="day3">Wed</button>
-                <button class="dayButton" id="day4">Thu</button>
-                <button class="dayButton" id="day5">Fri</button>
-                <button class="dayButton" id="day6">Sat</button>
+            <div class="p2" id="dayButtons">
+                <button class="dayButton btn-circle btn-white" id="day0">Sun</button>
+                <button class="dayButton btn-circle btn-white" id="day1">Mon</button>
+                <button class="dayButton btn-circle btn-white" id="day2">Tue</button>
+                <button class="dayButton btn-circle btn-white" id="day3">Wed</button>
+                <button class="dayButton btn-circle btn-white" id="day4">Thu</button>
+                <button class="dayButton btn-circle btn-white" id="day5">Fri</button>
+                <button class="dayButton btn-circle btn-white" id="day6">Sat</button>
             </div>
 
-            <h5>Tap to Select</h5>
-            <div class="p-1"></div>
-            <p>Having no-alcohol "Dry Days" is a good way to challenge yourself and reduce reliance on the drink.</p>
-            <h5>(you can always change this later)</h5>
+            <h4>Tap to Select</h4>
+            <p class="p2">Having no-alcohol "Dry Days" is a good way to challenge yourself and reduce reliance on the drink. You can always change this later.</p>
 
         </div>
 
-        <div id="page7" class="page center">
+        <div id="page7" class="page center-text">
             <img src="images/dryguy2.png" class="starterImage"></img>
-            <h2>Welcome to Dry Guy</h2>
+            <h1>Welcome to Dry Guy</h1>
             <h3>Congrats on taking your first step!</h3>
 
         </div>
     </div>
 
-    <footer id="pageButtons" class="footer2">
-        <div id="prevPlaceholder" class="button-hidden material-icons md-36">arrow_back</div>
+    <footer class="footer2">
+        <div id="prevPlaceholder" class="material-icons md-36 clickable hidden">arrow_back</div>
         <div id="prev" class="material-icons md-36 active" onclick="changePage(-1)">arrow_back</div>
-        <div id="next" class="button" onclick="changePage(1)">Next</div>
-        <a id="begin" href="home.html" class="button" style="display: none" onclick="pushToStorage()">Begin</a>
-        <div class="button-hidden material-icons md-36">arrow_back</div>
+        <button id="next" class="btn-normal btn-white" onclick="changePage(1)">Next</button>
+        <a href="home.html">
+            <button id="begin" class="btn-normal btn-white" style="display: none" onclick="pushToStorage()">Begin</button>
+        </a>
+        <div class="hidden material-icons md-36">arrow_back</div>
     </footer>
 
 </body>

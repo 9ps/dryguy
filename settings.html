@@ -17,79 +17,84 @@
 </head>
 
 <body>
-    <header>
-        <h1>Settings</h1>
-        <a href="home.html" onclick="pushToStorage()"><span class="material-icons md-36 active right button-backing2">
-            highlight_off
-            </span></a>
-    </header>
 
+    <nav><span class="material-icons md-36 active left pad" onclick="sidebarAction(0)" id="sidebarClose">menu</span>
+
+        <a id="home" class="navButton" href="home.html" onclick="pushToStorage()">
+            <span class="material-icons md-36">home</span>
+            <span class="nav-text">Home</span>
+        </a>
+
+        <a id="progress" class="navButton" href="progress.html" onclick="pushToStorage()">
+            <span class="material-icons md-36">insights</span>
+            <span class="nav-text">Progress</span>
+        </a>
+
+        <a id="history" class="navButton" href="history.html" onclick="pushToStorage()">
+            <span class="material-icons md-36">calendar_month</span>
+            <span class="nav-text">History</span>
+          </a>
+
+        <a id="settings" class="navButton navButtonCurrent" href="settings.html" onclick="pushToStorage()">
+            <span class="material-icons md-36">settings</span>
+            <span class="nav-text">Settings</span>
+        </a>
+
+    </nav>
     <main>
-        <div class="p-2"></div>
-        <div class="title">
-            <h2>Daily Drinking Limit</h2>
-            <span class="material-icons md-36 button-backing2" onclick="activate('limitInfo')">help_outline</span>
-        </div>
-
-        <div class="titleBar center">
-            <div onclick="changeLimit(-1)" class="left material-icons md-36">remove</div>
-            <span id="limitDisplay" class="display">0</span>
-            <div onclick="changeLimit(1)" class="right material-icons md-36">add</div>
-        </div>
-
-        <div class="p-2"></div>
-        <div class="title">
-            <h2>Dry Days</h2>
-            <span class="material-icons md-36 button-backing2" onclick="activate('daysInfo')">help_outline</span>
-        </div>
-
-        <div id="dayButtons" class="center">
-            <button class="dayButton" id="day0">Sun</button>
-            <button class="dayButton" id="day1">Mon</button>
-            <button class="dayButton" id="day2">Tue</button>
-            <button class="dayButton" id="day3">Wed</button>
-            <button class="dayButton" id="day4">Thu</button>
-            <button class="dayButton" id="day5">Fri</button>
-            <button class="dayButton" id="day6">Sat</button>
-        </div>
-
-        <div id="modalBacking" class="hidden center">
-            <div class="info hidden" id="limitInfo" onclick="activate('limitInfo')">
-                <span class="material-icons right">
-                    highlight_off
-                    </span>
-                <h3>Daily Drinking Limit</h3>
-                <p>Setting a daily limit on how many drinks you can have is an effective way to ensure safer drinking. This doesnt mean you should aim to drink this many daily, but to try not to exceed it.</p>
+        <header>
+            <span class="material-icons md-36 active left pad" onclick="sidebarAction(1)" id="sidebarOpen">menu</span>
+            <h1 style="display: inline">Settings</h1>
+        </header>
+        <div class="content center-text">
+            <div class="title p5">
+                <h2>Daily Drinking Limit</h2>
+                <span class="material-icons md-36 button-backing2" onclick="activate('limitInfo')">help_outline</span>
             </div>
 
-            <div class="info hidden" id="daysInfo" onclick="activate('daysInfo')">
-                <span class="material-icons right">
-                    highlight_off
-                    </span>
-                <h3>Dry Days</h3>
-                <p>Continous, long term drinking contributes to health problems in the same way that binge drinking does. Having days you choose not to drink is a surefire way to prevent this.</p>
+            <div class="titleBar center">
+                <div onclick="changeLimit(-1)" class="left material-icons md-36">remove</div>
+                <span id="limitDisplay" class="display">0</span>
+                <div onclick="changeLimit(1)" class="right material-icons md-36">add</div>
             </div>
-        </div>
+
+            <div class="title p5">
+                <h2>Dry Days</h2>
+                <span class="material-icons md-36 button-backing2" onclick="activate('daysInfo')">help_outline</span>
+            </div>
+
+            <div id="dayButtons" class="center">
+                <button class="dayButton" id="day0">Sun</button>
+                <button class="dayButton" id="day1">Mon</button>
+                <button class="dayButton" id="day2">Tue</button>
+                <button class="dayButton" id="day3">Wed</button>
+                <button class="dayButton" id="day4">Thu</button>
+                <button class="dayButton" id="day5">Fri</button>
+                <button class="dayButton" id="day6">Sat</button>
+            </div>
+
+            <div id="modalBacking" class="hidden center">
+                <div class="info hidden" id="limitInfo" onclick="activate('limitInfo')">
+                    <span class="material-icons right">
+                        highlight_off
+                        </span>
+                    <h3>Daily Drinking Limit</h3>
+                    <p>Setting a daily limit on how many drinks you can have is an effective way to ensure safer drinking. This doesnt mean you should aim to drink this many daily, but to try not to exceed it.</p>
+                </div>
+
+                <div class="info hidden" id="daysInfo" onclick="activate('daysInfo')">
+                    <span class="material-icons right">
+                        highlight_off
+                        </span>
+                    <h3>Dry Days</h3>
+                    <p>Continous, long term drinking contributes to health problems in the same way that binge drinking does. Having days you choose not to drink is a surefire way to prevent this.</p>
+                </div>
+            </div>
+        <div class="content">
     </main>
 
-    <!-- <footer class="footer">
-        <a id="feed" class="navButton" href="feed.html">
-            <span class="material-icons md-36">public</span>
-            <div class="font-small">feed</div>
-        </a>
-
-        <a id="home" class="navButton" href="home.html">
-            <span class="material-icons md-36">home</span>
-            <div class="font-small">home</div>
-        </a>
-
-        <a id="progress" class="navButton" href="progress.html">
-            <span class="material-icons md-36">insights</span>
-            <div class="font-small">prog</div>
-        </a>
-    </footer> -->
-
     <script src="scripts/settings.js"></script>
+    <script src="scripts/sidebar.js"></script>
 </body>
 
 </html>

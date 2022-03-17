@@ -1,313 +1,532 @@
 :root {
-    --w1: #F3F3F6;
-    --w2: #E4E4EB;
-    --w3: #6E6F72;
-    --w4: #4E4E4F;
-    --b1: #2E3A59;
-    --r1: #EC7669;
-    --y1: #FDD855;
-    --g1: #A4E09D;
-    --g2: #EFFCF4;
+  --w0: #ffffff;
+  --w1: #f3f3f6;
+  --w2: #e4e4eb;
+  --w3: #6e6f72;
+  --w4: #4e4e4f;
+  --b1: #2e3a59;
+  --r1: #ec7669;
+  --y1: #fdd855;
+  --y2: #e8c02e;
+  --g1: #a4e09d;
+  --g2: #effcf4;
 }
 
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
+/* global changes */
+
+* {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.material-icons.md-18 {
-    font-size: 18px;
+.center-text {
+  text-align: center;
 }
 
-.material-icons.md-24 {
-    font-size: 24px;
+.center-margin {
+  margin: 0 auto;
 }
 
-.material-icons.md-36 {
-    font-size: 36px;
+.center-vertical {
+  vertical-align: middle;
 }
 
-.material-icons.md-48 {
-    font-size: 48px;
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1;
 }
 
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
 
-/* pop up modal */
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 0;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.75);
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+h6 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.75;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wb {
+  background-color: var(--w1);
+}
+
+.yb {
+  background-color: var(--y1);
+}
+
+/* shortenings */
+
+.clickable {
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.pad {
+  padding: 20px;
 }
 
 /* bar: basic container; full: the backing; level: the width is the fullness */
 
 .progressBar {
-    margin: 0em 2em 0em 2em;
+  margin: 0 auto;
+  width: 90%;
 }
 
 .progressFull {
-    background-color: var(--g2);
-    border-radius: 1000px;
-    height: 1em;
+  background-color: var(--g2);
+  border-radius: 1000px;
+  height: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 640px) {
+  .progressBar {
+    width: 500px;
+  }
+
+  .progressFull {
+    width: 500px;
+  }
 }
 
 .progressLevel {
-    background-color: var(--b1);
-    border-radius: 1000px;
-    height: 1em;
-    transition-duration: 300ms;
-    /* width: 20%;  */
+  background-color: var(--b1);
+  border-radius: 1000px;
+  height: 20px;
+  transition-duration: 600ms;
+  transition-timing-function: ease-out;
 }
 
-.trigger {
-    background-color: white;
-    margin: 0.1em;
-    margin-bottom: 10px;
-    border-radius: 15px;
-    padding: 0.5em;
-    display: inline-block;
+/* Buttons */
+
+button {
+  border: none;
+  border-radius: 1000px;
+  font-size: 20px;
+  cursor: pointer;
 }
+
+.btn-normal {
+  padding: 16px 32px 16px 32px;
+  margin: 0px 4px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.btn-round {
+  padding: 16px 32px 16px 32px;
+  margin: 0px 4px;
+  margin-bottom: 10px;
+  border-radius: 1000px;
+}
+
+.btn-wide {
+  padding: 16px 32px 16px 32px;
+  margin: 16px auto;
+  max-width: 500px;
+  width: 80%;
+  display: block;
+}
+
+.btn-circle {
+  border-radius: 1000px;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+}
+
+.btn-circle-small {
+  border-radius: 1000px;
+  width: 48px;
+  height: 48px;
+  margin: 4px;
+}
+
+.btn-square {
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.btn-white {
+  background-color: var(--w0);
+  color: var(--b1);
+}
+
+.btn-white:hover {
+  background-color: var(--w1);
+  color: var(--b1);
+}
+
+.btn-inactive {
+  background-color: var(--w2);
+  color: var(--w3);
+  cursor: not-allowed;
+}
+
+.btn-yellow {
+  background-color: var(--y1);
+  color: black;
+}
+
+.btn-yellow:hover {
+  background-color: var(--y2);
+  color: black;
+}
+
+.btn-blue {
+  background-color: var(--b1);
+  color: var(--w1);
+}
+
+.btn-grey {
+  background-color: var(--w2);
+  color: var(--w4);
+}
+
+.btn-red {
+  background-color: var(--r1);
+  color: black;
+}
+
+.btn-green {
+  background-color: var(--g1);
+  color: black;
+}
+
+/* inputs */
+
+input {
+  padding: 20px;
+  border-radius: 1000px;
+  border: 0;
+  background-color: var(--w1);
+  font-size: 18px;
+}
+
+textarea {
+  width: 80%;
+  max-width: 600px;
+  height: 100px;
+  margin: 16px auto;
+  display: block;
+  border-radius: 20px;
+  border: 0;
+  padding: 20px;
+  font-size: 18px;
+}
+
+/*  */
 
 .triggerActive {
-    background-color: var(--b1);
-    color: white;
+  background-color: var(--b1);
+  color: white;
 }
 
 .textButton {
-    font-size: 48px;
-    display: inline-block;
-}
-
-.logButton {
-    background-color: var(--y1);
-    border-radius: 0.5em;
-    aspect-ratio: 1 / 1;
-    height: 100%;
-    padding: 0.5em;
+  font-size: 48px;
+  display: inline-block;
 }
 
 .bigButton {
-    padding: 0.5em 1em 0.5em 1em;
-    border-radius: 1000px;
-    text-align: center;
-    font-size: 18pt;
-    background-color: var(--y1);
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 1000px;
+  text-align: center;
+  font-size: 18pt;
+  background-color: var(--y1);
 }
 
 .footer {
-    justify-content: space-around;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: white;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
 }
 
+/* for onboarding */
 .footer2 {
-    justify-content: space-around;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .button-backing2 {
-    padding: 0.5em;
-    border-radius: 0.5em;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .button-backing {
-    padding: 1em;
-    border-radius: 1em;
-}
-
-.navButton {
-    padding: 0.5em 1.25em 0.5em 1.25em;
-    border-radius: 1em;
-    color: var(--w3);
-    text-decoration: none;
-}
-
-.navButtonActive {
-    background-color: var(--g2);
-    color: var(--b1);
+  padding: 16px;
+  border-radius: 16px;
 }
 
 .reflection {
-    display: none;
+  display: none;
+  width: 100%;
 }
 
 .normalButton {
-    padding: 0.5em 1em 0.5em 1em;
-    border-radius: 1000px;
-}
-
-.textInput {
-    padding: 1em;
-    border-radius: 1em;
-    border: 0;
-    margin: 1em 2em 1em 2em;
-    height: 5em;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 1000px;
 }
 
 /* for having 3 elements at the top (like icons, centered title) */
 
 .titleBar {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .left,
 .right {
-    flex: 1;
+  flex: 1;
 }
 
-
-/* global changes */
-
-.wb {
-    background-color: white;
+.p1 {
+  margin-top: 10px;
 }
 
-.yb {
-    background-color: var(--y1);
+.p2 {
+  margin-top: 20px;
 }
 
-.center {
-    text-align: center;
+.p3 {
+  margin-top: 30px;
 }
 
-h1 {
-    font-size: 28pt;
+.p4 {
+  margin-top: 40px;
 }
 
-h2 {
-    font-size: 18pt;
-    font-weight: bold;
-}
-
-h3 {
-    font-size: 18pt;
-    font-weight: normal;
-}
-
-h4 {
-    font-size: 12pt;
-    font-weight: normal;
-}
-
-h5 {
-    font-size: 12pt;
-    font-weight: normal;
-    color: var(--w4);
-}
-
-h6 {
-    font-size: 12pt;
-    font-weight: bold;
-    margin: 0;
-}
-
-/* try to use the h0 things */
-
-.font-small {
-    font-size: 12pt;
-}
-
-* {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14pt;
-    transition-duration: 300ms;
-}
-
-.p-1 {
-    height: 1em;
-}
-
-.p-2 {
-    height: 2em;
-}
-
-.p-3 {
-    height: 3em;
-}
-
-.p-4 {
-    height: 4em;
-}
-
-.p-5 {
-    height: 5em;
-}
-
-button {
-    border: none;
+.p5 {
+  margin-top: 50px;
 }
 
 .inactive {
-    color: var(--w3);
+  color: var(--w3);
 }
 
 .active {
-    color: var(--b1)
+  color: var(--b1);
 }
 
+/*  */
+
 .display {
-    background-color: white;
-    padding: 0.5em;
-    width: 50%;
-    font-size: 18pt;
-    border-radius: 100px;
+  background-color: white;
+  padding: 0.5em;
+  width: 50%;
+  font-size: 18pt;
+  border-radius: 100px;
 }
 
 .np {
-    padding: 0;
+  padding: 0;
 }
 
 .nm {
-    margin: 0;
+  margin: 0;
 }
 
 .triggerDisplay {
-    display: inline-block;
-    background-color: var(--w2);
-    border-radius: 1000px;
-    padding: 0.25em 1em 0.25em 1em;
-    margin: 0.25em;
-    font-size: 12pt;
+  display: inline-block;
+  background-color: var(--w2);
+  border-radius: 1000px;
+  padding: 0.25em 1em 0.25em 1em;
+  margin: 0.25em;
+  font-size: 12pt;
 }
 
 .stickyTop {
-    position: sticky;
-    top:0;
+  position: sticky;
+  top: 0;
 }
 
 .by {
-    background-color: var(--y1);
+  background-color: var(--y1);
+}
+
+/* pop up modal */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modalContent {
+  margin: 0 auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 20px;
+  background-color: var(--y1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* misc */
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga";
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+
+  cursor: pointer;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+/* SIDEBAR */
+
+nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  overflow-x: hidden;
+  background-color: var(--w1);
+  height: 100vh;
+  width: 0px;
+  transition: 300ms;
+}
+
+main {
+  height: 100vh;
+  transition: 300ms;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.width1 {
+  width: 100vw;
+}
+
+.width2 {
+  width: calc(100vw - 300px);
+}
+
+.bottom {
+  position: relative;
+  bottom: 0;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  color: var(--w4);
+  padding: 16px;
+}
+
+.nav-text {
+  margin-left: 20px;
+}
+
+.navButtonCurrent {
+  color: var(--b1);
+}
+
+nav a:hover {
+  color: var(--b1);
+  background-color: var(--w2);
+}
+
+/* Content */
+
+.content {
+  max-width: 800px;
+  width: 80%;
+  margin: 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.content2 {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

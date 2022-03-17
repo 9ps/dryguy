@@ -1,134 +1,18 @@
-:root {
-    --w1: #F3F3F6;
-    --w2: #E4E4EB;
-    --w3: #6E6F72;
-    --w4: #4E4E4F;
-    
-    --b1: #2E3A59;
-    --r1: #EC7669;
-    --y1: #FDD855;
-    
-    --g1: #A4E09D;
-    --g2: #EFFCF4;
-    }
-
 body {
-    background-color: var(--y1);
+  background-color: #fdd855;
 }
 
 .page {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 80%;
-    transform: translate(-50%, -50%);
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  max-width: 600px;
+  transform: translate(-50%, -50%);
 }
 
-.pageFull {
-    width: 100%;
-}
-
-#page4extra {
-    margin: 0 2em 0 2em;
-}
-
-#pageButtons {
-    /* position: fixed; */
-    bottom: 2em;
-}
-
-.button-hidden {
-    visibility: hidden;
-    transition-duration: 0ms;
-}
-
-.button {
-    border-radius: 1000px;
-    padding: 0.5em 2em 0.5em 2em;
-    background-color: white;
-    margin: 1em;
-    color: black;
-}
-
-.buttonActive {
-    background-color: var(--b1);
-    color: white;
-}
-
-.buttonInactive {
-    background-color: var(--w2);
-    color: var(--w4);
-}
-
-.lineInput {
-    padding: 1em;
-    border-radius: 1em;
-    border: 0;
-}
-
-.majorGoal {
-    display: block;   
-}
-
-.questionTitle {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.dayButton {
-    border-radius: 1000px;
-    width: 3em;
-    height: 3em;
-    background-color: white;
-    margin: 0.25em;
-}
-
-.dayButtonActive {
-    background-color: var(--b1);
-    color: white;
-}
-
-#begin {
-    text-decoration: none;
-    color: black;
-}
-
-
-/* .background {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    top: -100vh;
-    left: -100vw;
-    width: 200vw;
-    height: 200vh;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.75);
-  }
-
-.questionModal {
-    display: none;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    margin: 0 1em 0 1em;
-    border-radius: 1em;
-    background-color: var(--y1);
-    padding: 1em;
-}
-
-.questionModal2 {
-    display: none;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    border-radius: 1em;
-    background-color: var(--y1);
-    padding: 1em;
-} */
-
-.starterImage{
-    height: 128px;
-    width: 128px;
+.starterImage {
+  height: 128px;
+  width: 128px;
 }

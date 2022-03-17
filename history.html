@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link href="styles/global.css" rel="stylesheet" />
+    <link href="styles/history.css" rel="stylesheet" />
+    <link href="styles/progress.css" rel="stylesheet" />
+
+    <title>DryGuy - History</title>
+  </head>
+
+  <body>
+    <nav>
+      <span
+        class="material-icons md-36 active left pad"
+        onclick="sidebarAction(0)"
+        id="sidebarClose"
+        >menu</span
+      >
+
+      <a id="home" class="navButton" href="home.html">
+        <span class="material-icons md-36">home</span>
+        <span class="nav-text">Home</span>
+      </a>
+
+      <a id="progress" class="navButton" href="progress.html">
+        <span class="material-icons md-36">insights</span>
+        <span class="nav-text">Progress</span>
+      </a>
+
+      <a id="history" class="navButton navButtonCurrent" href="history.html">
+        <span class="material-icons md-36">calendar_month</span>
+        <span class="nav-text">History</span>
+      </a>
+
+      <a id="settings" class="navButton" href="settings.html">
+        <span class="material-icons md-36">settings</span>
+        <span class="nav-text">Settings</span>
+      </a>
+    </nav>
+
+    <main>
+      <header>
+        <span
+          class="material-icons md-36 active left pad"
+          onclick="sidebarAction(1)"
+          id="sidebarOpen"
+          >menu</span
+        >
+        <h1 style="display: inline;">History</h1>
+      </header>
+
+      <div class="content2" id="overview">
+        <ul class="dateSelectorContainer p2">
+          <span
+            class="material-icons inline md-36 button-backing2"
+            style="cursor: not-allowed;"
+            >chevron_left</span
+          >
+          <p id="dateText">November 2021</p>
+          <span
+            class="material-icons inline md-36 button-backing2"
+            style="cursor: not-allowed;"
+            >chevron_right</span
+          >
+        </ul>
+
+        <table id="calendarMonth">
+          <thead>
+            <tr id="weekdays">
+              <th><h3>Sun</h3></th>
+              <th><h3>Mon</h3></th>
+              <th><h3>Tue</h3></th>
+              <th><h3>Wed</h3></th>
+              <th><h3>Thu</h3></th>
+              <th><h3>Fri</h3></th>
+              <th><h3>Sat</h3></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="week">
+              <th><button class="btn-circle-small date">1</button></th>
+              <th><button class="btn-circle-small date">2</button></th>
+              <th><button class="btn-circle-small date">3</button></th>
+              <th><button class="btn-circle-small date">4</button></th>
+              <th><button class="btn-circle-small date">5</button></th>
+              <th><button class="btn-circle-small date">6</button></th>
+              <th><button class="btn-circle-small date">7</button></th>
+            </tr>
+            <tr class="week">
+              <th><button class="btn-circle-small date">8</button></th>
+              <th><button class="btn-circle-small date">9</button></th>
+              <th><button class="btn-circle-small date">10</button></th>
+              <th><button class="btn-circle-small date">11</button></th>
+              <th><button class="btn-circle-small date">12</button></th>
+              <th><button class="btn-circle-small date">13</button></th>
+              <th><button class="btn-circle-small date">14</button></th>
+            </tr>
+            <tr class="week">
+              <th><button class="btn-circle-small date">15</button></th>
+              <th><button class="btn-circle-small date">16</button></th>
+              <th><button class="btn-circle-small date">17</button></th>
+              <th><button class="btn-circle-small date">18</button></th>
+              <th><button class="btn-circle-small date">19</button></th>
+              <th><button class="btn-circle-small date">20</button></th>
+              <th><button class="btn-circle-small date">21</button></th>
+            </tr>
+            <tr class="week">
+              <th><button class="btn-circle-small date">22</button></th>
+              <th><button class="btn-circle-small date">23</button></th>
+              <th><button class="btn-circle-small date">24</button></th>
+              <th><button class="btn-circle-small date">25</button></th>
+              <th><button class="btn-circle-small date">26</button></th>
+              <th><button class="btn-circle-small date">28</button></th>
+              <th><button class="btn-circle-small date">29</button></th>
+            </tr>
+            <tr class="week">
+              <th><button class="btn-circle-small date">30</button></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal" id="modalBacking">
+        <div id="modalBacking2" class="modalContent">
+          <div class="titleBar stickyTop yb">
+            <div
+              onclick="closeDay()"
+              class="left button-backing material-icons md-24"
+            >
+              close
+            </div>
+            <h2 id="replaceDayText"></h2>
+            <div class="right button-backing"></div>
+          </div>
+
+          <h3 class="center-text">1 Drink Logged</h3>
+
+          <div id="dayTriggerEmotion">
+            <div>
+              <h4>Triggers:</h4>
+              <button class="btn-normal">Occasion</button>
+            </div>
+
+            <div>
+              <h4>Emotion:</h4>
+              <button id="biggerEmotion">😊</button>
+            </div>
+          </div>
+
+          <h4 class="p2">Reflections:</h4>
+          <div class="reflectionDisplay">
+            <div class="reflectionTitle">
+              Was it hard to resist Drinking Today? Why?
+            </div>
+            <div class="reflectionContent">
+              Because of a birthday, I felt obliged to have a drink, but I could
+              limit myself to one.
+            </div>
+          </div>
+
+          <div class="reflectionDisplay">
+            <div class="reflectionTitle">
+              Do you think you’ll drink or stay dry tomorrow? Why?
+            </div>
+            <div class="reflectionContent">
+              I want to be able to spend quality time with my grandson without
+              feeling sluggish and disorientated - he is my sunshine! So I won't
+              drink.
+            </div>
+          </div>
+
+          <div class="reflectionDisplay">
+            <div class="reflectionTitle">
+              Whats something good that happened today?
+            </div>
+            <div class="reflectionContent">
+              Celebrated Daniel's birthday, and cake galore, always nice when
+              the kids are home.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="scripts/history.js"></script>
+    <script src="scripts/sidebar.js"></script>
+  </body>
+</html>

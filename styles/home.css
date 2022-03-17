@@ -1,217 +1,144 @@
+:root {
+  --w0: #ffffff;
+  --w1: #f3f3f6;
+  --w2: #e4e4eb;
+  --w3: #6e6f72;
+  --w4: #4e4e4f;
+  --b1: #2e3a59;
+  --r1: #ec7669;
+  --y1: #fdd855;
+  --g1: #a4e09d;
+  --g2: #effcf4;
+}
+
+/*  */
+
+body {
+  display: flex;
+}
+
 /* TOP PARTS */
 
-#top {
-    background-color: var(--y1);
-}
-
 #datesScroll {
-    overflow-y: hidden;
-    white-space: nowrap;
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-/*active these if you want it to not show scrollbar */
-
-.datesScroll::-webkit-scrollbar {
-    display: none;
-}
-
-.dayCactus {
-    font-size: 18pt;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .date {
-    text-align: center;
-    display: inline-block;
-    padding: 0 0.25em 0.25em 0.25em;
-    font-size: 12pt;
+  text-align: center;
+  display: inline-block;
 }
 
-.dateText {
-    padding: 0.5em;
-    border-radius: 1000px;
-    background-color: white;
-    text-align: center;
-    font-size: 18pt;
-    width: 35px;
-    height: 35px;
-    /* background-color: var(--w2); */
-    /* if we ever implement inactive days */
+.date-active {
+  color: black;
+  background-color: white;
+  transform: translatey(10px);
+  border-radius: 1000px 1000px 0px 0px;
+  transition-duration: 300ms;
 }
-
-.dateTextInactive {
-    background-color: var(--w2);
-    color: var(--w4);
-}
-
-.dateTextOver {
-    background-color: var(--r1);
-    color: black;
-}
-
-.dateTextUnder {
-    background-color: var(--g1);
-    color: black;
-}
-
-.dateTextActive {
-    color: black;
-    padding-bottom: 1em;
-    border-radius: 1000px 1000px 0px 0px;
-    background-color: white;
-    text-align: center;
-    font-size: 18pt;
-}
-
 
 /* PAGE CONTENT */
 
 #content {
-    margin: 0 2em 0 2em;
+  max-width: 800px;
+  width: 80%;
+  margin: 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #logDisplay {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-
-/* LOG STYLING */
-
-#logModalContent {
-    margin: auto;
-    padding: 20px;
-    width: 80%;
-    border-radius: 2em;
-    background-color: var(--y1);
-    overflow: scroll;
-    max-height: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f3f3f6;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px 0;
 }
 
 /* REFLECTION STYLING */
 
+.emotion {
+  cursor: pointer;
+}
+
 #emotionSelector {
-    margin: 1em;
+  margin: 1em;
 }
 
 .emotionActive {
-    background-color: white;
+  background-color: white;
 }
 
 .emotionInactive {
-    border-radius: 1000px;
-    padding: 0.1em;
-    font-size: 28pt;
+  border-radius: 1000px;
+  padding: 0.1em;
+  font-size: 28pt;
 }
 
 .summaryCard {
-    padding: 1em;
-    border-radius: 2em;
-    background-color: white;
-    margin: 0em 2em 0em 2em;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  max-width: 600px;
+  width: 80%;
+  margin: 0 auto;
 }
 
-#reflectionButton {
-    z-index: 1;
+.summaryCard:hover {
+  background-color: var(--w1);
 }
 
-body {
-    margin: 0;
-}
-
-#dateDisplay {
-    padding: 0;
-    margin: 1em 0 0 0;
-}
+/* Blog Styling */
 
 .blogImage {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .card h2 {
-    display: inline;
-    font-size: 16px;
-    color: var(--w4);
+  display: inline;
+  font-size: 16px;
+  color: var(--w4);
 }
 
-h3 {
-    text-align: center;
-}
-
-.dateh4 {
-    float: right;
-    font-size: 12px;
-    color: var(--w4);
-    margin: 7px;
-}
-
-.right {
-    float: right;
-}
-
-.centerBtn,
-.saveBtn {
-    margin: 0 auto;
-    display: block;
+.floatright {
+  float: right;
 }
 
 .card p {
-    padding-left: 10px;
-    margin: 0;
-    white-space: pre-wrap;
+  padding-left: 10px;
+  margin: 0;
+  white-space: pre-wrap;
 }
 
 .card {
-    width: 90%;
-    position: relative;
-    padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    background: white;
-    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.3s linear;
+  padding: 1rem;
+  margin-top: 10px;
+  background: var(--w1);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-button {
-    border-radius: 10px;
-    border: none;
-    background-color: var(--y1);
-    margin: 10px;
-}
-
-.shadow {
-    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
-}
+/* Open article */
 
 .top {
-    display: flex;
-    background-color: var(--y1);
-    width: 100%;
-    padding: 0.5em;
-    align-items: center;
+  display: flex;
+  background-color: var(--y1);
+  width: 100%;
+  padding: 0.5em;
+  align-items: center;
 }
 
 .hidden {
-    display: none;
-}
-
-#content {
-    overflow: scroll;
-}
-
-#makeYellow {
-    background-color: var(--y1);
+  display: none;
 }
 
 #blogPost {
-    overflow: hidden;
+  overflow: hidden;
 }

@@ -1,0 +1,29 @@
+#dayTriggerEmotion {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 1em;
+}
+
+.reflectionTitle {
+  background-color: var(--w2);
+  border-radius: 1em 1em 0 0;
+  padding: 1em;
+  font-weight: bold;
+}
+
+.reflectionContent {
+  background-color: white;
+  border-radius: 0 0 1em 1em;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+/*  */
+
+#calendarMonth {
+  width: 100%;
+}
+
+#biggerEmotion {
+  font-size: 48px;
+}

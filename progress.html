@@ -17,69 +17,82 @@
 </head>
 
 <body>
-    <header>
-        <h1>Progress</h1>
-        <a href="profile.html"><img id="profpic" src="images/profile_picture.jpg"></a>
 
-        <nav>
-            <div class="navbar">
-                <ul>
-                    <li id="overviewTab" class="tab active"><a>Overview</a></li>
-                    <li id="calendarTab" class="tab"><a>Calendar</a></li>
-                    <li id="reasonsTab" class="tab"><a>Goals</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <nav><span class="material-icons md-36 active left pad" onclick="sidebarAction(0)" id="sidebarClose">menu</span>
+
+        <a id="home" class="navButton" href="home.html">
+            <span class="material-icons md-36">home</span>
+            <span class="nav-text">Home</span>
+        </a>
+
+        <a id="progress" class="navButton navButtonCurrent" href="progress.html">
+            <span class="material-icons md-36">insights</span>
+            <span class="nav-text">Progress</span>
+        </a>
+
+        <a id="history" class="navButton" href="history.html">
+            <span class="material-icons md-36">calendar_month</span>
+            <span class="nav-text">History</span>
+        </a>
+
+        <a id="settings" class="navButton" href="settings.html">
+            <span class="material-icons md-36">settings</span>
+            <span class="nav-text">Settings</span>
+        </a>
+
+    </nav>
+
     <main>
 
-        <!-- Overview -->
-        <div class="active" id="overview">
-            <ul id="buttonHolder" class="nm">
-                <li><button class="dateBtns" id="weekBtn">Week</button></li>
-                <li><button class="dateBtns dateBtnsActive" id="monthBtn">Month</button></li>
-                <li><button class="dateBtns" id="yearBtn">Year</button></li>
+        <header>
+            <span class="material-icons md-36 active left pad" onclick="sidebarAction(1)" id="sidebarOpen">menu</span>
+            <h1 style="display: inline">Progress</h1>
+        </header>
+
+
+        <div class="content" id="overview">
+            <ul class="p2" id="buttonHolder">
+                <li><button class="btn-normal dateBtns" id="weekBtn">Week</button></li>
+                <li><button class="btn-normal dateBtns dateBtnsActive" id="monthBtn">Month</button></li>
+                <li><button class="btn-normal dateBtns" id="yearBtn">Year</button></li>
             </ul>
 
-            <div class="activeBtn">
-                <ul class="dateSelectorContainer nm">
-                    <span class="material-icons inline md-36 button-backing2">chevron_left</span>
-                    <span class="inline" id="dateText">November 2021</span>
-                    <span class="material-icons inline md-36 button-backing2">chevron_right</span>
-                </ul>
-                <div class="p-1"></div>
-                <h6 id="dailyGoal" class="center"></h6>
+            <ul class="dateSelectorContainer p2">
+                <span class="material-icons inline md-36 button-backing2" style="cursor: not-allowed">chevron_left</span>
+                <p id="dateText">November 2021</p>
+                <span class="material-icons inline md-36 button-backing2" style="cursor: not-allowed">chevron_right</span>
+            </ul>
 
-                <h2>Average Daily Drinks</h2>
+                <h2 class="p5">Average Daily Drinks</h2>
                 <div class="centerAlign">
-                    <button id="averageDrinks" class="good average">1.6</button>
+                    <button id="averageDrinks" class="btn-normal good">1.6</button>
                     <h5 id="averageDrinksText">Lower than last month!</h5>
                 </div>
 
-                <h2>Most Tracked Emotion</h2>
-                <button id="averageMood" class="average">😓</button>
-                <button class="right" onclick="openSupport()">Need Support?</button>
+                <h2 class="p2">Most Tracked Emotion</h2>
+                <button id="averageMood" class="btn-normal average">😓</button>
+                <button class="btn-normal right" onclick="openSupport()">Need Support?</button>
 
-                <h2>Days Reflected</h2>
+                <h2 class="p2">Days Reflected</h2>
                 <div class="centerAlign">
-                    <button id="reflectPercent" class="bad average">80%</button>
+                    <button id="reflectPercent" class="btn-normal bad average">80%</button>
                     <h5>The key is consistency</h5>
                 </div>
 
-                <h2>Common Triggers</h2>
-                <button class='triggerActive' id="trigger1">Lonliness</button>
-                <button class='triggerActive' id="trigger2">Work</button>
-                <button class='triggerActive' id="trigger3">Stress</button>
+                <h2 class="p2">Common Triggers</h2>
+                <button class='btn-normal btn-yellow' id="trigger1">Lonliness</button>
+                <button class='btn-normal btn-yellow' id="trigger2">Work</button>
+                <button class='btn-normal btn-yellow' id="trigger3">Stress</button>
 
-                <h2>Wettest Days</h2>
+                <h2 class="p2">Wettest Days</h2>
                 <div class="centerAlign">
-                    <button class="average" id="wettestDay">Fri</button>
+                    <button class="average btn-normal" id="wettestDay">Fri</button>
                     <h5 id="wettestDayText">1.7x greater than Average</h5>
                 </div>
             </div>
         </div>
 
-        <div class="modalBacking" id="modalBacking">
+        <div class="modal" id="modalBacking">
             <div id="supportPopUp" class="modalContent">
                 <div class="titleBar">
                     <div onclick="closeSupport()" class="left button-backing material-icons md-24">close</div>
@@ -89,157 +102,28 @@
 
                 <p>These resources that may help!</p>
 
-                <h4><strong>Mensline Australia</strong></h4>
+                <h3 class="p2">Mensline Australia</h3>
                 <a href='https://mensline.org.au/'>mensline.org.au</a>
                 <a><span class="material-icons right md-36">call</span></a>
 
-                <h4><strong>Alcoholics Anonymous</strong></h4>
+                <h3 class="p2">Alcoholics Anonymous</h3>
                 <a href='https://aa.org.au/'>aa.org.au</a>
                 <a><span class="material-icons right md-36">call</span></a>
 
-                <h4><strong>Lifeline</strong></h4>
+                <h3 class="p2">Lifeline</h3>
                 <a href='www.lifeline.org.au/'>lifeline.org.au/</a>
                 <a><span class="material-icons right md-36">call</span></a>
 
-                <h4><strong>Beyond Blue</strong></h4>
+                <h3 class="p2">Beyond Blue</h3>
                 <a href='https://www.beyondblue.org.au/'>www.beyondblue.org.au</a>
                 <a><span class="material-icons right md-36">call</span></a>
                 <div class="p-2"></div>
             </div>
         </div>
-
-        <!-- Calendar -->
-        <div class="hidden" id="calendar">
-            <ul class="dateSelectorContainer center nm">
-                <span class="material-icons inline md-36 button-backing2">chevron_left</span>
-                <span id="dateText">November 2021</span>
-                <span class="material-icons inline md-36 button-backing2">chevron_right</span>
-            </ul>
-
-            <table id="calendarMonth">
-                <tr id="weekdays">
-                    <th>Sun</th>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                </tr>
-                <tr class="week">
-                    <th class="date">1</th>
-                    <th class="date">2</th>
-                    <th class="date">3</th>
-                    <th class="date">4</th>
-                    <th class="date">5</th>
-                    <th class="date">6</th>
-                    <th class="date">7</th>
-                </tr>
-                <tr class="week">
-                    <th class="date">8</th>
-                    <th class="date">9</th>
-                    <th class="date">10</th>
-                    <th class="date">11</th>
-                    <th class="date">12</th>
-                    <th class="date">13</th>
-                    <th class="date">14</th>
-                </tr>
-                <tr class="week">
-                    <th class="date">15</th>
-                    <th class="date">16</th>
-                    <th class="date">17</th>
-                    <th class="date">18</th>
-                    <th class="date">19</th>
-                    <th class="date">20</th>
-                    <th class="date">21</th>
-                </tr>
-                <tr class="week">
-                    <th class="date">22</th>
-                    <th class="date">23</th>
-                    <th class="date">24</th>
-                    <th class="date">25</th>
-                    <th class="date">26</th>
-                    <th class="date">28</th>
-                    <th class="date">29</th>
-                </tr>
-                <tr class="week">
-                    <th class="date">30</th>
-                </tr>
-            </table>
-        </div>
-
-        <div class="modalBacking" id="modalBacking2" class="hidden">
-            <div class="modalContent" id="dayModal">
-                <div class="titleBar stickyTop yb">
-                    <div onclick="closeDay()" class="left button-backing material-icons md-24">close</div>
-                    <h2 id="replaceDayText"></h2>
-                    <div class="right button-backing"></div>
-                </div>
-
-                <h3 class="center">1 Drink Logged</h3>
-
-                <div id="dayTriggerEmotion">
-                    <div>
-                        <h6>Triggers:</h6>
-                        <div id="biggerTrigger" class="triggerDisplay">Occasion</div>
-                    </div>
-
-                    <div>
-                        <h6>Emotion:</h6>
-                        <button id="biggerEmotion" class="average">😊</button>
-                    </div>
-                </div>
-
-                <div class="p-2"></div>
-                <h6>Reflections:</h6>
-                <div class="reflectionDisplay">
-                    <div class="reflectionTitle">Was it hard to resist Drinking Today? Why?</div>
-                    <div class="reflectionContent">Because of a birthday, I felt obliged to have a drink, but I could limit myself to one.</div>
-                </div>
-
-                <div class="reflectionDisplay">
-                    <div class="reflectionTitle">Do you think you’ll drink or stay dry tomorrow? Why?</div>
-                    <div class="reflectionContent">I want to be able to spend quality time with my grandson without feeling sluggish and disorientated - he is my sunshine! So I won't drink.</div>
-                </div>
-
-                <div class="reflectionDisplay">
-                    <div class="reflectionTitle">Whats something good that happened today?</div>
-                    <div class="reflectionContent">Celebrated Daniel's birthday, and cake galore, always nice when the kids are home.</div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="hidden" id="reasons">
-            <div class="p-1"></div>
-            <h2>Main Goals</h2>
-            <button id="mainGoal" class="triggerActive"></button>
-            <div class="p-2"></div>
-            <h2>Main Reasons</h2>
-            <ul id="mainReasons"></ul>
-            <!-- <button class="triggerActive">Cope Better</button>
-            <button class="triggerActive">Better My Health</button> -->
-        </div>
-        <div class="p-5"></div>
     </main>
 
-    <footer class="footer">
-        <a id="feed" class="navButton" href="feed.html">
-            <span class="navBarIcon material-icons md-36">public</span>
-            <div class="font-small">feed</div>
-        </a>
-
-        <a id="home" class="navButton" href="home.html">
-            <span class="material-icons md-36">home</span>
-            <div class="font-small">home</div>
-        </a>
-
-        <a id="progress" class="navButton navButtonActive" href="progress.html">
-            <span class="material-icons md-36">insights</span>
-            <div class="font-small">prog</div>
-        </a>
-    </footer>
     <script src="scripts/progress.js"></script>
+    <script src="scripts/sidebar.js"></script>
 </body>
 
 </html>

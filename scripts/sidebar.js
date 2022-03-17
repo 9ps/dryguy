@@ -22,10 +22,8 @@ function sidebarAction(n) {
   } else {
     sidebar.style.width = "0px";
     sidebarOpen.style.visibility = "visible";
-    if (window.innerWidth > 640) {
-      main.style.marginLeft = "0px";
-      main.classList.add("width1");
-      main.classList.remove("width2");
-    }
+    main.style.marginLeft = "0px";
+    main.classList.add("width1");
+    main.classList.remove("width2");
   }
 }
